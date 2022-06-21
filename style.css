@@ -14,7 +14,7 @@
 }
 .container .logo {
   border-radius: 50%;
-  width: 40%;
+  width: auto;
 }
 .container h1 {
   font-style: italic;
