@@ -10,24 +10,25 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
 }
 .container .logo {
   border-radius: 50%;
-  width: 400px;
+  width: 40%;
 }
 .container h1 {
-  font-size: 4.5rem;
   font-style: italic;
   margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+.container h2 {  
+  margin-top: 1rem;
   margin-bottom: .2rem;
-}
-.container h2 {
-  font-size: 1.3rem;
   font-style: italic;
-  letter-spacing: 7px;
-  font-weight: 300;
+  font-size: 2.5rem;
 }
-.container h3 {
-  font-size: 5rem; 
-  margin-bottom: 5rem;
+.container small {  
+  font-size: .6rem;
+  letter-spacing: 5px;
+  margin-bottom: 2rem;  
 }
