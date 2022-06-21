@@ -1,0 +1,33 @@
+* {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+}
+.container {
+  background-color: rgb(19, 18, 18);  
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container .logo {
+  border-radius: 50%;
+  width: 400px;
+}
+.container h1 {
+  font-size: 4.5rem;
+  font-style: italic;
+  margin-top: 2.5rem;
+  margin-bottom: .2rem;
+}
+.container h2 {
+  font-size: 1.3rem;
+  font-style: italic;
+  letter-spacing: 7px;
+  font-weight: 300;
+}
+.container h3 {
+  font-size: 5rem; 
+  margin-bottom: 5rem;
+}
