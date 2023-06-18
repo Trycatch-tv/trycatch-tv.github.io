@@ -5,6 +5,7 @@ module.exports = {
 		extend: {
 			colors: {
 				'tc-black': '#232122',
+				'tc-black-l': '#474646',
 				'tc-cyan': '#A2F2F2',
 				'tc-yellow': '#EDF2C2',
 				'tc-gray': '#B5B5B5',
