@@ -14,13 +14,13 @@ import Navbar from "../components/global/Navbar.astro";
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=0.8, maximum-scale=1, user-scalable=no"
     />
     <link rel="icon" type="image/svg+xml" href="/nibble.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-tc-gray-l dark:bg-tc-black-l">
     <Navbar />
     <slot />
     <Footer />
