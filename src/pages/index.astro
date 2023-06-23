@@ -607,10 +607,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!--  Devs Latam-->
     <!--Proyectos-->
     <section>
-      <div class="px-4 mx-auto max-w-screen-xl">
+      <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
         <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
           <div>
-            <span class="text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+            <span
+              class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+            >
               Proyectos
             </span>
           </div>
@@ -619,10 +621,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               Estos son algunos de los proyectos en los que trabajamos y son
               Open Source
             </div>
-            <div class="flex justify-between">
+            <div class="flex flex-col lg:flex-row lg:justify-between">
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">My Level</div>
                 <div class="mt-2 mb-4 h-24">
@@ -631,7 +633,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     seniority de los desarrolladores mediante 16 preguntas.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -671,7 +673,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <!--Proyecto-->
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">Sitio Devs Latam</div>
                 <div class="mt-2 mb-4 h-24">
@@ -680,7 +682,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     sus proyectos.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -720,7 +722,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <!--Proyecto-->
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">Acortador de links</div>
                 <div class="mt-2 mb-4 h-24">
@@ -729,7 +731,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     los videos que se comparten en las diferentes cuentas.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
