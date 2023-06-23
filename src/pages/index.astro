@@ -421,18 +421,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!--  Devs Latam-->
   <section>
-    <div class="px-4 mx-auto max-w-screen-xl">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
       <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <div>
-          <span class="text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Devs Latam
           </span>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
             ¿Qué es y para qué sirve?
           </div>
-          <div class="bg-tc-black-l p-8 mt-5 rounded-md">
+          <div class="bg-tc-black-l p-6 lg:p-8 mt-5 rounded-md">
             <p class="text-justify text-white mb-2 text-sm">
               Devs Latam es una comunidad de aprendizaje y crecimiento para
               desarrolladores de software en América Latina. A través de esta
@@ -459,21 +461,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">Estadísticas</div>
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
+            Estadísticas
+          </div>
           <div
-            class="flex flex-row justify-between bg-tc-black-l py-4 px-16 rounded-md"
+            class="flex flex-row justify-around lg:justify-between bg-tc-black-l py-4 px-2 lg:px-16 rounded-md"
           >
-            <div class="text-white">+800 Personas</div>
-            <div class="text-white">+15 Países</div>
-            <div class="text-white">+35 Proyectos</div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +800 Personas
+            </div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +15 Países
+            </div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +35 Proyectos
+            </div>
           </div>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">Fases</div>
-          <div class="flex justify-between">
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
+            Fases
+          </div>
+          <div class="flex flex-col lg:flex-row lg:justify-between">
             <!--Pre Work-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Pre Work</div>
               <div class="mt-2 mb-4">
@@ -505,7 +517,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <!--Pre Work-->
             <!--Fase 1-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Fase 1</div>
               <div class="mt-2 mb-4">
@@ -537,7 +549,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <!--Fase 1-->
             <!--Fase 2-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Fase 1</div>
               <div class="mt-2 mb-4">
@@ -569,7 +581,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <!--Fase 2-->
           </div>
         </div>
-        <div class="flex flex-row items-center justify-center h-16 mt-8">
+        <div
+          class="flex flex-row items-center justify-center h-16 mt-0 lg:mt-8"
+        >
           <a
             href="#"
             class="inline-flex justify-center items-center py-2.5 px-32 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
