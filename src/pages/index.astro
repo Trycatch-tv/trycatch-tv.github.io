@@ -779,10 +779,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <!--Contacto-->
   <section>
-    <div class="px-4 mx-auto max-w-screen-xl">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
       <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <div>
-          <span class="text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Contacto
           </span>
         </div>
@@ -793,23 +795,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="flex justify-center">
             <!--Datos de Contacto-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 rounded-md w-full"
+              class="flex flex-row lg:flex-col justify-center items-center bg-tc-black-l py-4 rounded-md w-full"
             >
-              <div class="h-10 flex-row flex w-5/6 justify-between">
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+              <div
+                class="flex flex-col lg:flex-row items-stretch h-full lg:h-10 w-5/6 lg:justify-between lg:mt-2 lg:mb-2"
+              >
+                <div
+                  class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0 mt-4 lg:mt-0"
+                >
                   Correo | <a
                     href="mailto:judlup@trycatch.tv"
                     class="hover:underline text-tc-black-l"
                     >judlup@trycatch.tv</a
                   >
                 </div>
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+                <div class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0">
                   LinkedIn | <a
                     href="https://www.linkedin.com/in/judlup/"
                     class="hover:underline text-tc-black-l">in/judlup</a
                   >
                 </div>
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+                <div class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0">
                   Instagram | <a
                     href="https://www.instagram.com/trycatch_tv/"
                     class="hover:underline text-tc-black-l">@TryCatch_tv</a
