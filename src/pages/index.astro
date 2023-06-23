@@ -1,37 +1,33 @@
 ---
+import profile from "../assets/img/profile.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Banner from "../components/global/Banner.astro";
 ---
 
 <BaseLayout title="TryCatch.tv">
   <!--<Banner />-->
   <!-- Intro -->
-  <section class="bg-tc-gray-l mt-5 py-16">
-    <div class="px-4 mx-auto max-w-screen-xl">
-      <div
-        class="bg-tc-black border border-gray-200 border-gray-700 rounded-lg p-12"
-      >
+  <section class="mt-5 py-16">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="bg-tc-black border border-gray-700 rounded-lg p-12 w-auto">
         <!--Título-->
-        <div class="flex justify-center items-center flex-row h-96">
-          <div class="mr-10 w-2/6 flex items-center justify-center">
-            <img
-              class="w-72 h-72 rounded-full"
-              src="https://pbs.twimg.com/profile_images/1640944334068494337/rnq1krLj_400x400.jpg"
-              alt="Judlup"
-            />
-          </div>
+        <div class="flex flex-col justify-center items-center">
+          <img
+            class="w-64 h-64 rounded-full lg:w-72 lg:h-72"
+            src={profile}
+            alt="Judlup"
+          />
           <div
-            class="flex flex-col items-center border-l-4 border-b-tc-gray-l h-72 justify-center w-4/6"
+            class="flex flex-col items-center justify-center w-screen lg:w-4/6 p-8 lg:p-0"
           >
             <span
-              class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6 ml-5"
+              class="text-tc-gray-l text-xl lg:text-4xl font-extrabold lg:mt-5 mb-4 lg:mb-6"
             >
               Venga le digo, bienvenido
             </span>
-            <p class="text-lg font-normal dark:text-tc-gray mb-6">
+            <p class="text-sm lg:text-lg text-tc-gray mb-6">
               ✨Aprendamos intentándolo 👨‍💻✨.
             </p>
-            <span class="text-tc-gray-l p-6 text-sm text-justify">
+            <span class="text-tc-gray-l p-3 lg:p-6 text-sm text-justify">
               👋 Hola! Soy Julián Luna 🚀, tengo más de 10 años de experiencia
               en el mundo tech. Actualmente soy un Sr. Engineer Lead en Rappi.
               Apasionado por Javascript y la arquitectura de software. 🖥️
@@ -44,12 +40,12 @@ import Banner from "../components/global/Banner.astro";
         <!--Título-->
 
         <!--CTAs-->
-        <div class="flex justify-around">
+        <div class="flex justify-between lg:justify-around">
           <a
             href="#"
             class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
           >
-            Últimos videos
+            Contacto
             <svg
               aria-hidden="true"
               class="ml-2 -mr-1 w-4 h-4"
@@ -66,7 +62,7 @@ import Banner from "../components/global/Banner.astro";
             href="#"
             class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
           >
-            Último Live
+            Cursos
             <svg
               aria-hidden="true"
               class="ml-2 -mr-1 w-4 h-4"
@@ -87,14 +83,14 @@ import Banner from "../components/global/Banner.astro";
   <!-- Intro -->
 
   <!-- Redes Sociales -->
-  <section class="bg-tc-gray-l dark:bg-tc-gray-l">
-    <div class="px-4 mx-auto max-w-screen-xl">
-      <div
-        class="dark:bg-tc-black border border-gray-200 dark:border-gray-700 rounded-lg p-12 mb-8"
-      >
+  <section>
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <!--Redes Sociales-->
         <div>
-          <span class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Mis redes sociales
           </span>
           <ul class="flex justify-around bg-tc-black-l rounded-md p-5 mt-5">
@@ -257,15 +253,13 @@ import Banner from "../components/global/Banner.astro";
             </li>
             <li>
               <!--Discord-->
-              <svg
+              <!-- <svg
                 width="30px"
                 "
                 viewBox="0 0 192 192"
                 xmlns="http://www.w3.org/2000/svg"
                 class="fill-white"
                 ><path
-                  stroke="none"
-                  "
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="12"
@@ -281,7 +275,7 @@ import Banner from "../components/global/Banner.astro";
                   cy="101"
                   rx="13"
                   ry="15"></ellipse></svg
-              >
+              > -->
             </li>
           </ul>
         </div>
@@ -292,23 +286,27 @@ import Banner from "../components/global/Banner.astro";
   <!-- Redes Sociales -->
 
   <!-- Recientes -->
-  <section class="bg-tc-gray-l dark:bg-tc-gray-l">
-    <div class="px-4 mx-auto max-w-screen-xl">
-      <div
-        class="dark:bg-tc-black border border-gray-200 dark:border-gray-700 rounded-lg p-12 mb-8"
-      >
+  <section>
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <div>
-          <span class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Recientes
           </span>
         </div>
-        <div class="flex flex-row justify-between">
-          <div class="bg-tc-black-l w-2/12 p-8 rounded-md mt-5">
-            <div>
+        <div class="flex flex-col lg:flex-row justify-between">
+          <div class="bg-tc-black-l w-full lg:w-2/12 lg:p-8 rounded-md mt-5">
+            <div class="p-4 lg:p-0">
               <span class="text text-xl text-white">Post</span>
             </div>
-            <div class="h-10">Post</div>
-            <div>
+            <div class="h-36 lg:h-24 flex items-center justify-center">
+              <span>Próximamente</span>
+            </div>
+            <div
+              class="flex justify-start lg:justify-center ml-4 lg:ml-0 mb-4 lg:mb-0"
+            >
               <a
                 href="#"
                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-white hover:text-tc-black-l hover:bg-tc-gray-l"
@@ -328,12 +326,16 @@ import Banner from "../components/global/Banner.astro";
               </a>
             </div>
           </div>
-          <div class="bg-tc-black-l w-2/12 p-8 rounded-md mt-5">
-            <div>
+          <div class="bg-tc-black-l w-full lg:w-2/12 lg:p-8 rounded-md mt-5">
+            <div class="p-4 lg:p-0">
               <span class="text text-xl text-white">Video</span>
             </div>
-            <div class="h-10">Video</div>
-            <div>
+            <div class="h-36 lg:h-24 flex items-center justify-center">
+              <span>Próximamente</span>
+            </div>
+            <div
+              class="flex justify-start lg:justify-center ml-4 lg:ml-0 mb-4 lg:mb-0"
+            >
               <a
                 href="#"
                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-white hover:text-tc-black-l hover:bg-tc-gray-l"
@@ -353,12 +355,16 @@ import Banner from "../components/global/Banner.astro";
               </a>
             </div>
           </div>
-          <div class="bg-tc-black-l w-2/12 p-8 rounded-md mt-5">
-            <div>
+          <div class="bg-tc-black-l w-full lg:w-2/12 lg:p-8 rounded-md mt-5">
+            <div class="p-4 lg:p-0">
               <span class="text text-xl text-white">Live</span>
             </div>
-            <div class="h-10">Live</div>
-            <div>
+            <div class="h-36 lg:h-24 flex items-center justify-center">
+              <span>Próximamente</span>
+            </div>
+            <div
+              class="flex justify-start lg:justify-center ml-4 lg:ml-0 mb-4 lg:mb-0"
+            >
               <a
                 href="#"
                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-white hover:text-tc-black-l hover:bg-tc-gray-l"
@@ -378,12 +384,16 @@ import Banner from "../components/global/Banner.astro";
               </a>
             </div>
           </div>
-          <div class="bg-tc-black-l w-2/12 p-8 rounded-md mt-5">
-            <div>
+          <div class="bg-tc-black-l w-full lg:w-2/12 lg:p-8 rounded-md mt-5">
+            <div class="p-4 lg:p-0">
               <span class="text text-xl text-white">Curso</span>
             </div>
-            <div class="h-10">Curso</div>
-            <div>
+            <div class="h-36 lg:h-24 flex items-center justify-center">
+              <span>Próximamente</span>
+            </div>
+            <div
+              class="flex justify-start lg:justify-center ml-4 lg:ml-0 mb-4 lg:mb-0"
+            >
               <a
                 href="#"
                 class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-white hover:text-tc-black-l hover:bg-tc-gray-l"
@@ -410,21 +420,21 @@ import Banner from "../components/global/Banner.astro";
   <!-- Recientes -->
 
   <!--  Devs Latam-->
-  <section class="bg-tc-gray-l dark:bg-tc-gray-l">
-    <div class="px-4 mx-auto max-w-screen-xl">
-      <div
-        class="dark:bg-tc-black border border-gray-200 dark:border-gray-700 rounded-lg p-12 mb-8"
-      >
+  <section>
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <div>
-          <span class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Devs Latam
           </span>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
             ¿Qué es y para qué sirve?
           </div>
-          <div class="bg-tc-black-l p-8 mt-5 rounded-md">
+          <div class="bg-tc-black-l p-6 lg:p-8 mt-5 rounded-md">
             <p class="text-justify text-white mb-2 text-sm">
               Devs Latam es una comunidad de aprendizaje y crecimiento para
               desarrolladores de software en América Latina. A través de esta
@@ -451,21 +461,31 @@ import Banner from "../components/global/Banner.astro";
           </div>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">Estadísticas</div>
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
+            Estadísticas
+          </div>
           <div
-            class="flex flex-row justify-between bg-tc-black-l py-4 px-16 rounded-md"
+            class="flex flex-row justify-around lg:justify-between bg-tc-black-l py-4 px-2 lg:px-16 rounded-md"
           >
-            <div class="text-white">+800 Personas</div>
-            <div class="text-white">+15 Países</div>
-            <div class="text-white">+35 Proyectos</div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +800 Personas
+            </div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +15 Países
+            </div>
+            <div class="text-tc-black bg-tc-gray rounded-md p-4">
+              +35 Proyectos
+            </div>
           </div>
         </div>
         <div class="mt-4">
-          <div class="text-tc-gray-l text-2xl mb-2 underline">Fases</div>
-          <div class="flex justify-between">
+          <div class="text-tc-gray-l text-xl lg:text-2xl mb-2 underline">
+            Fases
+          </div>
+          <div class="flex flex-col lg:flex-row lg:justify-between">
             <!--Pre Work-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Pre Work</div>
               <div class="mt-2 mb-4">
@@ -497,7 +517,7 @@ import Banner from "../components/global/Banner.astro";
             <!--Pre Work-->
             <!--Fase 1-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Fase 1</div>
               <div class="mt-2 mb-4">
@@ -529,7 +549,7 @@ import Banner from "../components/global/Banner.astro";
             <!--Fase 1-->
             <!--Fase 2-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+              class="flex flex-col mb-4 lg:mb-0 items-center bg-tc-black-l py-4 px-8 rounded-md w-full lg:w-1/4"
             >
               <div class="text-tc-gray-l text-lg">Fase 1</div>
               <div class="mt-2 mb-4">
@@ -561,7 +581,9 @@ import Banner from "../components/global/Banner.astro";
             <!--Fase 2-->
           </div>
         </div>
-        <div class="flex flex-row items-center justify-center h-16 mt-8">
+        <div
+          class="flex flex-row items-center justify-center h-16 mt-0 lg:mt-8"
+        >
           <a
             href="#"
             class="inline-flex justify-center items-center py-2.5 px-32 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -584,13 +606,13 @@ import Banner from "../components/global/Banner.astro";
     </div>
     <!--  Devs Latam-->
     <!--Proyectos-->
-    <section class="bg-tc-gray-l dark:bg-tc-gray-l">
-      <div class="px-4 mx-auto max-w-screen-xl">
-        <div
-          class="dark:bg-tc-black border border-gray-200 dark:border-gray-700 rounded-lg p-12 mb-8"
-        >
+    <section>
+      <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+        <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
           <div>
-            <span class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+            <span
+              class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+            >
               Proyectos
             </span>
           </div>
@@ -599,10 +621,10 @@ import Banner from "../components/global/Banner.astro";
               Estos son algunos de los proyectos en los que trabajamos y son
               Open Source
             </div>
-            <div class="flex justify-between">
+            <div class="flex flex-col lg:flex-row lg:justify-between">
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">My Level</div>
                 <div class="mt-2 mb-4 h-24">
@@ -611,7 +633,7 @@ import Banner from "../components/global/Banner.astro";
                     seniority de los desarrolladores mediante 16 preguntas.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -651,7 +673,7 @@ import Banner from "../components/global/Banner.astro";
               <!--Proyecto-->
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">Sitio Devs Latam</div>
                 <div class="mt-2 mb-4 h-24">
@@ -660,7 +682,7 @@ import Banner from "../components/global/Banner.astro";
                     sus proyectos.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -700,7 +722,7 @@ import Banner from "../components/global/Banner.astro";
               <!--Proyecto-->
               <!--Proyecto-->
               <div
-                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md w-1/4"
+                class="flex flex-col items-center bg-tc-black-l py-4 px-8 rounded-md mb-4 lg:mb-0 w-full lg:w-1/4"
               >
                 <div class="text-tc-gray-l text-lg">Acortador de links</div>
                 <div class="mt-2 mb-4 h-24">
@@ -709,7 +731,7 @@ import Banner from "../components/global/Banner.astro";
                     los videos que se comparten en las diferentes cuentas.
                   </p>
                 </div>
-                <div>
+                <div class="flex w-full justify-around lg:justify-between">
                   <a
                     href="#"
                     class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
@@ -756,13 +778,13 @@ import Banner from "../components/global/Banner.astro";
   <!--Proyectos-->
 
   <!--Contacto-->
-  <section class="bg-tc-gray-l dark:bg-tc-gray-l">
-    <div class="px-4 mx-auto max-w-screen-xl">
-      <div
-        class="dark:bg-tc-black border border-gray-200 dark:border-gray-700 rounded-lg p-12 mb-8"
-      >
+  <section>
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
         <div>
-          <span class="dark:text-tc-gray-l text-4xl font-extrabold mt-5 mb-6">
+          <span
+            class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
+          >
             Contacto
           </span>
         </div>
@@ -773,23 +795,27 @@ import Banner from "../components/global/Banner.astro";
           <div class="flex justify-center">
             <!--Datos de Contacto-->
             <div
-              class="flex flex-col items-center bg-tc-black-l py-4 rounded-md w-full"
+              class="flex flex-row lg:flex-col justify-center items-center bg-tc-black-l py-4 rounded-md w-full"
             >
-              <div class="h-10 flex-row flex w-5/6 justify-between">
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+              <div
+                class="flex flex-col lg:flex-row items-stretch h-full lg:h-10 w-5/6 lg:justify-between lg:mt-2 lg:mb-2"
+              >
+                <div
+                  class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0 mt-4 lg:mt-0"
+                >
                   Correo | <a
                     href="mailto:judlup@trycatch.tv"
                     class="hover:underline text-tc-black-l"
                     >judlup@trycatch.tv</a
                   >
                 </div>
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+                <div class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0">
                   LinkedIn | <a
                     href="https://www.linkedin.com/in/judlup/"
                     class="hover:underline text-tc-black-l">in/judlup</a
                   >
                 </div>
-                <div class="px-4 py-2 bg-tc-gray-l rounded-md">
+                <div class="px-4 py-2 bg-tc-gray-l rounded-md mb-4 lg:mb-0">
                   Instagram | <a
                     href="https://www.instagram.com/trycatch_tv/"
                     class="hover:underline text-tc-black-l">@TryCatch_tv</a
