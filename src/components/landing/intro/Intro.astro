@@ -1,5 +1,23 @@
 ---
 import profile from "../../../assets/img/profile.jpg";
+const info = {
+  altProfile: "Judlup",
+  title: "Venga le digo, bienvenido",
+  subtitle: "✨Aprendamos intentándolo 👨‍💻✨.",
+  description:
+    "👋 Hola! Soy Julián Luna 🚀, tengo más de 10 años de experiencia en el mundo tech. Actualmente soy un Sr. Engineer Lead en Rappi. Apasionado por Javascript y la arquitectura de software. 🖥️ Creador de contenido en Tik Tok y en Twitch 🎮 donde comparto mi conocimiento diario a las 8.30 PM 🕣 (hora de Colombia 🇨🇴).",
+  daughterName: "❤ Nikol Daniela",
+  ctas: [
+    {
+      text: "Contacto",
+      link: "#",
+    },
+    {
+      text: "Cursos",
+      link: "#",
+    },
+  ],
+};
 ---
 
 <section class="mt-5 py-16">
@@ -10,7 +28,7 @@ import profile from "../../../assets/img/profile.jpg";
         <img
           class="w-64 h-64 rounded-full lg:w-72 lg:h-72"
           src={profile}
-          alt="Judlup"
+          alt={info.altProfile}
         />
         <div
           class="flex flex-col items-center justify-center w-screen lg:w-4/6 p-8 lg:p-0"
@@ -18,59 +36,46 @@ import profile from "../../../assets/img/profile.jpg";
           <span
             class="text-tc-gray-l text-xl lg:text-4xl font-extrabold lg:mt-5 mb-4 lg:mb-6"
           >
-            Venga le digo, bienvenido
+            {info.title}
           </span>
           <p class="text-sm lg:text-lg text-tc-gray mb-6">
-            ✨Aprendamos intentándolo 👨‍💻✨.
+            {info.subtitle}
           </p>
           <span class="text-tc-gray-l p-3 lg:p-6 text-sm text-justify">
-            👋 Hola! Soy Julián Luna 🚀, tengo más de 10 años de experiencia en
-            el mundo tech. Actualmente soy un Sr. Engineer Lead en Rappi.
-            Apasionado por Javascript y la arquitectura de software. 🖥️ Creador
-            de contenido en Tik Tok y en Twitch 🎮 donde comparto mi
-            conocimiento diario a las 8.30 PM 🕣 (hora de Colombia 🇨🇴). <br />
+            {info.description}
           </span>
-          <span class="text-tc-gray-l">❤ Nikol Daniela</span>
+          <span class="text-tc-gray-l">{info.daughterName}</span>
         </div>
       </div>
       <!--Título-->
 
       <!--CTAs-->
       <div class="flex justify-between lg:justify-around">
-        <a
-          href="#"
-          class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
-        >
-          Contacto
-          <svg
-            aria-hidden="true"
-            class="ml-2 -mr-1 w-4 h-4"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path></svg
-          >
-        </a>
-        <a
-          href="#"
-          class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
-        >
-          Cursos
-          <svg
-            aria-hidden="true"
-            class="ml-2 -mr-1 w-4 h-4"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path></svg
-          >
-        </a>
+        {
+          info.ctas.map((cta) => {
+            return (
+              <a
+                href={cta.link}
+                class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center rounded-lg text-tc-black bg-tc-gray-l hover:text-tc-gray-l hover:bg-tc-black-l"
+              >
+                {cta.text}
+                <svg
+                  aria-hidden="true"
+                  class="ml-2 -mr-1 w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            );
+          })
+        }
       </div>
       <!--CTAs-->
     </div>
