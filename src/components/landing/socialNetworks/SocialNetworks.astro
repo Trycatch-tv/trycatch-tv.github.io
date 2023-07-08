@@ -1,76 +1,68 @@
 ---
-import fa from 'react-icons/fa';
-import  Bi  from "react-icons/bi";
-import Io5 from 'react-icons/io5';
-const { BiLogoDiscord } = Bi;
-
-
-const { FaTiktok, FaTwitch, FaYoutube, FaInstagram, FaLinkedin, FaSpotify, FaFacebookSquare, FaMedium } = fa;
-import { IoShareSocialSharp } from "react-icons/io5";
-const { IoShareSocialSharp } = Io5;
+import { Icon } from 'astro-icon'
 
 const info = {
   title: "Redes Sociales",
   socialNetworks:[
     {
       name: "Tik Tok",
-      icon: FaTiktok,
+      icon: "bi:tiktok",
       url: "https://www.tiktok.com/@trycatch.tv",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Twitch",
-      icon: FaTwitch,
+      icon: "fa-brands:twitch",
       url: "https://www.twitch.tv/trycatch_tv",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Youtube",
-      icon: FaYoutube,
+      icon: "fa-brands:youtube",
       url: "https://www.youtube.com/@trycatch_tv",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Instragram",
-      icon: FaInstagram,
+      icon: "fa-brands:instagram",
       url: "https://www.instagram.com/trycatch_tv",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "LinkedIn",
-      icon: FaLinkedin,
+      icon: "fa-brands:linkedin",
       url: "https://www.linkedin.com/company/81959782",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Spotify",
-      icon: FaSpotify,
+      icon: "fa-brands:spotify",
       url: "https://spoti.fi/3LDvpDp",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Facebook",
-      icon: FaFacebookSquare,
+      icon: "fa-brands:facebook-square",
       url: "https://www.facebook.com/trycatch.tv/",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Medium",
-      icon: FaMedium,
+      icon: "fa-brands:medium",
       url: "https://medium.com/@judlup",
       color: "text-white",
       size: "2xl"
     },
     {
       name: "Discord",
-      icon: BiLogoDiscord,
+      icon: "fa-brands:discord",
       url: "https://discord.gg/VYsfnDjD87",
       color: "text-white",
       size: "2xl"
@@ -85,7 +77,7 @@ const info = {
       <!--Redes Sociales-->
       <div class="mt-5 mb-6">
         <div class="flex flex-row text-tc-gray-l text-3xl lg:text-4xl ">
-        <IoShareSocialSharp  />
+          <Icon class="w-10 h-10 text-white" name="ri:share-fill" />
         <span
           class="font-extrabold ml-2"
         >
@@ -95,14 +87,16 @@ const info = {
         <ul class="flex justify-around bg-tc-black-l rounded-md p-5 mt-5">
           {info.socialNetworks.map((socialNetwork) => {
             return (
-              <li>
+              <li class="text-white" >
                 <a
                   href={socialNetwork.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class={`flex items-center justify-center text-${socialNetwork.size}  rounded-full ${socialNetwork.color}`}
+                  class="flex items-center justify-center rounded-full"
                 >
-                  <socialNetwork.icon />
+                <span class="flex justify-between">
+                  <Icon class="text-white w-6 h-6" name={socialNetwork.icon} />
+                </span>
                 </a>
               </li>
             );
