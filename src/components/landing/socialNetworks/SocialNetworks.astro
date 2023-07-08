@@ -1,0 +1,107 @@
+---
+import { FaTiktok, FaTwitch, FaYoutube, FaInstagram, FaLinkedin, FaSpotify, FaFacebookSquare, FaMedium, FaDiscord } from 'react-icons/fa';
+import { IoShareSocialSharp } from 'react-icons/io5';
+const info = {
+  title: "Redes Sociales",
+  socialNetworks:[
+    {
+      name: "Tik Tok",
+      icon: FaTiktok,
+      url: "https://www.tiktok.com/@trycatch.tv",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Twitch",
+      icon: FaTwitch,
+      url: "https://www.twitch.tv/trycatch_tv",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Youtube",
+      icon: FaYoutube,
+      url: "https://www.youtube.com/@trycatch_tv",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Instragram",
+      icon: FaInstagram,
+      url: "https://www.instagram.com/trycatch_tv",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "LinkedIn",
+      icon: FaLinkedin,
+      url: "https://www.linkedin.com/company/81959782",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Spotify",
+      icon: FaSpotify,
+      url: "https://spoti.fi/3LDvpDp",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Facebook",
+      icon: FaFacebookSquare,
+      url: "https://www.facebook.com/trycatch.tv/",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Medium",
+      icon: FaMedium,
+      url: "https://medium.com/@judlup",
+      color: "text-white",
+      size: "2xl"
+    },
+    {
+      name: "Discord",
+      icon: FaDiscord,
+      url: "https://discord.gg/VYsfnDjD87",
+      color: "text-white",
+      size: "2xl"
+    },
+  ]
+};
+---
+
+<section>
+  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
+      <!--Redes Sociales-->
+      <div class="mt-5 mb-6">
+        <div class="flex flex-row text-tc-gray-l text-3xl lg:text-4xl ">
+        <IoShareSocialSharp  />
+        <span
+          class="font-extrabold ml-2"
+        >
+           {info.title}
+        </span>
+        </div>
+        <ul class="flex justify-around bg-tc-black-l rounded-md p-5 mt-5">
+          {info.socialNetworks.map((socialNetwork) => {
+            return (
+              <li>
+                <a
+                  href={socialNetwork.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`flex items-center justify-center text-${socialNetwork.size}  rounded-full ${socialNetwork.color}`}
+                >
+                  <socialNetwork.icon />
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <!--Redes Sociales-->
+    </div>
+  </div>
+</section>
