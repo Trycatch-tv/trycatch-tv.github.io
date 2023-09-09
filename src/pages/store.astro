@@ -1,0 +1,447 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon";
+---
+
+<BaseLayout title="Trycker Store">
+  <section class="mt-5 py-16">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="flex flex-col text-center mb-4">
+        <span class="text-2xl text-white bg-tc-black p-4 rounded-xl mt-4"
+          >Trycker Store</span
+        >
+      </div>
+      <div>
+        <!--  Banner -->
+        <div id="gallery" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 2 -->
+            <div
+              class="hidden duration-700 ease-in-out"
+              data-carousel-item="active"
+            >
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- Slider controls -->
+          <button
+            type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"></path>
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"></path>
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+
+        <!--  Banner -->
+      </div>
+      <div>
+        <div class="bg-tc-gray px-8 py-4 rounded-xl mt-4">
+          <span class="text-justify">
+            En Trycker Store fusionamos tecnología y moda. Desde camisetas hasta
+            pines, nuestros productos reflejan la esencia del mundo tech, con
+            diseños variados y frases icónicas para cada personalidad.
+          </span>
+          <br />
+          <br />
+          <h2 class="font-bold">Proceso de compra y pago</h2>
+          <br />
+
+          <!-- test -->
+          <ol
+            class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0"
+          >
+            <!-- Paso 1 -->
+            <li class="flex items-center text-tc-black space-x-2.5">
+              <span
+                class="flex items-center justify-center w-8 h-8 border border-tc-black rounded-full shrink-0"
+              >
+                1
+              </span>
+              <span>
+                <h3 class="font-medium leading-tight">
+                  Selecciona el producto
+                </h3>
+                <p class="text-sm">
+                  Elige el producto de interés y da click en "agregar a la
+                  orden" en el botón de WhatsApp por cada uno.
+                </p>
+              </span>
+            </li>
+
+            <!-- Paso 2 -->
+            <li class="flex items-center text-tc-black space-x-2.5">
+              <span
+                class="flex items-center justify-center w-8 h-8 border rounded-full shrink-0 border-tc-black"
+              >
+                2
+              </span>
+              <span>
+                <h3 class="font-medium leading-tight">
+                  Confirmación por WhatsApp
+                </h3>
+                <p class="text-sm">
+                  Recibiremos tu pedido por WhatsApp y te confirmaremos el valor
+                  del mismo.
+                </p>
+              </span>
+            </li>
+
+            <!-- Paso 3 -->
+            <li class="flex items-center text-tc-black space-x-2.5">
+              <span
+                class="flex items-center justify-center w-8 h-8 border rounded-full shrink-0 border-tc-black"
+              >
+                3
+              </span>
+              <span>
+                <h3 class="font-medium leading-tight">
+                  Procesamiento del pedido
+                </h3>
+                <p class="text-sm">
+                  Luego de confirmar el pedido y el pago, procesaremos tu
+                  pedido.
+                </p>
+              </span>
+            </li>
+
+            <!-- Paso 4 -->
+            <li class="flex items-center text-tc-black space-x-2.5">
+              <span
+                class="flex items-center justify-center w-8 h-8 border rounded-full shrink-0 border-tc-black"
+              >
+                4
+              </span>
+              <span>
+                <h3 class="font-medium leading-tight">Envío</h3>
+                <p class="text-sm">
+                  Tu pedido estará en camino y te llegará en el tiempo acordado.
+                </p>
+              </span>
+            </li>
+          </ol>
+
+          <!-- test -->
+          <br />
+          <h3>
+            Envíos a todo el país, está fuera de Colombia? lista de espera
+          </h3>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div class="bg-tc-gray p-4 rounded-xl mt-4">
+        <h1>Products</h1>
+        <br />
+        <h2 class="text-center font-bold">Categoría 1</h2>
+        <br />
+        <hr />
+        <br />
+        Descubre nuestra calidad y originalidad. Si amas las soft skills y el mundo
+        tech, nuestros kits son para ti. Nos respalda un compromiso de excelencia
+        y la confianza de miles.
+        <br /><br />
+        <!-- Products -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <!-- Products -->
+
+        <br />
+        <!-- Slider promos -->
+        <div id="gallery2" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="relative h-28 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 2 -->
+            <div
+              class="hidden duration-700 ease-in-out"
+              data-carousel-item="active"
+            >
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- Slider controls -->
+          <button
+            type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"></path>
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"></path>
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Slider promos -->
+
+        <!-- Kits -->
+        <br />
+        <h2 class="text-center font-bold">Kits</h2>
+        <br />
+        <hr />
+        <br />
+        Desde resaltar en tu trabajo hasta encontrar el regalo geek ideal, Trycker
+        Store tiene lo que buscas. Ofrecemos una experiencia de compra única y garantizamos
+        satisfacción total.
+        <br /><br />
+        <!-- Products -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <!-- Kits -->
+        <br /><br />
+        <h3 class="text-center font-bold">Lista de espera</h3>
+        <br />
+        <hr />
+        <br />
+        <div class="flex items-center space-x-4">
+          <input
+            type="text"
+            placeholder="Ingresa tu correo"
+            class="p-2 border rounded-md flex-grow"
+          />
+          <button
+            class="bg-tc-yellow text-tc-black-l p-2 rounded-md hover:bg-tc-black-l hover:text-tc-yellow transition duration-300 ease-in-out"
+            >Lista de Espera</button
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Whatsapp Button -->
+    <a
+      href="https://api.whatsapp.com/send/?phone=573164907627&text=Hola,+más+info+por+favor+mi+nombre+es&type=phone_number&app_absent=0"
+      target="_blank"
+      class="whatsapp-button"
+    >
+      <div class="bg-green-500 p-4 rounded-full shadow-lg">
+        <span class="flex justify-between">
+          <Icon
+            class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
+            name="ic:baseline-whatsapp"
+          />
+        </span>
+      </div>
+    </a>
+    <!-- Whatsapp Button -->
+  </section>
+</BaseLayout>
+<style>
+  .whatsapp-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+  }
+</style>
