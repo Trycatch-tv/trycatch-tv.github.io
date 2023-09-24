@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const whatsAppNumber = "573164907627";
 const info = {
   title: "Trycker Store",
   buyProcessTitle: "Proceso de compra y pago",
@@ -50,8 +51,7 @@ const info = {
           price: 35000,
           image:
             "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
-          whatsapp:
-            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+          reference: "camisa_01",
         },
         {
           name: "Camiseta",
@@ -321,13 +321,17 @@ const info = {
     buttonText: "Agregarme",
   },
   whatsappButton: {
-    link: "https://api.whatsapp.com/send/?phone=573164907627&text=Hola,+más+info+por+favor+mi+nombre+es&type=phone_number&app_absent=0",
+    link: `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text=Hola,+más+info+por+favor+mi+nombre+es&type=phone_number&app_absent=0`,
   },
 };
 
 const getRandomPromo = () => {
   const random = Math.floor(Math.random() * info.sliderPromo.length);
   return info.sliderPromo[random];
+};
+
+const generateWhatSappLink = (product) => {
+  return `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text%3DHola%20me%20interesa%20el%20pro/ducto%3A%20${product.reference}%20-%20mi%20talla%20es%3A%20y%20requiero%201%20unidad%28es%29`;
 };
 ---
 
@@ -468,20 +472,24 @@ const getRandomPromo = () => {
                     {item.products.map((product) => (
                       <div>
                         <img
-                          class="max-w-full w-96 h-96 rounded-lg"
+                          class="w-96 h-96 rounded-lg"
                           src={product.image}
                           alt={product.name}
                         />
-                        <a href={product.whatsapp} target="_blank">
-                          <div class="bg-green-500 px-full py-2 rounded-md shadow-lg flex justify-around">
-                            <span class="text-white">{product.price}</span>
-                            <span class="flex justify-between">
-                              <Icon
-                                class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
-                                name="ic:baseline-whatsapp"
-                              />
-                            </span>
-                          </div>
+                        <a
+                          href={generateWhatSappLink(product)}
+                          target="_blank"
+                          class="bg-green-500 rounded-md shadow-lg flex flex-row justify-around w-4/12 mt-2"
+                        >
+                          <span class="text-white w-4/6 pl-2 pr-2 flex justify-center items-center">
+                            ${product.price}
+                          </span>
+                          <span class="flex w-2/6  justify-center items-center">
+                            <Icon
+                              class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
+                              name="ic:baseline-whatsapp"
+                            />
+                          </span>
                         </a>
                       </div>
                     ))}
