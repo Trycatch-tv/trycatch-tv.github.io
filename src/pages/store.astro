@@ -48,7 +48,7 @@ const info = {
           name: "Camiseta",
           description:
             "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
-          price: 35000,
+          price: 150000,
           image:
             "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
           reference: "camisa_01",
@@ -479,12 +479,17 @@ const generateWhatSappLink = (product) => {
                         <a
                           href={generateWhatSappLink(product)}
                           target="_blank"
-                          class="bg-green-500 rounded-md shadow-lg flex flex-row justify-around w-4/12 mt-2"
+                          class="bg-green-500 rounded-md shadow-lg flex flex-row justify-around w-full md:w-4/12 mt-2"
                         >
-                          <span class="text-white w-4/6 pl-2 pr-2 flex justify-center items-center">
-                            ${product.price}
+                          <span class="text-white w-fit pl-2 pr-2 flex justify-center items-center ml-2">
+                            {product.price.toLocaleString("es-CO", {
+                              style: "currency",
+                              currency: "COP",
+                              minimumFractionDigits: 0,
+                              maximumFractionDigits: 0,
+                            })}
                           </span>
-                          <span class="flex w-2/6  justify-center items-center">
+                          <span class="flex w-fit justify-center items-center mr-2">
                             <Icon
                               class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
                               name="ic:baseline-whatsapp"
