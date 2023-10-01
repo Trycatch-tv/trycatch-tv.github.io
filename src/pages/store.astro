@@ -479,7 +479,7 @@ const generateWhatSappLink = (product) => {
                         <a
                           href={generateWhatSappLink(product)}
                           target="_blank"
-                          class="bg-green-500 rounded-md shadow-lg flex flex-row justify-around w-full md:w-4/12 mt-2"
+                          class="bg-green-500 hover:bg-green-600 rounded-md shadow-lg flex flex-row justify-around w-full md:w-4/12 mt-2"
                         >
                           <span class="text-white w-fit pl-2 pr-2 flex justify-center items-center ml-2">
                             {product.price.toLocaleString("es-CO", {
@@ -491,7 +491,7 @@ const generateWhatSappLink = (product) => {
                           </span>
                           <span class="flex w-fit justify-center items-center mr-2">
                             <Icon
-                              class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
+                              class="text-white w-12 md:w-8 h-12 md:h-8"
                               name="ic:baseline-whatsapp"
                             />
                           </span>
