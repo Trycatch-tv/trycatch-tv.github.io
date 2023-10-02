@@ -1,5 +1,6 @@
 ---
 import profile from "../../../assets/img/profile.jpg";
+
 const info = {
   altProfile: "Judlup",
   title: "Bienvenido Trycker",
@@ -25,11 +26,12 @@ const info = {
     <div class="bg-tc-black border border-gray-700 rounded-lg p-12 w-auto">
       <!--Título-->
       <div class="flex flex-col justify-center items-center">
-        <img
+        <!-- <img
           class="w-64 h-64 rounded-full lg:w-72 lg:h-72"
           src={profile}
           alt={info.altProfile}
-        />
+        /> -->
+        <image src={profile.src } alt={info.altProfile} class="w-64 h-64 rounded-full lg:w-72 lg:h-72"/>
         <div
           class="flex flex-col items-center justify-center w-screen lg:w-4/6 p-8 lg:p-0"
         >
