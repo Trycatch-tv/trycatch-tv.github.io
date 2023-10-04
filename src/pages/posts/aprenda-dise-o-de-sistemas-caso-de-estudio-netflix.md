@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogLayout.astro"
+layout: "../../layouts/BlogLayout.astro"
 title: "Aprenda diseño de sistemas, caso de estudio Netflix"
 author: "Judlup"
 image:

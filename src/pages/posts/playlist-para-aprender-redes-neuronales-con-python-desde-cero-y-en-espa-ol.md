@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogLayout.astro"
+layout: "../../layouts/BlogLayout.astro"
 title: "Playlist para aprender redes neuronales con Python desde cero y en español"
 author: "Judlup"
 image:

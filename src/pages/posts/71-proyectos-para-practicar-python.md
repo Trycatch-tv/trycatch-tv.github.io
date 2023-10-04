@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogLayout.astro"
+layout: "../../layouts/BlogLayout.astro"
 title: "71 proyectos para practicar Python"
 author: "Judlup"
 image:

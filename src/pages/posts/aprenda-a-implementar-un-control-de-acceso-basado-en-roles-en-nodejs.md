@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogLayout.astro"
+layout: "../../layouts/BlogLayout.astro"
 title: "Aprenda a implementar un control de acceso basado en roles en NodeJS"
 author: "Judlup"
 image:

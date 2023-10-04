@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/BlogLayout.astro"
+layout: "../../layouts/BlogLayout.astro"
 title: "Me aprobaron mi charla de softskills para el AWS Community Day en Guatemala 😊"
 author: "Judlup"
 image:
