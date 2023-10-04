@@ -1,12 +1,14 @@
 ---
-layout: "../../layouts/BlogLayout.astro"
+layout: "../../../layouts/BlogLayout.astro"
 title: "Aprenda a implementar un control de acceso basado en roles en NodeJS"
 author: "Judlup"
 image:
   url: "https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
   alt: "Aprenda a implementar un control de acceso basado en roles en NodeJS"
 tags:
-  ['- Autenticación por roles\n- Sistema\n- Implementar\n- JavaScript\n- Basic Access Control\n- Requisitos\n- Librerías\n- Configurar\n- Explicación\n- Carpetas\n- Rutas\n- Paso a paso\n- Pantallazos\n- Código\n- Seguridad\n- Link\n- Contenido']
+  [
+    '- Autenticación por roles\n- Sistema\n- Implementar\n- JavaScript\n- Basic Access Control\n- Requisitos\n- Librerías\n- Configurar\n- Explicación\n- Carpetas\n- Rutas\n- Paso a paso\n- Pantallazos\n- Código\n- Seguridad\n- Link\n- Contenido',
+  ]
 date: 2023-10-04
 slug: "aprenda-a-implementar-un-control-de-acceso-basado-en-roles-en-nodejs"
 published: true
@@ -20,18 +22,18 @@ En este tutorial, aprenderás a configurar y desarrollar un control de acceso ba
 
 Antes de comenzar, debes tener en cuenta los siguientes requisitos:
 
-* Tener un entorno de desarrollo de Node.js.
-* Conocimientos básicos de JavaScript.
-* Conocimientos básicos de Node.js.
+- Tener un entorno de desarrollo de Node.js.
+- Conocimientos básicos de JavaScript.
+- Conocimientos básicos de Node.js.
 
 ### Librerías y configuración
 
 Para desarrollar el control de acceso basado en roles, necesitaremos instalar algunas librerías. Estas son:
 
-* Express.js
-* Passport.js
-* Passport-local
-* Passport-jwt
+- Express.js
+- Passport.js
+- Passport-local
+- Passport-jwt
 
 También necesitaremos configurar una base de datos para almacenar los usuarios y sus roles. Para ello, utilizaremos MongoDB.
 
@@ -49,11 +51,11 @@ Por último, necesitaremos crear una ruta para el control de acceso basado en ro
 
 Una vez explicado cada uno de los pasos, necesitaremos distribuir los archivos en las carpetas adecuadas. Esta es la distribución de las carpetas:
 
-* `config/`: Aquí almacenaremos la configuración de la base de datos.
-* `controllers/`: Aquí almacenaremos los controladores de la aplicación.
-* `models/`: Aquí almacenaremos los modelos de la aplicación.
-* `routes/`: Aquí almacenaremos las rutas de la aplicación.
-* `views/`: Aquí almacenaremos las vistas de la aplicación.
+- `config/`: Aquí almacenaremos la configuración de la base de datos.
+- `controllers/`: Aquí almacenaremos los controladores de la aplicación.
+- `models/`: Aquí almacenaremos los modelos de la aplicación.
+- `routes/`: Aquí almacenaremos las rutas de la aplicación.
+- `views/`: Aquí almacenaremos las vistas de la aplicación.
 
 ### Paso a paso
 
