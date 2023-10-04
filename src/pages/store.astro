@@ -1,0 +1,643 @@
+---
+import { Icon } from "astro-icon";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const whatsAppNumber = "573164907627";
+const info = {
+  title: "Trycker Store",
+  buyProcessTitle: "Proceso de compra y pago",
+  buySteps: [
+    {
+      order: 1,
+      title: "Selecciona el producto",
+      description:
+        "Elige el producto de interés y da click en agregar a la orden en el botón de WhatsApp por cada uno.",
+    },
+    {
+      order: 2,
+      title: "Confirmación por WhatsApp",
+      description:
+        " Recibiremos tu pedido por WhatsApp y te confirmaremos el valor del mismo.",
+    },
+    {
+      order: 3,
+      title: "Procesamiento del pedido",
+      description:
+        "Luego de confirmar el pedido y el pago, procesaremos tu pedido.",
+    },
+    {
+      order: 4,
+      title: "Envío",
+      description:
+        "Tu pedido estará en camino y te llegará en el tiempo acordado.",
+    },
+  ],
+  shippingNote:
+    "Envíos a todo el país, está fuera de Colombia? lista de espera",
+
+  url: "https://trycker.store",
+  productsTitle: "Productos",
+  promoBannerFrequency: 4,
+  categories: [
+    {
+      title: "Camisetas",
+      message:
+        "Descubre nuestra calidad y originalidad. Si amas las soft skills y el mundo tech, nuestros kits son para ti. Nos respalda un compromiso de excelencia y la confianza de miles.",
+      products: [
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 150000,
+          image:
+            "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          reference: "camisa_01",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1622445272461-c6580cab8755?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1578021127722-1f1ff95b429e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+      ],
+    },
+    {
+      title: "Buzos",
+      message: "",
+      products: [
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1618333845076-890b5baf8ffe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1526476148966-98bd039463ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://images.unsplash.com/photo-1619183036291-4dbe7854a859?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+      ],
+    },
+    {
+      title: "Stickers",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Gorras",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Termos",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Pines",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Kits",
+      message:
+        "Descubre nuestra calidad y originalidad. Si amas las soft skills y el mundo tech, nuestros kits son para ti. Nos respalda un compromiso de excelencia y la confianza de miles.",
+      products: [
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+        {
+          name: "Camiseta",
+          description:
+            "Camiseta de algodón con diseños variados y frases icónicas para cada personalidad.",
+          price: 35000,
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+          whatsapp:
+            "https://wa.me/573016000000?text=Hola%20me%20interesa%20la%20camiseta%20de%20algodón%20con%20diseños%20variados%20y%20frases%20icónicas%20para%20cada%20personalidad.%20Quiero%20saber%20más%20información%20sobre%20el%20producto%20y%20cómo%20puedo%20adquirirlo.",
+        },
+      ],
+    },
+    {
+      title: "Mugs",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Libretas",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Bolsos",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Llaveros",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Parches",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Pulseras",
+      message: "",
+      products: [],
+    },
+    {
+      title: "Medias",
+      message: "",
+      products: [],
+    },
+  ],
+  sliderPromo: [
+    {
+      title: "Promo 1",
+      images: [
+        {
+          image:
+            "https://www.zell-em.com/wp-content/uploads/2021/03/Leavers-customer-banner-CTA.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+      ],
+    },
+    {
+      title: "Promo 2",
+      images: [
+        {
+          image:
+            "https://shop.armadamusic.com/cdn/shop/collections/mobile_banner_1.jpg?v=1675689394",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+      ],
+    },
+    {
+      title: "Promo 3",
+      images: [
+        {
+          image:
+            "https://www.ride-code.nl/cdn/shop/files/LEAGUE_BANNER_2_15535897-ffe5-486d-8e83-a31654d61372.png?v=1666732367&width=3840",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+        {
+          image:
+            "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+        },
+      ],
+    },
+  ],
+  mainSlider: [
+    {
+      image:
+        "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1570215171323-4ec328f3f5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+    },
+    {
+      image:
+        "https://cdn.shopify.com/s/files/1/0445/3587/3698/files/fansidea-1910x1000-0922-football-split-fashion.jpg?v=1638265583",
+    },
+    {
+      image:
+        "https://i0.wp.com/essentialshoodieuk.com/wp-content/uploads/2023/08/ESSENTIALS-HOODIE-UK-banner.webp?fit=2000%2C750&ssl=1",
+    },
+  ],
+  waitList: {
+    title: "Lista de espera",
+    inputPlaceholder: "Ingresa tu correo",
+    buttonText: "Agregarme",
+  },
+  whatsappButton: {
+    link: `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text=Hola,+más+info+por+favor+mi+nombre+es&type=phone_number&app_absent=0`,
+  },
+};
+
+const getRandomPromo = () => {
+  const random = Math.floor(Math.random() * info.sliderPromo.length);
+  return info.sliderPromo[random];
+};
+
+const generateWhatSappLink = (product) => {
+  return `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text%3DHola%20me%20interesa%20el%20pro/ducto%3A%20${product.reference}%20-%20mi%20talla%20es%3A%20y%20requiero%201%20unidad%28es%29`;
+};
+---
+
+<BaseLayout title="Trycker Store">
+  <section class="mt-5 py-16">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+      <div class="flex flex-col text-center mb-4">
+        <span class="text-2xl text-white bg-tc-black p-4 rounded-md mt-4"
+          >{info.title}</span
+        >
+      </div>
+      <div>
+        <!--  Banner -->
+        <div id="gallery" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            {
+              info.mainSlider.map((item, index) => (
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                  <img
+                    src={item.image}
+                    class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                    alt=""
+                  />
+                </div>
+              ))
+            }
+          </div>
+          <!-- Slider controls -->
+          <button
+            type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"></path>
+              </svg>
+              <span class="sr-only">Previo</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                class="w-4 h-4 text-white dark:text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"></path>
+              </svg>
+              <span class="sr-only">Siguiente</span>
+            </span>
+          </button>
+        </div>
+        <!--  Banner -->
+      </div>
+      <div>
+        <div class="bg-tc-gray px-8 py-4 rounded-md mt-4">
+          <h2 class="font-bold">{info.buyProcessTitle}</h2>
+          <br />
+
+          <ol
+            class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 bg-tc-gray-l p-2 rounded-md"
+          >
+            {
+              info.buySteps.map((item, index) => (
+                <li class="flex items-center text-tc-black space-x-2.5">
+                  <span class="flex items-center justify-center w-8 h-8 border border-tc-black rounded-full shrink-0">
+                    {item.order}
+                  </span>
+                  <span>
+                    <h3 class="font-medium leading-tight">{item.title}</h3>
+                    <p class="text-sm">{item.description}</p>
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
+
+          <br />
+          <h3>
+            {info.shippingNote}
+          </h3>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div class="bg-tc-gray p-4 rounded-md mt-4">
+        <div class="p-4 bg-tc-black rounded-md">
+          <h1 class="text-white text-xl text-left font-bold">
+            {info.productsTitle}
+          </h1>
+        </div>
+        <div>
+          <br />
+          {
+            info.categories
+              .filter((category) => category.products.length > 0)
+              .map((item, index) => (
+                <>
+                  <div class="flex justify-start">
+                    <div class="bg-tc-yellow w-3/12 px-4 py-2 rounded-md border-b-tc-gray-l text-center">
+                      <h2 class="font-bold">{item.title}</h2>
+                    </div>
+                  </div>
+                  <br />
+                  <hr />
+                  <br />
+                  {/* Category description */}
+                  {/* Products */}
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {item.products.map((product) => (
+                      <div>
+                        <img
+                          class="w-96 h-96 rounded-lg"
+                          src={product.image}
+                          alt={product.name}
+                        />
+                        <a
+                          href={generateWhatSappLink(product)}
+                          target="_blank"
+                          class="bg-green-500 hover:bg-green-600 rounded-md shadow-lg flex flex-row justify-around w-full md:w-4/12 mt-2"
+                        >
+                          <span class="text-white w-fit pl-2 pr-2 flex justify-center items-center ml-2">
+                            {product.price.toLocaleString("es-CO", {
+                              style: "currency",
+                              currency: "COP",
+                              minimumFractionDigits: 0,
+                              maximumFractionDigits: 0,
+                            })}
+                          </span>
+                          <span class="flex w-fit justify-center items-center mr-2">
+                            <Icon
+                              class="text-white w-12 md:w-8 h-12 md:h-8"
+                              name="ic:baseline-whatsapp"
+                            />
+                          </span>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                  {/* Products */}
+                  <br />
+                  <hr />
+                  <br />
+                  <div>
+                    {index % info.promoBannerFrequency == 1 ? (
+                      <>
+                        {/* Slider promos */}
+                        <div
+                          id="gallery2"
+                          class="relative w-full"
+                          data-carousel="slide"
+                        >
+                          {/* Carousle wrapper */}
+                          <div class="relative h-28 overflow-hidden rounded-lg md:h-96">
+                            {getRandomPromo().images.map((image) => (
+                              <div
+                                class="hidden duration-700 ease-in-out"
+                                data-carousel-item
+                              >
+                                <img
+                                  src={image.image}
+                                  class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                  alt=""
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          {/* Slider controls */}
+                          <button
+                            type="button"
+                            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-prev
+                          >
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                              <svg
+                                class="w-4 h-4 text-white dark:text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 6 10"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 1 1 5l4 4"
+                                />
+                              </svg>
+                              <span class="sr-only">Previous</span>
+                            </span>
+                          </button>
+                          <button
+                            type="button"
+                            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-next
+                          >
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                              <svg
+                                class="w-4 h-4 text-white dark:text-gray-800"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 6 10"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="m1 9 4-4-4-4"
+                                />
+                              </svg>
+                              <span class="sr-only">Next</span>
+                            </span>
+                          </button>
+                        </div>
+
+                        {/* Slider promos */}
+                        <br />
+                        <hr />
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </>
+              ))
+          }
+        </div>
+
+        <br /><br />
+        <div class="flex justify-start">
+          <div
+            class="bg-tc-black w-full px-4 py-2 rounded-md border-b-tc-gray-l text-center text-white"
+          >
+            <h2 class="font-bold">{info.waitList.title}</h2>
+          </div>
+        </div>
+        <br />
+        <div class="space-x-4 px-32 py-3">
+          <div
+            class="bg-tc-black-l py-3 px-4 w-full flex justify-around rounded-md"
+          >
+            <input
+              type="text"
+              placeholder="Ingresa tu correo"
+              class="p-2 border rounded-md flex-grow"
+            />
+            <button
+              class="bg-tc-black-l text-tc-yellow p-2 rounded-md hover:bg-tc-yellow hover:text-tc-black-l transition duration-300 ease-in-out ml-2"
+              >{info.waitList.buttonText}
+            </button>
+          </div>
+        </div>
+        <br />
+        <hr />
+      </div>
+    </div>
+    <!--  Whatsapp Button  -->
+    <a href={info.whatsappButton.link} target="_blank" class="whatsapp-button">
+      <div class="bg-green-500 p-4 rounded-full shadow-lg">
+        <span class="flex justify-between">
+          <Icon
+            class="text-white hover:text-tc-yellow w-12 md:w-8 h-12 md:h-8"
+            name="ic:baseline-whatsapp"
+          />
+        </span>
+      </div>
+    </a>
+    <!-- Whatsapp Button  -->
+  </section>
+</BaseLayout>
+<style>
+  .whatsapp-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+  }
+</style>

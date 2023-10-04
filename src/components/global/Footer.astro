@@ -1,5 +1,27 @@
 ---
 const year = new Date().getFullYear();
+const footerItems = [
+  // {
+  //   name: "Sobre Mi",
+  //   path: "about",
+  // },
+  {
+    name: "Trycker Store",
+    path: "/store",
+  },
+  {
+    name: "Links",
+    path: "/links",
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+  },
+  // {
+  //   name: "Contacto",
+  //   path: "contact",
+  // },
+];
 ---
 
 <footer class="bg-tc-black rounded-md shadow m-4">
@@ -13,24 +35,15 @@ const year = new Date().getFullYear();
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
     >
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Devs Latam</a>
-      </li>
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
-      </li>
-      <li>
-        <a href="#" class="mr-4 hover:underline md:mr-6">Cursos</a>
-      </li>
-      <li>
-        <a href="#" class="hover:underline md:mr-6">Sobre Mi</a>
-      </li>
-      <li>
-        <a href="#" class="hover:underline md:mr-6">Links</a>
-      </li>
-      <li>
-        <a href="#" class="hover:underline">Contacto</a>
-      </li>
+      {
+        footerItems.map((item) => (
+          <li>
+            <a href={item.path} class="mr-4 hover:underline md:mr-6">
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </footer>
