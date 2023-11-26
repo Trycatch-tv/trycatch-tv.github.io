@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon";
+
+const info = {
+  title: "Tryckers",
+};
+---
+
+<section>
+  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
+      <!--Redes Sociales-->
+      <div class="mt-5 mb-6">
+        <div class="flex flex-row text-tc-gray-l text-3xl lg:text-4xl">
+          <Icon class="w-10 h-10 text-white" name="raphael:people" />
+          <span class="font-extrabold ml-2">
+            {info.title}
+          </span>
+        </div>
+        <a href="/tryckers">
+          <ul class="flex justify-around bg-tc-black-l rounded-md p-5 mt-5">
+            <span class="text-white text-xl hover:text-tc-yellow">
+              Conoce a los Tryckers de la comunidad
+            </span>
+          </ul>
+        </a>
+      </div>
+      <!--Redes Sociales-->
+    </div>
+  </div>
+</section>

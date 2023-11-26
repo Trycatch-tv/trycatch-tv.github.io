@@ -1,16 +1,18 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Intro from "../components/landing/intro/Intro.astro";
-import SocialNetworks from "../components/landing/socialNetworks/SocialNetworks.astro";
-import Devslatam from "../components/landing/devslatam/Devslatam.astro";
-import Projects from "../components/landing/projects/Projects.astro";
 import Contact from "../components/landing/contact/Contact.astro";
+import Devslatam from "../components/landing/devslatam/Devslatam.astro";
+import Intro from "../components/landing/intro/Intro.astro";
+import Projects from "../components/landing/projects/Projects.astro";
+import SocialNetworks from "../components/landing/socialNetworks/SocialNetworks.astro";
+import TryckersLanding from "../components/landing/tryckers/Tryckers.banner.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="TryCatch.tv">
   <!--<Banner />-->
   <Intro />
   <SocialNetworks />
+  <TryckersLanding />
   <Devslatam />
   <Projects />
   <Contact />
