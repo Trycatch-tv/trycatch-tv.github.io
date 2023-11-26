@@ -1,0 +1,238 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const info = {
+  titleTeam: "Tryckers Team",
+  tryckersTeam: [
+    {
+      username: "ElProgramadorGT",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/7fb16515-ed68-4fdd-9ec9-94630c05de09-profile_image-70x70.png",
+      url: "https://www.twitch.tv/elprogramadorgt",
+    },
+    {
+      username: "ChrisVDev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/33d67b61-c1be-4f36-9cbc-10aabf9a4f4c-profile_image-70x70.png",
+      url: "https://www.twitch.tv/chrisvdev",
+    },
+    {
+      username: "FrancoLabs",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/2e456aac-989b-41e4-af41-9c1179da4782-profile_image-70x70.png",
+      url: "https://www.twitch.tv/francolabs",
+    },
+    {
+      username: "CodingWithStrangers",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/dc386d21-87c4-498e-8d53-bad77fc23141-profile_image-70x70.png",
+      url: "https://www.twitch.tv/codingwithstrangers",
+    },
+    {
+      username: "AntonyDev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/8d6c1156-584e-4543-a679-4fa61f30d7a3-profile_image-70x70.png",
+      url: "https://www.twitch.tv/antonydev",
+    },
+    {
+      username: "MetalitoDev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/81d6dc2a-1378-45f2-898a-02bee1aff39d-profile_image-70x70.png",
+      url: "https://www.twitch.tv/metalitodev",
+    },
+    {
+      username: "The_FrontDev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/bf627c06-5e31-4962-82ca-ea4f340b43d5-profile_image-70x70.jpeg",
+      url: "https://www.twitch.tv/the_frontdev",
+    },
+    {
+      username: "QuantumApprentice",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/e45d8530-48a4-4f82-9449-18cda04d7a23-profile_image-70x70.png",
+      url: "https://www.twitch.tv/quantumapprentice",
+    },
+  ],
+  titleSubs: "Tryckers Subs",
+  tryckersPremium: [
+    {
+      username: "MranDvX",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/164bb36d-db91-4c50-aafb-0734c475a3f2-profile_image-70x70.png",
+      since: "Febrero 2023",
+    },
+    {
+      username: "JaimACuSdev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/fa794444-a97c-40ea-82b6-7ff54d771a6b-profile_image-70x70.png",
+      since: "Mayo 2023",
+    },
+    {
+      username: "ApitoriaDev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/e6e52ab3-691b-403f-8dbc-4347ea57f36b-profile_image-70x70.png",
+      since: "Agosto 2023",
+    },
+    {
+      username: "Proxuz94",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/f0547d64-0e64-46af-b908-879d875dad49-profile_image-70x70.png",
+      since: "Noviembre 2023",
+    },
+    {
+      username: "Edgardojb",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/user-default-pictures-uv/dbdc9198-def8-11e9-8681-784f43822e80-profile_image-70x70.png",
+      since: "Noviembre 2023",
+    },
+    {
+      username: "ManuPro",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/7b943b44-427b-4921-b777-45bf7ac58631-profile_image-70x70.png",
+      since: "Octubre 2023",
+    },
+    {
+      username: "Lesteban_dev",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/3fd5cc00-407a-48e6-bea9-49132a6387c7-profile_image-70x70.png",
+      since: "Octubre 2023",
+    },
+    {
+      username: "Juan_Set",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/fa42af8e-a07f-4265-82f7-373792ddd5ca-profile_image-70x70.png",
+      since: "Septiembre 2023",
+    },
+  ],
+  titleGift: "Tryckers Gift",
+  tryckersGift: [
+    {
+      username: "Luisman257",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/user-default-pictures-uv/998f01ae-def8-11e9-b95c-784f43822e80-profile_image-70x70.png",
+    },
+    {
+      username: "Jim_Carrey_Was_Here",
+      platform: "Twitch",
+      avatar:
+        "https://static-cdn.jtvnw.net/jtv_user_pictures/8138abf3-d81b-4586-8c2f-e544cffeec50-profile_image-70x70.png",
+    },
+    {
+      username: "FranDeveloper",
+      platform: "Tik Tok",
+      avatar:
+        "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e88d128be4d5bb209b8a929babde1f98~c5_100x100.jpeg?x-expires=1701154800&x-signature=kF0U3D0u4%2F2sTCxigkOA2S96QE8%3D",
+    },
+  ],
+  titleDestacados: "Tryckers Destacados",
+  tryckersDestacados: [
+    {
+      username: "",
+      platform: "",
+      avatar: "",
+    },
+  ],
+};
+---
+
+<BaseLayout title={`Tryckers`}>
+  <div
+    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+  >
+    <span class="text-xl md:text-2xl">{info.titleTeam}</span>
+    <hr />
+    <div class="flex flex-wrap">
+      {
+        info.tryckersTeam.map((trycker) => (
+          <a
+            href={trycker.url}
+            target="_blank"
+            class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12"
+          >
+            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
+              <img
+                class="rounded-full h-24 w-24 object-cover mb-3"
+                src={trycker.avatar}
+                alt={trycker.username}
+              />
+              <hr class="w-full border-t border-gray-600 my-3" />
+              <div class="text-center">
+                <div class="text-purple-400 font-bold text-lg">
+                  {trycker.username}
+                </div>
+                <div class="text-gray-300">{trycker.platform}</div>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+    <span class="text-xl md:text-2xl">{info.titleSubs}</span>
+    <hr />
+    <div class="flex flex-wrap">
+      {
+        info.tryckersPremium.map((trycker) => (
+          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
+            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
+              <img
+                class="rounded-full h-24 w-24 object-cover mb-3"
+                src={trycker.avatar}
+                alt={trycker.username}
+              />
+              <hr class="w-full border-t border-gray-600 my-3" />
+              <div class="text-center">
+                <div class="text-tc-yellow font-bold text-lg">
+                  {trycker.username}
+                </div>
+                <div class="text-gray-300">{trycker.platform}</div>
+                <div class="text-gray-400 text-sm">{trycker.since}</div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <span class="text-xl md:text-2xl">{info.titleGift}</span>
+    <hr />
+    <div class="flex flex-wrap">
+      {
+        info.tryckersGift.map((trycker) => (
+          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
+            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
+              <img
+                class="rounded-full h-24 w-24 object-cover mb-3"
+                src={trycker.avatar}
+                alt={trycker.username}
+              />
+              <hr class="w-full border-t border-gray-600 my-3" />
+              <div class="text-center">
+                <div class="text-tc-cyan font-bold text-lg">
+                  {trycker.username}
+                </div>
+                <div class="text-gray-300">{trycker.platform}</div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <!-- <span class="text-xl md:text-2xl">{info.titleDestacados}</span>
+    <hr /> -->
+  </div>
+</BaseLayout>
