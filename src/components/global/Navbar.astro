@@ -35,6 +35,13 @@ const navbarItems = [
 ];
 ---
 
+<script is:inline>
+  function toggleMenu() {
+    const menu = document.getElementById("navbar-sticky");
+    menu?.classList.toggle("hidden");
+  }
+</script>
+
 <nav
   class="bg-tc-black fixed w-full z-20 top-0 left-0 border-b border-tc-black"
   style="z-index: 40 ;"
@@ -49,34 +56,52 @@ const navbarItems = [
           >TryCatch.tv</span
         >
       </image>
-      <!--<div class="flex md:order-2">-->
-      <!--    <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">-->
-      <!--      <span class="sr-only">Open main menu</span>-->
-      <!--      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>-->
-      <!--    </button>-->
-      <!--</div>-->
-      <div
-        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-        id="navbar-sticky"
-      >
-        <ul
-          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-tc-black dark:border-tc-black"
-        >
-          {
-            navbarItems.map((item) => (
-              <li>
-                <a
-                  href={item.path}
-                  target={item.target || "_self"}
-                  class="block py-2 pl-3 pr-4 rounded hover:bg-transparent md:p-0 text-white hover:text-tc-yellow border-gray-700"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
     </a>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      onclick="toggleMenu()"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
+    </button>
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      id="navbar-sticky"
+    >
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-tc-black dark:border-tc-black"
+      >
+        {
+          navbarItems.map((item) => (
+            <li>
+              <a
+                href={item.path}
+                target={item.target || "_self"}
+                class="block py-2 pl-3 pr-4 rounded hover:bg-transparent md:p-0 text-white hover:text-tc-yellow border-gray-700"
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </nav>
