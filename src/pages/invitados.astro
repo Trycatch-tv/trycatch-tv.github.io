@@ -1,0 +1,235 @@
+---
+import { Image } from "astro:assets";
+import AndresHernandez from "../assets/img/guests/andreshernandez.jpeg";
+import CarlosPenaranda from "../assets/img/guests/carlospenaranda.jpg";
+import CarlosSuarez from "../assets/img/guests/carlossuarez.jpeg";
+import CarlosZambrano from "../assets/img/guests/carloszambrano.jpeg";
+import DarioCorreal from "../assets/img/guests/dariocorreal.png";
+import GiovannyAriza from "../assets/img/guests/giovanniariza.jpeg";
+import HectorFernandez from "../assets/img/guests/hectorfernandez.jpg";
+import JaimeSanchez from "../assets/img/guests/jaimesanchez.png";
+import JuanAgogo from "../assets/img/guests/juanagogo.jpg";
+import LeandroRivera from "../assets/img/guests/leandrorivera.jpeg";
+import MarcelaVargas from "../assets/img/guests/marcelavargas.jpeg";
+import MillerTrujillo from "../assets/img/guests/millertrujillo.jpeg";
+import NicolasFajardo from "../assets/img/guests/nicolasfajardo.jpeg";
+import NicolasVasquez from "../assets/img/guests/nicolasvasquez.png";
+import Pamsho from "../assets/img/guests/pamsho.jpg";
+import RafaelCapilla from "../assets/img/guests/rafaelcapilla.jpg";
+import VictorTrujillo from "../assets/img/guests/victortrujillo.png";
+import YoAndroide from "../assets/img/guests/yoandroide.jpg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const info = {
+  title: "Invitados",
+  guests: [
+    {
+      name: "Marcela Vargas",
+      avatar: MarcelaVargas,
+      role: "QA Engineer",
+      title: "Cómo participar en un TechCamp y no morir en el intento",
+      contact: "https://www.linkedin.com/in/ingridmarcelavargas-dwf/",
+      url: "https://youtu.be/tdLwqSi2Vcw?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Miller Trujillo",
+      avatar: MillerTrujillo,
+      role: "Software Developer",
+      title: "El camino a Google y Microsoft - Parte 1",
+      contact: "https://www.instagram.com/matrujillo10/",
+      url: "https://youtu.be/8yXy4k4KLQg?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Leandro Rivera",
+      avatar: LeandroRivera,
+      role: "Software Developer",
+      title: "¿Cómo es la experiencia de participar en Generación TI?",
+      contact: "https://www.linkedin.com/in/leandrorivera",
+      url: "https://youtu.be/DJiGqOvOv4U?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Nicolás Vasquez",
+      avatar: NicolasVasquez,
+      role: "Cyberscurity",
+      title: "¿Cómo es la experiencia de participar en Talento B?",
+      contact: "https://www.instagram.com/nico_vasquez05",
+      url: "https://youtu.be/1YcQJgkH6Mo?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Yo Androide",
+      avatar: YoAndroide,
+      role: "Software Developer",
+      title: "¿Java está muerto?",
+      contact: "https://www.youtube.com/@YoAndroide",
+      url: "https://youtu.be/sFtNPjegW38?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Nicolás Fajardo",
+      avatar: NicolasFajardo,
+      role: "Data Scientist",
+      title:
+        "El Poder de los datos: Transformación de información en acciones concretas",
+      contact:
+        "https://www.linkedin.com/in/nicolasfajardodaza/?originalSubdomain=co",
+      url: "https://youtu.be/Mkic9CN6RFg?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Rafael Capilla",
+      avatar: RafaelCapilla,
+      role: "Profesor U. Rey Juan Carlos",
+      title: "Arquitecturas Software y Digitalización",
+      contact: "https://ieeespain.org/directivos/rafael-capilla/",
+      url: "https://youtu.be/XKtmNeWvAxc?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Darío Correal",
+      avatar: DarioCorreal,
+      role: "Profesor Uniandes",
+      title: "hablemos del rol de: Desarrollador Frontend",
+      contact: "https://www.instagram.com/jaimesanchezgalvis/",
+      url: "https://youtu.be/eBrb0bo1TiE?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Jaime Sánchez",
+      avatar: JaimeSanchez,
+      role: "Frontend Developer",
+      title: "hablemos del rol de: Desarrollador Frontend",
+      contact: "https://www.instagram.com/jaimesanchezgalvis/",
+      url: "https://youtu.be/ZxcJL7bxII8?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Juan Agogo",
+      avatar: JuanAgogo,
+      role: "Creador de Contenido",
+      title: "La Inteligencia Artificial vienen por nosotros",
+      contact: "https://www.twitch.tv/juanagogoo",
+      url: "https://youtu.be/BSebdu6ofwo?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Héctor Fernández",
+      avatar: HectorFernandez,
+      role: "AWS Community Builder",
+      title: "Serverless, el siguiente paso",
+      contact: "https://www.linkedin.com/in/carlos-zambrano-aws/",
+      url: "https://youtu.be/dHr3xNSEoHg?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Carlos Zambrano",
+      avatar: CarlosZambrano,
+      role: "AWS Hero",
+      title: "El futuro está en la nube",
+      contact: "https://www.linkedin.com/in/carlos-zambrano-aws/",
+      url: "https://youtu.be/MgTrww6p5sk?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Andrés Hernández",
+      avatar: AndresHernandez,
+      role: "Developer Expert",
+      title: "Team Lead Devs Latam",
+      contact: "https://elixir-lang.org/",
+      url: "https://youtu.be/CoBELc0eJDs?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Victor Trujillo",
+      avatar: VictorTrujillo,
+      role: "Software Architect",
+      title: "Diseñando APIs agnósticas",
+      contact: "",
+      url: "https://youtu.be/q5dOSpFbEZ8?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+    {
+      name: "Carlos Suárez",
+      avatar: CarlosSuarez,
+      role: "Software Architect",
+      title: "Laboratorio APIs escalables con AWS",
+      contact: "https://www.instagram.com/carlos.suarezq",
+      url: "https://www.youtube.com/live/QGooErQIPCA?si=zv2SWBiBGeo1OtAC",
+    },
+    {
+      name: "Pamsho",
+      avatar: Pamsho,
+      role: "Software Developer",
+      title: "Tiembla Google por Chat-GPT",
+      contact: "https://www.instagram.com/pamsho_/",
+      url: "https://www.youtube.com/live/4yoGyl8w1Tg?si=r-SrAX5RwXhredEd",
+    },
+    {
+      name: "Carlos Peñaranda",
+      avatar: CarlosPenaranda,
+      role: "Software Developer",
+      title: "Cursín llega a los 500 K de descargas",
+      contact: "https://www.instagram.com/carlostic26/",
+      url: "https://www.youtube.com/live/EBRQcmeny9Q?si=PMuR52LAQscVwm2k",
+    },
+    {
+      name: "Giovanny Ariza",
+      avatar: GiovannyAriza,
+      role: "Agile Coach",
+      title: "Conviértete en un líder de innovación y agilidad",
+      contact: "https://giosyst3m.net/giovanni-ariza",
+      url: "https://youtu.be/bFSzPJajpn0?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  ],
+};
+---
+
+<BaseLayout title={`Tryckers`}>
+  <div
+    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+  >
+    <span class="text-xl md:text-2xl">{info.title}</span>
+    <hr />
+    <div class="flex flex-wrap">
+      {
+        info.guests.map((guest) => (
+          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
+            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
+              <Image
+                class="rounded-full h-24 w-24 object-cover mb-3"
+                src={guest.avatar}
+                alt={guest.name}
+              />
+              <hr class="w-full border-t border-gray-600 my-3" />
+              <div class="text-center">
+                <div class="text-yellow-100 font-bold text-lg grid grid-cols-2  place-items-center">
+                  <span>🌟</span>
+                  <span class="text-xs">{guest.name}</span>
+                </div>
+                <div class="text-gray-300 grid grid-cols-2  place-items-center">
+                  <span>🧠</span>
+                  <span class="text-xs">{guest.role}</span>
+                </div>
+                <div class="text-gray-300 grid grid-cols-2  place-items-center">
+                  <span>🗣️</span>
+                  <span
+                    class="text-xs cursor-pointer "
+                    data-tooltip-target="titleTooltip"
+                  >
+                    Tema
+                  </span>
+                  <div
+                    id="titleTooltip"
+                    role="tooltip"
+                    class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-950"
+                  >
+                    {guest.title}
+                    <div class="tooltip-arrow" data-popper-arrow />
+                  </div>
+                </div>
+                <hr class="w-full border-t border-gray-600 my-3" />
+                <div class="text-gray-300 grid grid-cols-2  place-items-center">
+                  <a href={guest.contact} target="_blank" class="text-xs">
+                    🪪 Contacto
+                  </a>
+                  <a href={guest.url} target="_blank" class="text-xs">
+                    📹 Live
+                  </a>
+                </div>
+                <div class="text-gray-300 grid grid-cols-1  place-items-center" />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
