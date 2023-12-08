@@ -15,6 +15,10 @@ const navbarItems = [
   //   path: "/store",
   // },
   {
+    name: "Invitados",
+    path: "/invitados",
+  },
+  {
     name: "Links",
     path: "https://linktr.ee/trycatch.tv",
     target: "_blank",
@@ -86,7 +90,7 @@ const navbarItems = [
       id="navbar-sticky"
     >
       <ul
-        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-tc-black dark:border-tc-black"
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
       >
         {
           navbarItems.map((item) => (
@@ -94,7 +98,7 @@ const navbarItems = [
               <a
                 href={item.path}
                 target={item.target || "_self"}
-                class="block py-2 pl-3 pr-4 rounded hover:bg-transparent md:p-0 text-white hover:text-tc-yellow border-gray-700"
+                class="block py-2 pl-3 pr-4 rounded hover:bg-transparent md:p-0 text-white hover:text-tc-yellow"
               >
                 {item.name}
               </a>
