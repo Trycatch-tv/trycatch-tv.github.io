@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import CodeCrafter from "../assets/img/partners/codecraftersio.jpeg";
+import CodiumAI from "../assets/img/partners/codium.png";
+import ContactOut from "../assets/img/partners/contactout.png";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const info = {
+  titleTeam: "Partners",
+  partnersTeam: [
+    {
+      name: "ContactOut",
+      descripción:
+        "ContactOut is a simple browser extension that helps you find email addresses and phone numbers of anyone on LinkedIn.",
+      logo: ContactOut,
+      url: "https://contactout.com/",
+    },
+    {
+      name: "CodeCrafters",
+      descripción:
+        "CodeCrafters is a community of developers who are learning to code by contributing to open source projects.",
+      logo: CodeCrafter,
+      url: "https://codecrafters.io/",
+    },
+    {
+      name: "Codium AI",
+      descripción:
+        "With CodiumAI, you get non-trivial analysis (and trivial, too!) suggested right inside your IDE or Git platform.",
+      logo: CodiumAI,
+      url: "https://codecrafters.io/",
+    },
+  ],
+};
+---
+
+<BaseLayout title={`Partners`}>
+  <div
+    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+  >
+    <span class="text-xl md:text-2xl">{info.titleTeam}</span>
+    <hr />
+    <div class="flex flex-wrap">
+      {
+        info.partnersTeam.map((partner) => (
+          <a
+            href={partner.url}
+            target="_blank"
+            class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12"
+          >
+            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
+              <Image
+                class="rounded-full h-24 w-24 object-cover mb-3"
+                src={partner.logo}
+                alt={partner.name}
+              />
+              <hr class="w-full border-t border-gray-600 my-3" />
+              <div class="text-center">
+                <div class="text-purple-400 font-bold text-lg text-left">
+                  {partner.name}
+                </div>
+                <div class="text-gray-300 text-justify text-sm">
+                  {partner.descripción}
+                </div>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
