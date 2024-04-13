@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+const info = {
+  title: "🧑🏻‍💻 Factory",
+  description:
+    "💻 Transformando ideas en software que impulsa el éxito. En TryCatch.tv Factory, somos una comunidad de desarrolladores apasionados y expertos dedicados a crear soluciones de software innovadoras que no solo cumplen, sino que superan las expectativas de nuestros clientes.",
+  cta1: "📋 Comienza tu proyecto hoy",
+  aboutTitle: "👥 Acerca de Nosotros",
+  about:
+    "En TryCatch.tv Factory, creemos en el poder de la tecnología para cambiar el mundo. Fundada por líderes y expertos en la industria del software con más de una década de experiencia, nuestra misión es proveer oportunidades de crecimiento y empleo a través de proyectos desafiantes y enriquecedores. Nos especializamos en convertir los retos complejos en soluciones simples y efectivas, utilizando las últimas tecnologías y metodologías ágiles. Nuestra comunidad de 40.000 profesionales en Latinoamérica está lista para llevar tu visión al siguiente nivel.",
+  servicesTitle: "🔥 Nuestros Servicios",
+  services: [
+    {
+      title: "✨ Desarrollo de Software a Medida",
+      description:
+        "Creamos aplicaciones personalizadas que se adaptan perfectamente a tus necesidades.",
+    },
+    {
+      title: "✨ Consultoría",
+      description:
+        "Te ayudamos a identificar oportunidades y desafíos, y a desarrollar una estrategia de software efectiva para tu negocio.",
+    },
+    {
+      title: "✨ Capacitación y Desarrollo de Talento",
+      description:
+        "Preparamos a tu equipo para el futuro con cursos y talleres en las últimas tecnologías y prácticas de desarrollo.",
+    },
+    {
+      title: "✨ Construcción de equipos altamente competitivos (SoftSkills)",
+      description:
+        "Ayudamos a las empresas a construir equipos de alto rendimiento, con habilidades técnicas y blandas que les permitan alcanzar sus objetivos de negocio.",
+    },
+    {
+      title: "✨ Nivelación técnica para equipos de desarrollo (Senior Plan)",
+      description:
+        "Ofrecemos programas de nivelación técnica para equipos de desarrollo, con el objetivo de mejorar la calidad del código y la eficiencia en el desarrollo de software.",
+    },
+    {
+      title: "✨ Entrevistas técnicas y evaluación de candidatos",
+      description:
+        "Ayudamos a las empresas a evaluar y seleccionar a los mejores candidatos para sus equipos de desarrollo, a través de entrevistas técnicas y evaluaciones de habilidades.",
+    },
+  ],
+  cta2: "✅ Contactanos ahora",
+  contactDescription:
+    "¿Tienes un proyecto en mente? Cuéntanos más sobre él y cómo podemos ayudarte. Completa el formulario a continuación y uno de nuestros expertos se pondrá en contacto contigo a la brevedad.",
+}
+---
+
+<BaseLayout title={`Tryckers`}>
+  <div
+    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+  >
+    <span class="text-xl md:text-2xl">{info.title}</span>
+    <hr />
+    <div class="flex flex-wrap justify-between gap-4">
+      <!-- Descripción -->
+      <div class="w-full md:w-3/3 p-4 rounded-lg shadow mt-8">
+        <p class="text-md text-gray-700 text-justify mt-4">
+          {info.description}
+        </p>
+        <div class="flex items-center justify-center">
+          <a
+            href="http://wa.me/+573164907627"
+            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+            >{info.cta1}</a
+          >
+        </div>
+      </div>
+
+      <!-- Acerca de nosotros -->
+      <div class="w-full md:w-3/3 p-4 bg-white rounded-lg shadow">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          {info.aboutTitle}
+        </h2>
+        <hr />
+        <p class="text-gray-600 text-justify mt-4">{info.about}</p>
+      </div>
+
+      <!-- Servicios ofrecidos -->
+      <div class="w-full p-4 bg-white rounded-lg shadow">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+          {info.servicesTitle}
+        </h2>
+        <hr />
+        {
+          info.services.map((service) => (
+            <div class="mt-4">
+              <h3 class="font-semibold mb-2">{service.title}</h3>
+              <p class="text-gray-600 text-justify">{service.description}</p>
+            </div>
+          ))
+        }
+        <div class="flex items-center justify-center">
+          <a
+            href="http://wa.me/+573164907627"
+            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
+            >{info.cta2}</a
+          >
+        </div>
+      </div>
+
+      <!-- Formulario de contacto -->
+      <div class="w-full p-4 bg-gray-100 rounded-lg shadow">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">🤙🏻 Contacto</h2>
+        <hr />
+        <p class="text-gray-600 text-justify mt-4">{info.contactDescription}</p>
+        <form class="mt-4 space-y-4">
+          <div class="flex items-center justify-around">
+            <a
+              href="http://wa.me/+573164907627"
+              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              >📲 WhatsApp</a
+            >
+            <a
+              href="mailto:judlup@trycatch.tv"
+              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              >✉️ Correo</a
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
