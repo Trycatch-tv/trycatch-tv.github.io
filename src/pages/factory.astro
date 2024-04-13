@@ -7,7 +7,7 @@ const info = {
   cta1: "📋 Comienza tu proyecto hoy",
   aboutTitle: "👥 Acerca de Nosotros",
   about:
-    "En TryCatch.tv Factory, creemos en el poder de la tecnología para cambiar el mundo. Fundada por líderes y expertos en la industria del software con más de una década de experiencia, nuestra misión es proveer oportunidades de crecimiento y empleo a través de proyectos desafiantes y enriquecedores. Nos especializamos en convertir los retos complejos en soluciones simples y efectivas, utilizando las últimas tecnologías y metodologías ágiles. Nuestra comunidad de 35,000 profesionales en Latinoamérica está lista para llevar tu visión al siguiente nivel.",
+    "En TryCatch.tv Factory, creemos en el poder de la tecnología para cambiar el mundo. Fundada por líderes y expertos en la industria del software con más de una década de experiencia, nuestra misión es proveer oportunidades de crecimiento y empleo a través de proyectos desafiantes y enriquecedores. Nos especializamos en convertir los retos complejos en soluciones simples y efectivas, utilizando las últimas tecnologías y metodologías ágiles. Nuestra comunidad de 40.000 profesionales en Latinoamérica está lista para llevar tu visión al siguiente nivel.",
   servicesTitle: "🔥 Nuestros Servicios",
   services: [
     {
@@ -35,8 +35,13 @@ const info = {
       description:
         "Ofrecemos programas de nivelación técnica para equipos de desarrollo, con el objetivo de mejorar la calidad del código y la eficiencia en el desarrollo de software.",
     },
+    {
+      title: "✨ Entrevistas técnicas y evaluación de candidatos",
+      description:
+        "Ayudamos a las empresas a evaluar y seleccionar a los mejores candidatos para sus equipos de desarrollo, a través de entrevistas técnicas y evaluaciones de habilidades.",
+    },
   ],
-  cta2: "🫣 Descubre más sobre nuestros servicios",
+  cta2: "✅ Contactanos ahora",
   contactDescription:
     "¿Tienes un proyecto en mente? Cuéntanos más sobre él y cómo podemos ayudarte. Completa el formulario a continuación y uno de nuestros expertos se pondrá en contacto contigo a la brevedad.",
 }
@@ -55,9 +60,10 @@ const info = {
           {info.description}
         </p>
         <div class="flex items-center justify-center">
-          <button
-            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
-            >{info.cta1}</button
+          <a
+            href="http://wa.me/+573164907627"
+            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+            >{info.cta1}</a
           >
         </div>
       </div>
@@ -86,9 +92,10 @@ const info = {
           ))
         }
         <div class="flex items-center justify-center">
-          <button
+          <a
+            href="http://wa.me/+573164907627"
             class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
-            >{info.cta2}</button
+            >{info.cta2}</a
           >
         </div>
       </div>
@@ -100,13 +107,15 @@ const info = {
         <p class="text-gray-600 text-justify mt-4">{info.contactDescription}</p>
         <form class="mt-4 space-y-4">
           <div class="flex items-center justify-around">
-            <button
-              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
-              >📲 WhatsApp</button
+            <a
+              href="http://wa.me/+573164907627"
+              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              >📲 WhatsApp</a
             >
-            <button
-              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
-              >✉️ Correo</button
+            <a
+              href="mailto:judlup@trycatch.tv"
+              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              >✉️ Correo</a
             >
           </div>
         </form>
