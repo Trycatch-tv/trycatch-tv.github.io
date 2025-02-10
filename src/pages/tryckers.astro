@@ -221,87 +221,59 @@ const info = {
 ---
 
 <BaseLayout title={`Tryckers`}>
-  <div
-    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
-  >
-    <span class="text-xl md:text-2xl">{info.titleTeam}</span>
-    <hr />
-    <div class="flex flex-wrap">
-      {
-        info.tryckersTeam.map((trycker) => (
-          <a
-            href={trycker.url}
-            target="_blank"
-            class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12"
-          >
-            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
-              <img
-                class="rounded-full h-24 w-24 object-cover mb-3"
-                src={trycker.avatar}
-                alt={trycker.username}
-              />
-              <hr class="w-full border-t border-gray-600 my-3" />
-              <div class="text-center">
-                <div class="text-purple-400 font-bold text-lg">
-                  {trycker.username}
-                </div>
-                <div class="text-gray-300">{trycker.platform}</div>
-              </div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
-    <span class="text-xl md:text-2xl">{info.titleSubs}</span>
-    <hr />
-    <div class="flex flex-wrap">
-      {
-        info.tryckersPremium.map((trycker) => (
-          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
-            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
-              <img
-                class="rounded-full h-24 w-24 object-cover mb-3"
-                src={trycker.avatar}
-                alt={trycker.username}
-              />
-              <hr class="w-full border-t border-gray-600 my-3" />
-              <div class="text-center">
-                <div class="text-tc-yellow font-bold text-lg">
-                  {trycker.username}
-                </div>
-                <div class="text-gray-300">{trycker.platform}</div>
-                <div class="text-gray-400 text-sm">{trycker.since}</div>
-              </div>
-            </div>
+  <div class="max-w-5xl mx-auto my-16 p-10 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24">
+    <h2 class="text-tc-yellow text-3xl font-bold text-center mb-6 uppercase tracking-wide">{info.titleTeam}</h2>
+    <hr class="border-gray-600 mb-6" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {info.tryckersTeam.map((trycker) => (
+        <a href={trycker.url} target="_blank" class="group">
+          <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+            <img
+              class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform group-hover:scale-110"
+              src={trycker.avatar}
+              alt={trycker.username}
+            />
+            <h3 class="text-purple-400 font-bold text-lg">{trycker.username}</h3>
+            <p class="text-gray-300 text-sm">{trycker.platform}</p>
           </div>
-        ))
-      }
+        </a>
+      ))}
     </div>
-    <span class="text-xl md:text-2xl">{info.titleGift}</span>
-    <hr />
-    <div class="flex flex-wrap">
-      {
-        info.tryckersGift.map((trycker) => (
-          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
-            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
-              <img
-                class="rounded-full h-24 w-24 object-cover mb-3"
-                src={trycker.avatar}
-                alt={trycker.username}
-              />
-              <hr class="w-full border-t border-gray-600 my-3" />
-              <div class="text-center">
-                <div class="text-tc-cyan font-bold text-lg">
-                  {trycker.username}
-                </div>
-                <div class="text-gray-300">{trycker.platform}</div>
-              </div>
-            </div>
-          </div>
-        ))
-      }
+
+    <h2 class="text-tc-yellow text-3xl font-bold text-center mt-12 mb-6 uppercase tracking-wide">{info.titleSubs}</h2>
+    <hr class="border-gray-600 mb-6" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {info.tryckersPremium.map((trycker) => (
+        <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+          <img
+            class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+            src={trycker.avatar}
+            alt={trycker.username}
+          />
+          <h3 class="text-tc-yellow font-bold text-lg">{trycker.username}</h3>
+          <p class="text-gray-300 text-sm">{trycker.platform}</p>
+          <p class="text-gray-400 text-xs mt-1">Desde {trycker.since}</p>
+        </div>
+      ))}
     </div>
-    <!-- <span class="text-xl md:text-2xl">{info.titleDestacados}</span>
-    <hr /> -->
+
+    <h2 class="text-tc-yellow text-3xl font-bold text-center mt-12 mb-6 uppercase tracking-wide">{info.titleGift}</h2>
+    <hr class="border-gray-600 mb-6" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {info.tryckersGift.map((trycker) => (
+        <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+          <img
+            class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+            src={trycker.avatar}
+            alt={trycker.username}
+          />
+          <h3 class="text-tc-cyan font-bold text-lg">{trycker.username}</h3>
+          <p class="text-gray-300 text-sm">{trycker.platform}</p>
+        </div>
+      ))}
+    </div>
   </div>
 </BaseLayout>

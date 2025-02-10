@@ -22,10 +22,163 @@ import Pamsho from "../assets/img/guests/pamsho.jpg";
 import RafaelCapilla from "../assets/img/guests/rafaelcapilla.jpg";
 import VictorTrujillo from "../assets/img/guests/victortrujillo.png";
 import YoAndroide from "../assets/img/guests/yoandroide.jpg";
+import JaimeCuellar from "../assets/img/guests/jaimecuellar.png";
+import SergioOspina from "../assets/img/guests/sergioospina.png";
+import ErikAlmaraz from "../assets/img/guests/erikalmaraz.png";
+import AnaRangel from "../assets/img/guests/anarangel.png";
+import LuisJimenez from "../assets/img/guests/luisjimenez.png";
+import JamiltonQuintero from "../assets/img/guests/jamiltonquintero.png";
+import Halltec from "../assets/img/guests/halltec.png";
+import AngieSuarez from "../assets/img/guests/angiesuarez.png";
+import NataliaBetancur from "../assets/img/guests/nataliabetancur.png";
+import CristianHenao from "../assets/img/guests/cristianhenao.png";
+import RicardoSantos from "../assets/img/guests/ricardosantos.png";
+import FaridMoreno from "../assets/img/guests/faridmoreno.png";
+import LuisOspina from "../assets/img/guests/luisospina.png";
+import FrankValencia from "../assets/img/guests/frankvalencia.png";
+import BernyMohnblatt from "../assets/img/guests/bernymohnblatt.png";
+import CristianMoreno from "../assets/img/guests/cristianmoreno.png";
+import MiguelTeheran from "../assets/img/guests/miguelteheran.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const info = {
   title: "Invitados",
   guests: [
+  {
+      name: "Miguel Teherán",
+      avatar: MiguelTeheran,
+      role: "arquitecto de soluciones | mvp | platzi | udemy",
+      title: "el ecosistema microsoft",
+      contact: "https://www.instagram.com/mteheran.dev/",
+      url: "https://youtu.be/X1rPLsCwEn8?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Cristian Moreno",
+      avatar: CristianMoreno,
+      role: "Fullstack Javascript Engineer | Google Dev Expert ",
+      title: "El desarrollador fullstack es un invento de la sociedad",
+      contact: "https://www.instagram.com/khriztianmoreno/",
+      url: "https://youtu.be/_N_9zzXwpgs?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Berny Mohnblatt",
+      avatar: BernyMohnblatt,
+      role: "creador de contenido | emprendedor",
+      title: "softwAre as a service",
+      contact: "https://www.instagram.com/saas_berninimo/",
+      url: "https://youtu.be/DwDdMEred9E?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Frank Valencia",
+      avatar: FrankValencia,
+      role: "Creador de contenido | Desarrollador de software",
+      title: "¿Cómo iniciar en desarrollo de software?",
+      contact: "https://www.instagram.com/sinruedatecnologica/",
+      url: "https://youtu.be/Ykpj-hVLjts?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Luis Ospina",
+      avatar: LuisOspina,
+      role: "estudiante it",
+      title: "becas it en alemania",
+      contact: "https://www.instagram.com/luis_ospinaq/",
+      url: "https://youtu.be/2H5jrxS0Oos?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Farid Moreno",
+      avatar: FaridMoreno,
+      role: "Creador de contenido | desarrollador de software",
+      title: "¿PHP está muerto?",
+      contact: "https://www.instagram.com/farid_moreno/",
+      url: "https://youtu.be/CxujFjrQlmM?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Ricardo Santos",
+      avatar: RicardoSantos,
+      role: "Creador de contenido | Staff AI Engineer",
+      title: "Ingeniería Sin Fronteras: Liderando la Tecnología Global",
+      contact: "https://www.instagram.com/tibiritabara90/",
+      url: "https://youtu.be/SLupfqWbKXw?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Cristian Henao",
+      avatar: CristianHenao,
+      role: "Creador de contenido | Instructor sena",
+      title: "La manera en que se enseña es la clave del aprendizaje",
+      contact: "https://www.instagram.com/cristiandavidhenaoh/",
+      url: "https://youtu.be/oG3wVjwgKXc?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Natalia Betancur",
+      avatar: NataliaBetancur,
+      role: "Científica de Datos Senior | docente universitaria",
+      title: "La influencia de la ciencia de datos en la tecnología",
+      contact: "https://www.instagram.com/nata.py_/",
+      url: "https://youtu.be/P75tmAuj1cc?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Angie Gorett Suárez",
+      avatar: AngieSuarez,
+      role: "Psicóloga, Magister en educación | Soft Skill trainer Campuslands",
+      title: "Aprender a aprender: la skill más importante de la industria tech",
+      contact: "https://www.instagram.com/learningorett/",
+      url: "https://youtu.be/p9OaJQ3bB44?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Halltec óscar Aguillón y Camilo Hernández",
+      avatar: Halltec,
+      role: "Creador de Contenido | Empresarios",
+      title: "cómo crear una empresa de software y no morir en el intento",
+      contact: "https://www.instagram.com/halltec/",
+      url: "https://youtu.be/NqSGshterbI?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Jamilton Quintero",
+      avatar: JamiltonQuintero,
+      role: "Creador de Contenido",
+      title: "¿El desarrollador se hace o nace?",
+      contact: "https://www.instagram.com/jamiltonquintero1/",
+      url: "https://youtu.be/F_6hvA9q6g8?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Luis Jiménez",
+      avatar: LuisJimenez,
+      role: "Creador de Contenido",
+      title: "¿qué implica crear una startup para un desarrollador?",
+      contact: "https://www.instagram.com/soyluismi/",
+      url: "https://youtu.be/VtpIQwLqJ90?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Ana Rangel",
+      avatar: AnaRangel,
+      role: "Creador de Contenido",
+      title: "El mundo se mueve gracias al ux",
+      contact: "https://www.instagram.com/ux.ana.rangel/",
+      url: "https://youtu.be/MWtgC9vXGlo?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Erik Almaraz",
+      avatar: ErikAlmaraz,
+      role: "Creador de Contenido",
+      title: "claves para destacar como desarrollador de software",
+      contact: "https://www.instagram.com/erikalmaraz_/",
+      url: "https://youtu.be/q0iyMRIWN9A?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Sergio Ospina",
+      avatar: SergioOspina,
+      role: "Creador de Contenido",
+      title: "Cómo convertirse en un crack: La historia detrás de los LEGO",
+      contact: "https://www.instagram.com/reinodelcoleccionista/",
+      url: "https://youtu.be/UL_qLJ4hcU4?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
+  {
+      name: "Jaime Cuéllar",
+      avatar: JaimeCuellar,
+      role: "Aprendiz SENA",
+      title: "ADSO SENA: Mi experiencia de la etapa lectiva a la productiva y novedades 2024",
+      contact: "https://www.instagram.com/jaimea.cuellar/",
+      url: "https://youtu.be/b9V4w2rVJEM?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+    },
     {
       name: "Laura Vélez - Appitoria",
       avatar: LauraVelez,
@@ -209,63 +362,38 @@ const info = {
 ---
 
 <BaseLayout title={`Tryckers`}>
-  <div
-    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
-  >
-    <span class="text-xl md:text-2xl">{info.title}</span>
-    <hr />
-    <div class="flex flex-wrap">
-      {
-        info.guests.map((guest) => (
-          <div class="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-4/12">
-            <div class="bg-tc-black rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out flex flex-col items-center p-4">
-              <Image
-                class="rounded-full h-24 w-24 object-cover mb-3"
-                src={guest.avatar}
-                alt={guest.name}
-              />
-              <hr class="w-full border-t border-gray-600 my-3" />
-              <div class="text-center">
-                <div class="text-yellow-100 font-bold text-lg grid grid-cols-2  place-items-center">
-                  <span>🌟</span>
-                  <span class="text-xs">{guest.name}</span>
-                </div>
-                <div class="text-gray-300 grid grid-cols-2  place-items-center">
-                  <span>🧠</span>
-                  <span class="text-xs">{guest.role}</span>
-                </div>
-                <div class="text-gray-300 grid grid-cols-2  place-items-center">
-                  <span>🗣️</span>
-                  <span
-                    class="text-xs cursor-pointer "
-                    data-tooltip-target="titleTooltip"
-                  >
-                    Tema
-                  </span>
-                  <div
-                    id="titleTooltip"
-                    role="tooltip"
-                    class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-950"
-                  >
-                    {guest.title}
-                    <div class="tooltip-arrow" data-popper-arrow />
-                  </div>
-                </div>
-                <hr class="w-full border-t border-gray-600 my-3" />
-                <div class="text-gray-300 grid grid-cols-2  place-items-center">
-                  <a href={guest.contact} target="_blank" class="text-xs">
-                    🪪 Contacto
-                  </a>
-                  <a href={guest.url} target="_blank" class="text-xs">
-                    📹 Live
-                  </a>
-                </div>
-                <div class="text-gray-300 grid grid-cols-1  place-items-center" />
-              </div>
+  <div class="max-w-5xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24">
+    <h2 class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8 uppercase tracking-wide">
+      {info.title}
+    </h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {info.guests.map((guest) => (
+        <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+          <Image
+            class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+            src={guest.avatar}
+            alt={guest.name}
+          />
+          <h3 class="text-tc-yellow font-bold text-lg">{guest.name}</h3>
+          <p class="text-gray-300 text-sm">{guest.role}</p>
+
+          <div class="w-full flex flex-col mt-4">
+            <div class="text-gray-400 text-xs mb-2">
+              <span class="font-bold text-gray-200">🗣️ Tema:</span> {guest.title}
+            </div>
+            <hr class="border-t border-gray-600 my-3" />
+            <div class="flex justify-center gap-4">
+              <a href={guest.contact} target="_blank" class="text-xs bg-gray-700 px-3 py-1 rounded-md hover:bg-tc-yellow hover:text-tc-black transition">
+                🪪 
+              </a>
+              <a href={guest.url} target="_blank" class="text-xs bg-gray-700 px-3 py-1 rounded-md hover:bg-tc-yellow hover:text-tc-black transition">
+                📹 
+              </a>
             </div>
           </div>
-        ))
-      }
+        </div>
+      ))}
     </div>
   </div>
 </BaseLayout>
