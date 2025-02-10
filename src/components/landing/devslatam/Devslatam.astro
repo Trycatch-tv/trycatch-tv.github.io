@@ -2,85 +2,62 @@
 import { Icon } from "astro-icon";
 ---
 
-<!--  Devs Latam-->
+<!-- Devs Latam -->
 <section>
   <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
-      <div>
-        <span
-          class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold mt-5 mb-6"
-        >
-          Devs Latam
-        </span>
+    <div class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8">
+      <!-- Título -->
+      <div class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold text-center">
+        Devs Latam
       </div>
-      <div class="mt-4">
-        <div class="bg-tc-black-l p-6 lg:p-8 mt-5 rounded-md">
-          <p class="text-justify text-white mb-2 text-sm">
-            Devs Latam es una plataforma para desarrolladores de software en
-            América Latina que busca fomentar el aprendizaje y el crecimiento
-            profesional. Ofrece programas, proyectos y oportunidades para
-            colaborar, aprender habilidades técnicas y no técnicas y recibir
-            retroalimentación. Además, conecta a los desarrolladores con
-            oportunidades laborales y promueve una cultura de aprendizaje y
-            colaboración continua en la región.
+
+      <!-- Descripción -->
+      <div class="mt-6">
+        <div class="bg-tc-black-l p-6 lg:p-8 rounded-md shadow-md">
+          <p class="text-white text-justify text-base leading-relaxed">
+            Devs Latam es una plataforma para desarrolladores de software en América Latina que busca fomentar el aprendizaje y el crecimiento profesional. 
+            Ofrece programas, proyectos y oportunidades para colaborar, aprender habilidades técnicas y no técnicas y recibir retroalimentación. 
+            Además, conecta a los desarrolladores con oportunidades laborales y promueve una cultura de aprendizaje y colaboración continua en la región.
           </p>
         </div>
       </div>
-      <div class="mt-4">
-        <div class="text-tc-gray-l text-xl lg:text-2xl mb-2">Estadísticas</div>
-        <div
-          class="flex flex-row justify-around lg:justify-between bg-tc-black-l py-4 px-2 lg:px-16 rounded-md"
-        >
-          <div class="text-tc-black bg-tc-gray rounded-md p-4">
-            +1000 Personas
+
+      <!-- Estadísticas -->
+      <div class="mt-8">
+        <div class="text-tc-gray-l text-xl lg:text-2xl text-center mb-4">Estadísticas</div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-tc-black-l py-6 px-4 lg:px-12 rounded-md shadow-md">
+          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
+            +1000 <span class="block text-sm">Personas</span>
           </div>
-          <div class="text-tc-black bg-tc-gray rounded-md p-4">+15 Países</div>
-          <div class="text-tc-black bg-tc-gray rounded-md p-4">
-            +35 Proyectos
+          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
+            +15 <span class="block text-sm">Países</span>
+          </div>
+          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
+            +35 <span class="block text-sm">Proyectos</span>
           </div>
         </div>
       </div>
-      <div class="mt-4">
-        <div class="mb-2">
-          <span class="text-white text-xl lg:text-2xl"
-            >Side Project: GlassCamp</span
-          >
-        </div>
-        <div class="px-8 py-4 bg-tc-black-l rounded-md flex justify-between">
-          <a
-            href="https://github.com/Trycatch-tv/ValidadorBootcamp"
-            target="_blank"
-            class="w-3/12"
-          >
-            <div
-              class="p-4 bg-tc-gray rounded-md flex flex-col justify-center hover:bg-tc-black transition transition-fade duration-300 ease-in-out hover:text-tc-yellow"
-            >
-              <Icon class="w-full h-10 text-tc-black-l" name="mdi:github" />
-              <span class="w-full mt-2 text-center">Docs</span>
+
+      <!-- Side Project: GlassCamp -->
+      <div class="mt-8">
+        <div class="text-white text-xl lg:text-2xl text-center mb-4">Side Project: GlassCamp</div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-tc-black-l p-6 rounded-md shadow-md">
+          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
+            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
+              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
+              <span class="mt-2 text-center text-sm font-bold">Docs</span>
             </div>
           </a>
-          <a
-            href="https://github.com/Trycatch-tv/ValidadorBootcamp"
-            target="_blank"
-            class="w-3/12 ml-2"
-          >
-            <div
-              class="p-4 bg-tc-gray rounded-md flex flex-col justify-center hover:bg-tc-black transition transition-fade duration-300 ease-in-out hover:text-tc-yellow"
-            >
-              <Icon class="w-full h-10 text-tc-black-l" name="mdi:github" />
-              <span class="w-full mt-2 text-center">Backend</span>
+          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
+            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
+              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
+              <span class="mt-2 text-center text-sm font-bold">Backend</span>
             </div>
           </a>
-          <a
-            href="https://github.com/Trycatch-tv/ValidadorBootcamp"
-            target="_blank"
-            class="w-3/12 ml-2"
-          >
-            <div
-              class="p-4 bg-tc-gray rounded-md flex flex-col justify-center hover:bg-tc-black transition transition-fade duration-300 ease-in-out hover:text-tc-yellow"
-            >
-              <Icon class="w-full h-10 text-tc-black-l" name="mdi:github" />
-              <span class="w-full mt-2 text-center">Frontend</span>
+          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
+            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
+              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
+              <span class="mt-2 text-center text-sm font-bold">Frontend</span>
             </div>
           </a>
         </div>
@@ -88,4 +65,4 @@ import { Icon } from "astro-icon";
     </div>
   </div>
 </section>
-<!--  Devs Latam-->
+<!-- Devs Latam -->
