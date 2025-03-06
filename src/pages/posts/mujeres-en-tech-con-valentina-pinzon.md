@@ -9,7 +9,7 @@ tags:
   [
     "- Mujeres en tecnología\n- Comunidades tech\n- Desarrollo de software\n- Inclusión\n- JavaScript\n- Frontend\n- Soft skills"
   ]
-date: 2025-02-28
+date: 2025-02-27
 slug: "mujeres-en-tech-valentina-pinzon"
 published: true
 ---

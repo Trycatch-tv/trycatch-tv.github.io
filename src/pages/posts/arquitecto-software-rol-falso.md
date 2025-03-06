@@ -9,7 +9,7 @@ tags:
   [
     "- Arquitectura de software\n- Desarrollo de software\n- Arquitecto de soluciones\n- Roles en tecnología\n- Carreras en TI\n- Arquitectura Cloud\n- Soft skills"
   ]
-date: 2025-03-06
+date: 2025-03-05
 slug: "arquitecto-software-rol-falso"
 published: true
 ---
