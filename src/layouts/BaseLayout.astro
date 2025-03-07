@@ -1,14 +1,14 @@
 ---
 export interface Props {
-  title: string;
+  title: string
 }
 
-const { title } = Astro.props;
-import Footer from "../components/global/Footer.astro";
-import Navbar from "../components/global/Navbar.astro";
+const { title } = Astro.props
+import Footer from "../components/global/Footer.astro"
+import Navbar from "../components/global/Navbar.astro"
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -19,17 +19,35 @@ import Navbar from "../components/global/Navbar.astro";
     <link rel="icon" type="image/svg+xml" href="/nibble.png" />
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
+  </head><astro:head>
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-1KX127N7NK`}></script>
+    <script>
+      {
+        ;`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1KX127N7NK');
+          `
+      }
+    </script>
+  </astro:head>
+
+
+  <title>{title}</title>
+
   <body class="bg-white dark:bg-tc-black-l">
     <Navbar />
     <slot />
     <Footer />
   </body>
+
+  <style is:global>
+    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+    html {
+      font-family: "JetBrains Mono", monospace, system-ui, sans-serif !important;
+    }
+  </style>
 </html>
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-  html {
-    font-family: "JetBrains Mono", monospace, system-ui, sans-serif !important;
-  }
-</style>

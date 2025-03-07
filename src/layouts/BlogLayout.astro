@@ -1,10 +1,10 @@
 ---
-const { frontmatter } = Astro.props;
-import Footer from "../components/global/Footer.astro";
-import Navbar from "../components/global/Navbar.astro";
+const { frontmatter } = Astro.props
+import Footer from "../components/global/Footer.astro"
+import Navbar from "../components/global/Navbar.astro"
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -15,8 +15,23 @@ import Navbar from "../components/global/Navbar.astro";
     <link rel="icon" type="image/svg+xml" href="/nibble.png" />
     <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script>
     <meta name="generator" content={Astro.generator} />
-    <title>{frontmatter.title}</title>
-  </head>
+  </head><astro:head>
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-1KX127N7NK`}></script>
+    <script>
+      {
+        ;`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1KX127N7NK');
+          `
+      }
+    </script>
+  </astro:head>
+  <title>{frontmatter.title}</title>
+
   <body class="bg-white dark:bg-tc-black-l mt-20 font-sans">
     <Navbar />
     <div
