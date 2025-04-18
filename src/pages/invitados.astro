@@ -13,6 +13,7 @@ import DarioCorreal from "../assets/img/guests/dariocorreal.png"
 import ElProgramadorGT from "../assets/img/guests/elprogramadorgt.png"
 import ErikAlmaraz from "../assets/img/guests/erikalmaraz.png"
 import FaridMoreno from "../assets/img/guests/faridmoreno.png"
+import FrankBetancur from "../assets/img/guests/frankbetancur.jpg"
 import FrankValencia from "../assets/img/guests/frankvalencia.png"
 import GiovannyAriza from "../assets/img/guests/giovanniariza.jpeg"
 import Halltec from "../assets/img/guests/halltec.png"
@@ -41,12 +42,11 @@ import ValentinaPinzon from "../assets/img/guests/valentinapinzon.png"
 import VictorTrujillo from "../assets/img/guests/victortrujillo.png"
 import YoAndroide from "../assets/img/guests/yoandroide.jpg"
 import YulimarDuque from "../assets/img/guests/yulimarduque.png"
-import FrankBetancur from "../assets/img/guests/frankbetancur.jpg"
 import BaseLayout from "../layouts/BaseLayout.astro"
 const info = {
   title: "Invitados",
   guests: [
-  {
+    {
       name: "Frank Betancur",
       avatar: FrankBetancur,
       role: "Fullstack  Developer | Co-Organizador MedellínJS | Community Lead",
@@ -401,13 +401,13 @@ const info = {
     </h2>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6"
     >
       {
         info.guests.map((guest) => (
           <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
             <Image
-              class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+              class="rounded-full h-48 w-48 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
               src={guest.avatar}
               alt={guest.name}
             />
