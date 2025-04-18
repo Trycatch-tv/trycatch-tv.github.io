@@ -1,0 +1,199 @@
+---
+import { Image } from "astro:assets"
+import AngularPeru2024 from "../assets/img/events/angular-peru-2024.png"
+import CampusLands2024 from "../assets/img/events/campuslands-2024.png"
+import Codejavu2024 from "../assets/img/events/codejavu-2024.jpg"
+import Cusol2023 from "../assets/img/events/cusol-2023.png"
+import Cusol2024 from "../assets/img/events/cusol-2024.png"
+import DevFest2024 from "../assets/img/events/devfest-2024.jpg"
+import IWDBga2025 from "../assets/img/events/iwdbga-2025.png"
+import LaDuquesaDev2024 from "../assets/img/events/laduquesadev-2024.jpg"
+import LuchoDataGuru2025 from "../assets/img/events/luchodataguru-2025.jpg"
+import Berninimo2025 from "../assets/img/events/saasboardberninimo-2025.jpg"
+import SinRuedaTecnologica2024 from "../assets/img/events/sinruedatecnologica-2024.jpg"
+import UJaveriana2024 from "../assets/img/events/ujaveriana-2024.png"
+import ZeroXUltraVioleta2024 from "../assets/img/events/zeroxultravioleta-2024.jpg"
+import BaseLayout from "../layouts/BaseLayout.astro"
+const info = {
+  title: "Eventos",
+  eventos: [
+    {
+      titulo: "Hablando con Lucho_DataGuru",
+      url: "https://youtu.be/LjuNk8i0hsE?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: LuchoDataGuru2025,
+      organizador: "Lucho DataGuru",
+      urlOrganizador: "https://www.instagram.com/lucho_dataguru/",
+      date: "2025-04-12",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo: "IWD Bucaramanga WTM De espectadoras a líderes",
+      url: "https://youtu.be/EgjIQ0NOFJo?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: IWDBga2025,
+      organizador: "Women Techmakers Bucaramanga",
+      urlOrganizador: "https://www.instagram.com/wtmbucaramanga",
+      date: "2025-03-24",
+      ubicacion: "Universidad Autónoma de Bucaramanga",
+    },
+    {
+      titulo:
+        "SaaS Board Tu Espacio para Resolver Problemas 🚀 Ayudando Emprendedores de Software -canal Berninimo",
+      url: "https://youtu.be/6qlYCi7RGWQ?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: Berninimo2025,
+      organizador: "Berninimo",
+      urlOrganizador: "https://www.instagram.com/saas_berninimo/",
+      date: "2025-02-22",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo: "Marca personal en tecnología con Yulimar Duque - La Duquesa Dev",
+      url: "https://youtu.be/kbM56tLLxv4?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: LaDuquesaDev2024,
+      organizador: "La Duquesa Dev | Yulimar Duque",
+      urlOrganizador: "https://www.instagram.com/laduquesadev/",
+      date: "2024-12-20",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo:
+        "Aprender Programación en 2025 FT Julián Luna de TryCatch - Sin Rueda Tecnológica",
+      url: "https://youtu.be/fqFK2ZGj0sE?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: SinRuedaTecnologica2024,
+      organizador: "Sin Rueda Tecnológica",
+      urlOrganizador: "https://www.instagram.com/sinruedatecnologica/",
+      date: "2024-12-11",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo:
+        "🎙️La Arquitectura del Éxito Soft Skills que Marcan la Diferencia 🚀 - Cristian Henao - Codejavu",
+      url: "https://youtu.be/GO-HXhZaark?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: Codejavu2024,
+      organizador: "Cristian Henao | Codejavu",
+      urlOrganizador: "https://www.instagram.com/codejavu/",
+      date: "2024-12-04",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo:
+        "DevFest Medellín: Creciendo en la industria tech habilidades, oportunidades y más",
+      url: "https://youtu.be/ZuRhpSI8aPg?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: DevFest2024,
+      organizador: "GDG Medellín",
+      urlOrganizador: "https://www.instagram.com/gdgmed/",
+      date: "2024-11-25",
+      ubicacion: "UPB Medellín",
+    },
+    {
+      titulo: "💻 Taller | Javascript para principiantes práctico",
+      url: "https://youtu.be/Nk6hebnqldw?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: UJaveriana2024,
+      organizador: "Andrés Cerón | Universidad Javeriana",
+      urlOrganizador: "https://www.javeriana.edu.co/inicio",
+      date: "2024-09-23",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo: "Tech Talks en el canal de 0xUltraVioleta",
+      url: "https://youtu.be/l4DnFGuSpX0?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: ZeroXUltraVioleta2024,
+      organizador: "0XUltraVioleta",
+      urlOrganizador: "https://www.twitch.tv/0xultravioleta",
+      date: "2024-09-22",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo:
+        "Kit Esencial Para Emplearse En La Industria Del Software | @campuslands",
+      url: "https://youtu.be/dDLOUI__5G4?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: CampusLands2024,
+      organizador: "Campus Lands",
+      urlOrganizador: "https://www.instagram.com/campuslands",
+      date: "2024-06-01",
+      ubicacion: "Campus Lands",
+    },
+    {
+      titulo: "Express Architecture - Ponencia Flisol Bucaramanga",
+      url: "https://youtu.be/yP5jlXdOVzs?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: Cusol2024,
+      organizador: "Cusol UIS",
+      urlOrganizador: "https://www.instagram.com/cusol_uis/",
+      date: "2024-04-26",
+      ubicacion: "Universidad Industrial de Santander",
+    },
+    {
+      titulo:
+        "Como conseguir trabajo rápido en tecnología TechTalk😎 | Angular Community Perú",
+      url: "https://youtu.be/rC3CY1sbJPk?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: AngularPeru2024,
+      organizador: "Angular Perú",
+      urlOrganizador: "https://www.instagram.com/angularperu/",
+      date: "2024-02-17",
+      ubicacion: "Virtual",
+    },
+    {
+      titulo:
+        "CUSOL TechCode & Software Freedom Day 2023 Más allá del código El poder de las soft skills",
+      url: "https://youtu.be/k2qMJnCRBXo?list=PL4LOq_2-aO28K7OwUPzK5-GBHR1W1W4YD",
+      imagen: Cusol2023,
+      organizador: "Cusol UIS",
+      urlOrganizador: "https://www.instagram.com/cusol_uis/",
+      date: "2023-09-16",
+      ubicacion: "Universidad Industrial de Santander",
+    },
+  ],
+}
+---
+
+<BaseLayout title={`Tryckers`}>
+  <div
+    class="max-w-5xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24"
+  >
+    <h2
+      class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8 uppercase tracking-wide"
+    >
+      {info.title}
+    </h2>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4"
+    >
+      {
+        info.eventos.map((event) => (
+          <article class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 overflow-hidden">
+            <a
+              href={event.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full overflow-hidden"
+            >
+              <Image
+                class="w-full h-48 object-cover transition-transform transform hover:scale-110"
+                src={event.imagen}
+                alt={event.titulo}
+              />
+            </a>
+            <div class="p-6 flex flex-col">
+              <h3 class="text-tc-yellow font-bold text-sm mb-2">
+                {event.titulo}
+              </h3>
+              <div class="flex flex-wrap items-center text-gray-300 text-xs mb-4 space-x-2">
+                <a
+                  href={event.urlOrganizador}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:underline"
+                >
+                  {event.organizador}
+                </a>
+                <span>•</span>
+                <span>{event.ubicacion}</span>
+              </div>
+              <span class="text-xs text-gray-300">{event.date}</span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
