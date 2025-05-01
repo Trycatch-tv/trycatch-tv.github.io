@@ -1,0 +1,82 @@
+---
+const info = {
+  title: "Tipos de Contenido",
+  description:
+    "En TryCatch.tv compartimos contenido variado pensado para impulsar tu crecimiento profesional y técnico. Estos son algunos de los formatos que puedes encontrar:",
+  contentTypes: [
+    {
+      icon: "🎥",
+      title: "Videos educativos",
+      description:
+        "Tutoriales, análisis de herramientas y conceptos clave de desarrollo y arquitectura.",
+    },
+    {
+      icon: "📺",
+      title: "Transmisiones en vivo",
+      description:
+        "Sesiones interactivas con la comunidad resolviendo dudas, creando proyectos y compartiendo experiencias.",
+    },
+    {
+      icon: "🧵",
+      title: "Shorts y tips",
+      description:
+        "Videos breves con hacks, recomendaciones y reflexiones del mundo tech.",
+    },
+    {
+      icon: "📚",
+      title: "Lecturas en comunidad",
+      description:
+        "Club de lectura de libros sobre software, soft skills y liderazgo.",
+    },
+    {
+      icon: "📣",
+      title: "Divulgación y opinión",
+      description:
+        "Noticias, comentarios y reflexiones sobre lo que pasa en la industria de la tecnología.",
+    },
+    {
+      icon: "🎙️",
+      title: "Entrevistas",
+      description:
+        "Conversaciones con personas referentes del ecosistema tech sobre sus historias y aprendizajes.",
+    },
+  ],
+}
+---
+
+<section>
+  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div
+      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
+    >
+      <!-- Título -->
+      <div class="text-center mb-8">
+        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
+          {info.title}
+        </h2>
+        <p class="text-gray-300 text-base max-w-2xl mx-auto">
+          {info.description}
+        </p>
+      </div>
+
+      <!-- Tarjetas -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+      >
+        {
+          info.contentTypes.map((item) => (
+            <div class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105">
+              <div class="text-4xl mb-3">{item.icon}</div>
+              <h3 class="text-tc-yellow font-bold text-lg mb-2">
+                {item.title}
+              </h3>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

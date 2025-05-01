@@ -1,0 +1,47 @@
+---
+const info = {
+  title: "¡Ya disponible!",
+  subtitle: "Guía completa: Cómo iniciar en el desarrollo de software",
+  description:
+    "Aprende desde cero cómo prepararte para tu primer trabajo como desarrollador. Un libro pensado para quienes quieren entrar al mundo tech con bases sólidas.",
+  cta: "Comprar libro",
+  ctaLink:
+    "https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/",
+  image:
+    "https://s3.us-west-2.amazonaws.com/store.trycatch.tv/wp-content/uploads/2025/04/23095930/Portada-libro-guia-para-iniciar-en-desarrollo-de-software.jpg",
+}
+---
+
+<section class="relative overflow-hidden rounded-2xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div
+      class="relative bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8 flex flex-col lg:flex-row items-center justify-between gap-10"
+    >
+      <!-- Imagen del libro -->
+      <img
+        src={info.image}
+        alt="Libro TryCatch.tv"
+        class="w-48 sm:w-64 rounded-md shadow-md border"
+      />
+
+      <!-- Contenido -->
+      <div class="text-center lg:text-left max-w-xl">
+        <h2 class="text-tc-yellow text-2xl lg:text-3xl font-bold mb-2">
+          {info.title}
+        </h2>
+        <h3 class="text-white text-xl lg:text-2xl font-semibold mb-4">
+          {info.subtitle}
+        </h3>
+        <p class="text-gray-300 text-sm mb-6">{info.description}</p>
+        <a
+          href={info.ctaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-tc-yellow text-tc-black font-semibold px-6 py-3 rounded-md hover:opacity-90 transition"
+        >
+          {info.cta}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

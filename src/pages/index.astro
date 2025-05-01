@@ -1,19 +1,28 @@
 ---
-import Contact from "../components/landing/contact/Contact.astro";
-import Devslatam from "../components/landing/devslatam/Devslatam.astro";
-import Intro from "../components/landing/intro/Intro.astro";
-import Projects from "../components/landing/projects/Projects.astro";
-import SocialNetworks from "../components/landing/socialNetworks/SocialNetworks.astro";
-import TryckersLanding from "../components/landing/tryckers/Tryckers.banner.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Contact from "../components/landing/contact/Contact.astro"
+import Contenido from "../components/landing/contenido/Contenido.astro"
+import Devslatam from "../components/landing/devslatam/Devslatam.astro"
+import Intro from "../components/landing/intro/Intro.astro"
+import NasioBanner from "../components/landing/nasio/Nasio.banner.astro"
+import Projects from "../components/landing/projects/Projects.astro"
+import PromoLibro from "../components/landing/promoLibro/PromoLibro.astro"
+import SocialNetworks from "../components/landing/socialNetworks/SocialNetworks.astro"
+import Testimonios from "../components/landing/testimonios/Testimonios.astro"
+import TryckersLanding from "../components/landing/tryckers/Tryckers.banner.astro"
+
+import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
 <BaseLayout title="TryCatch.tv">
-  <!--<Banner />-->
+  <!-- <Banner /> -->
   <Intro />
   <SocialNetworks />
+  <PromoLibro />
+  <Contenido />
+  <NasioBanner />
   <TryckersLanding />
   <Devslatam />
+  <Testimonios />
   <Projects />
   <Contact />
 </BaseLayout>
