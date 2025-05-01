@@ -1,68 +1,93 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon"
+
+const info = {
+  title: "Devs Latam",
+  subtitle:
+    "Una plataforma impulsada por la comunidad para desarrolladores de América Latina. Aprende, colabora y crece profesionalmente participando en proyectos, eventos y mentorías.",
+  stats: [
+    { value: "+1000", label: "Personas" },
+    { value: "+15", label: "Países" },
+    { value: "+35", label: "Proyectos" },
+  ],
+  links: [
+    {
+      name: "Docs",
+      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
+      icon: "mdi:github",
+    },
+    {
+      name: "Backend",
+      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
+      icon: "mdi:github",
+    },
+    {
+      name: "Frontend",
+      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
+      icon: "mdi:github",
+    },
+  ],
+}
 ---
 
-<!-- Devs Latam -->
 <section>
   <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8">
-      <!-- Título -->
-      <div class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold text-center">
-        Devs Latam
-      </div>
-
-      <!-- Descripción -->
-      <div class="mt-6">
-        <div class="bg-tc-black-l p-6 lg:p-8 rounded-md shadow-md">
-          <p class="text-white text-justify text-base leading-relaxed">
-            Devs Latam es una plataforma para desarrolladores de software en América Latina que busca fomentar el aprendizaje y el crecimiento profesional. 
-            Ofrece programas, proyectos y oportunidades para colaborar, aprender habilidades técnicas y no técnicas y recibir retroalimentación. 
-            Además, conecta a los desarrolladores con oportunidades laborales y promueve una cultura de aprendizaje y colaboración continua en la región.
-          </p>
+    <div
+      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8"
+    >
+      <!-- Título y subtítulo -->
+      <div class="text-center mb-10">
+        <div
+          class="flex justify-center items-center text-3xl lg:text-4xl text-white font-extrabold mb-4"
+        >
+          <Icon class="w-10 h-10 text-white mr-2" name="mdi:account-group" />
+          <span>{info.title}</span>
         </div>
+        <p class="text-gray-300 max-w-2xl mx-auto text-lg">{info.subtitle}</p>
       </div>
 
       <!-- Estadísticas -->
-      <div class="mt-8">
-        <div class="text-tc-gray-l text-xl lg:text-2xl text-center mb-4">Estadísticas</div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-tc-black-l py-6 px-4 lg:px-12 rounded-md shadow-md">
-          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
-            +1000 <span class="block text-sm">Personas</span>
-          </div>
-          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
-            +15 <span class="block text-sm">Países</span>
-          </div>
-          <div class="bg-tc-gray text-tc-black text-center p-5 rounded-md font-bold text-lg">
-            +35 <span class="block text-sm">Proyectos</span>
-          </div>
+      <div class="mb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {
+            info.stats.map((stat) => (
+              <div class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-md p-6 text-center">
+                <h3 class="text-2xl font-bold text-white">{stat.value}</h3>
+                <p class="text-sm text-gray-400">{stat.label}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
 
-      <!-- Side Project: GlassCamp -->
-      <div class="mt-8">
-        <div class="text-white text-xl lg:text-2xl text-center mb-4">Side Project: GlassCamp</div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-tc-black-l p-6 rounded-md shadow-md">
-          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
-            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
-              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
-              <span class="mt-2 text-center text-sm font-bold">Docs</span>
-            </div>
-          </a>
-          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
-            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
-              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
-              <span class="mt-2 text-center text-sm font-bold">Backend</span>
-            </div>
-          </a>
-          <a href="https://github.com/Trycatch-tv/ValidadorBootcamp" target="_blank" class="group">
-            <div class="p-6 bg-tc-gray rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
-              <Icon class="w-12 h-12 text-tc-black-l transition group-hover:text-tc-yellow" name="mdi:github" />
-              <span class="mt-2 text-center text-sm font-bold">Frontend</span>
-            </div>
-          </a>
+      <!-- Side Project -->
+      <div class="text-center mb-6">
+        <h3 class="text-white text-xl lg:text-2xl font-semibold mb-6">
+          Side Project: GlassCamp
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {
+            info.links.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group"
+              >
+                <div class="p-6 bg-tc-black-l border border-gray-700 rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
+                  <Icon
+                    class="w-10 h-10 text-white group-hover:text-tc-yellow transition"
+                    name={link.icon}
+                  />
+                  <span class="mt-2 text-sm text-gray-300 font-bold">
+                    {link.name}
+                  </span>
+                </div>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Devs Latam -->

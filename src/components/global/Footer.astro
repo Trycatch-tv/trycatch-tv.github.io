@@ -1,39 +1,34 @@
 ---
-const year = new Date().getFullYear();
-const footerItems = [
-  // {
-  //   name: "Sobre Mi",
-  //   path: "about",
-  // },
-  // {
-  //   name: "Trycker Store",
-  //   path: "/store",
-  // },
-  // {
-  //   name: "Links",
-  //   path: "/links",
-  // },
-  // {
-  //   name: "Blog",
-  //   path: "/blog",
-  // },
-  // {
-  //   name: "Contacto",
-  //   path: "contact",
-  // },
-];
+import { Icon } from "astro-icon"
+import Button from "./ui/button.astro"
+
+const info = {
+  donationText:
+    "Si te ha gustado el contenido o te ha servido en tu camino como dev, puedes apoyar el proyecto con una donación.",
+  donationLink: "https://buymeacoffee.com/trycatchtv",
+  feedbackText:
+    "¿Quieres dejar tu testimonio o sugerencia? Usa el siguiente enlace y ayúdanos a mejorar y crecer como comunidad.",
+  feedbackLink: "https://forms.gle/5RmFDcpJp5tv3DgM8",
+  year: new Date().getFullYear(),
+  feedbackForm: "https://bit.ly/encuesta_trycatch",
+  testimonialForm: "https://bit.ly/testimoniotc",
+  mpLink: "https://mpago.li/13UWNV7",
+  paypalLink: "https://paypal.me/judlup",
+}
+const footerItems = []
 ---
 
-<footer class="bg-tc-black rounded-md shadow m-4 md:fixed md:bottom-0">
+<!-- Footer fijo reducido (solo legal y navegación) -->
+<footer class="bg-tc-black rounded-md shadow m-4 md:fixed md:bottom-0 z-50">
   <div
     class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
   >
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-      >© {year}
+    <span class="text-sm text-gray-500 sm:text-center">
+      © {info.year}
       <a href="https://trycatch.tv/" class="hover:underline"> TryCatch.tv</a>
     </span>
     <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+      class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0"
     >
       {
         footerItems.map((item) => (
@@ -45,5 +40,43 @@ const footerItems = [
         ))
       }
     </ul>
+  </div>
+</footer>
+
+<!-- Footer completo con contenido -->
+<footer class="bg-tc-black border-t border-gray-700 pt-10 text-center px-4">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <!-- Donaciones -->
+    <div
+      class="bg-tc-black-l border border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition"
+    >
+      <Icon class="w-8 h-8 text-tc-yellow mb-2" name="mdi:coffee" />
+      <h3 class="text-white font-bold text-lg mb-2">Apóyanos con un café ☕</h3>
+      <p class="text-gray-300 text-sm mb-4 max-w-xs">{info.donationText}</p>
+      <div class="flex gap-3">
+        <Button buttonText="MercadoPago" buttonLink={info.mpLink} />
+        <Button buttonText="PayPal" buttonLink={info.paypalLink} />
+      </div>
+    </div>
+
+    <!-- Feedback y Testimonios -->
+    <div
+      class="bg-tc-black-l border border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition"
+    >
+      <Icon class="w-8 h-8 text-tc-yellow mb-2" name="mdi:message-draw" />
+      <h3 class="text-white font-bold text-lg mb-2">Déjanos tu opinión 💬</h3>
+      <p class="text-gray-300 text-sm mb-4 max-w-sm">{info.feedbackText}</p>
+      <div class="flex gap-3">
+        <Button buttonText="Feedback" buttonLink={info.feedbackForm} />
+        <Button buttonText="Testimonio" buttonLink={info.testimonialForm} />
+      </div>
+    </div>
+
+    <!-- Calendario -->
+  </div>
+
+  <!-- Copyright -->
+  <div class="mt-10 text-gray-500 text-xs">
+    © {info.year} TryCatch.tv – Hecho con ❤️ desde LATAM
   </div>
 </footer>
