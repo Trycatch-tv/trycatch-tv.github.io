@@ -1,0 +1,100 @@
+---
+import Button from "../../global/ui/button.astro"
+
+const info = {
+  title: "Comunidad Nas.io",
+  subtitle:
+    "Descubre lo que puedes encontrar y cómo impulsar tu carrera junto a otras personas apasionadas por la tecnología en LATAM.",
+  imageSrc:
+    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  features: [
+    {
+      icon: "👥",
+      title: "Networking",
+      description: "Conecta con otros devs de LATAM.",
+    },
+    {
+      icon: "🎓",
+      title: "Mentorías",
+      description: "Sesiones uno-a-uno con expertos.",
+    },
+    {
+      icon: "🧩",
+      title: "Challenges",
+      description: "Accede a cheatsheets y plantillas.",
+    },
+    {
+      icon: "📅",
+      title: "Eventos",
+      description: "Asiste a eventos virtuales y presenciales.",
+    },
+    {
+      icon: "📬",
+      title: "Contenido exclusivo",
+      description: "Recibe recursos y actualizaciones solo para miembros.",
+    },
+    {
+      icon: "💬",
+      title: "Foros y comunidad",
+      description: "Participa en conversaciones técnicas y colaborativas.",
+    },
+  ],
+}
+---
+
+<section>
+  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div
+      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8"
+    >
+      <!-- Encabezado con imagen y texto -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-10">
+        <!-- Imagen o placeholder -->
+        {
+          info.imageSrc ? (
+            <img
+              src={info.imageSrc}
+              alt="Banner comunidad Nas.io"
+              class="w-full rounded-lg border border-gray-600 shadow-md"
+            />
+          ) : (
+            <div class="w-full h-64 bg-tc-black-l border border-gray-700 rounded-lg flex items-center justify-center text-6xl text-gray-600">
+              🤝
+            </div>
+          )
+        }
+
+        <!-- Título + subtítulo -->
+        <div class="text-center lg:text-left">
+          <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">
+            {info.title}
+          </h2>
+          <p class="text-gray-300 text-lg">{info.subtitle}</p>
+        </div>
+      </div>
+
+      <!-- Características -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-6xl mx-auto"
+      >
+        {
+          info.features.map((item) => (
+            <div class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-md p-6 text-center">
+              <div class="text-3xl mb-2">{item.icon}</div>
+              <h3 class="text-tc-yellow font-bold text-lg mb-1">
+                {item.title}
+              </h3>
+              <p class="text-gray-400 text-sm">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Botón -->
+      <Button
+        buttonText="Únete a la comunidad"
+        buttonLink="https://nas.io/trycatchtv"
+      />
+    </div>
+  </div>
+</section>

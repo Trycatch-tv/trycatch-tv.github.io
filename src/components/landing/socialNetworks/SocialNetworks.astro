@@ -87,29 +87,52 @@ const info = {
   <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
     <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
       <div class="mt-5 mb-6">
-        <div class="flex items-center justify-center flex-row text-tc-gray-l text-3xl lg:text-4xl">
+        <!-- Título -->
+        <div
+          class="flex items-center justify-center flex-row text-tc-gray-l text-3xl lg:text-4xl"
+        >
           <Icon class="w-10 h-10 text-white" name="ri:share-fill" />
-          <span class="font-extrabold ml-2">
-            {info.title}
-          </span>
+          <span class="font-extrabold ml-2">{info.title}</span>
         </div>
-        <ul class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-8 bg-tc-black-l rounded-md p-5 mt-5">
-          {info.socialNetworks.map((socialNetwork) => (
-            <li class="text-white">
-              <a
-                href={socialNetwork.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center justify-center rounded-full transition-transform transform hover:scale-110"
-              >
-                <Icon
-                  class="text-white hover:text-tc-yellow w-8 h-8"
-                  name={socialNetwork.icon}
-                />
-              </a>
-            </li>
-          ))}
+
+        <!-- Subtítulo transmisiones -->
+        <p class="text-center text-sm text-gray-300 mt-4 mb-4">
+          📺 Transmitimos en vivo todos los días a las <span
+            class="text-tc-yellow font-semibold">9:00 pm (hora Colombia)</span
+          > en Twitch y otras plataformas.
+        </p>
+
+        <!-- Redes sociales -->
+        <ul
+          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-8 bg-tc-black-l rounded-md p-5 mt-5"
+        >
+          {
+            info.socialNetworks.map((socialNetwork) => (
+              <li class="text-white">
+                <a
+                  href={socialNetwork.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center rounded-full transition-transform transform hover:scale-110"
+                >
+                  <Icon
+                    class="text-white hover:text-tc-yellow w-8 h-8"
+                    name={socialNetwork.icon}
+                  />
+                </a>
+              </li>
+            ))
+          }
         </ul>
+        <iframe
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FBogota&showPrint=0&showCalendars=0&mode=MONTH&src=YTc3ZmVkNmYwNDhiZDk3OTFhZTQ0MmIzODBiZWE2MGNmZTk2YjM1MTJiMWJiZjRiMWVhM2IzY2UxZWUwMzIxYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161"
+          style="border-width:0"
+          style="border-width:0"
+          width="100%"
+          height="400"
+          frameborder="0"
+          scrolling="no"
+          class="w-full rounded-md mt-4"></iframe>
       </div>
     </div>
   </div>

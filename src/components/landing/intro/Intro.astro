@@ -1,5 +1,6 @@
 ---
 import profile from "../../../assets/img/profile.jpg"
+import Button from "../../global/ui/button.astro"
 
 const info = {
   altProfile: "Judlup",
@@ -21,7 +22,7 @@ const info = {
 }
 ---
 
-<section class="mt-5 py-16">
+<section class="mt-24">
   <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
     <div
       class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8 shadow-lg text-center"
@@ -53,25 +54,7 @@ const info = {
       <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
         {
           info.ctas.map((cta) => (
-            <a
-              href={cta.link}
-              class="flex items-center justify-center gap-2 py-3 px-6 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-105"
-            >
-              {cta.text}
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
+            <Button buttonText={cta.text} buttonLink={cta.link} />
           ))
         }
       </div>

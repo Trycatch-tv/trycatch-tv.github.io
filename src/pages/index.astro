@@ -1,51 +1,28 @@
 ---
-import BannerLanding from "../components/landing/BannerLanding/BannerLanding.astro"
 import Contact from "../components/landing/contact/Contact.astro"
+import Contenido from "../components/landing/contenido/Contenido.astro"
 import Devslatam from "../components/landing/devslatam/Devslatam.astro"
 import Intro from "../components/landing/intro/Intro.astro"
+import NasioBanner from "../components/landing/nasio/Nasio.banner.astro"
 import Projects from "../components/landing/projects/Projects.astro"
+import PromoLibro from "../components/landing/promoLibro/PromoLibro.astro"
 import SocialNetworks from "../components/landing/socialNetworks/SocialNetworks.astro"
+import Testimonios from "../components/landing/testimonios/Testimonios.astro"
 import TryckersLanding from "../components/landing/tryckers/Tryckers.banner.astro"
-import BaseLayout from "../layouts/BaseLayout.astro"
 
-const cards = [
-  {
-    icon: "👥",
-    title: "Networking",
-    description: "Conecta con otros devs de LATAM.",
-  },
-  {
-    icon: "🎓",
-    title: "Mentorías",
-    description: "Sesiones uno-a-uno con expertos.",
-  },
-  {
-    icon: "🛠️",
-    title: "Challenges",
-    description: "Accede a cheatsheets y plantillas.",
-  },
-  {
-    icon: "📚",
-    title: "Eventos",
-    description: "Asiste a eventos.",
-  },
-]
+import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
 <BaseLayout title="TryCatch.tv">
-  <!--<Banner />-->
+  <!-- <Banner /> -->
   <Intro />
   <SocialNetworks />
-  <BannerLanding
-    imageSrc="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    heading="Únete a la Comunidad en Nas.io"
-    subheading="Descubre lo que puedes encontrar y cómo impulsar tu carrera"
-    buttonText="Únete a la comunidad"
-    buttonLink="https://nas.io/trycatch_tv"
-    cards={cards}
-  />
+  <PromoLibro />
+  <Contenido />
+  <NasioBanner />
   <TryckersLanding />
   <Devslatam />
+  <Testimonios />
   <Projects />
   <Contact />
 </BaseLayout>

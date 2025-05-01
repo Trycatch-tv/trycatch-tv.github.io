@@ -1,75 +1,91 @@
 ---
-import Icon from "astro-icon";
+import Icon from "astro-icon"
 
 const info = {
-  title: "Proyectos",
+  title: "Proyectos Open Source",
   description:
-    "Estos son algunos de los proyectos en los que trabajamos y son Open Source.",
+    "Creamos herramientas pensadas para desarrolladores y equipos de LATAM. Estos proyectos son colaborativos, públicos y están diseñados para resolver problemas reales de nuestra comunidad.",
   proyectos: [
     {
+      icon: "🧠",
       title: "My Level",
       description:
-        "Extensión para Google Chrome de encuesta para medir el seniority de los desarrolladores.",
+        "Extensión de Chrome que permite a los desarrolladores autoevaluar su nivel técnico a través de una encuesta sencilla.",
       link: "https://chrome.google.com/webstore/detail/my-level/mbdaaoibdkddnkadkpjakclfhfogenma",
       repo: "https://github.com/Trycatch-tv/my-level",
     },
     {
+      icon: "🌐",
       title: "Sitio Devs Latam",
       description:
-        "Landing Page de Devs Latam, con información de la comunidad y sus proyectos.",
+        "Landing informativa de Devs Latam con datos de la comunidad, proyectos destacados y oportunidades de colaboración.",
       link: "https://dev-devslatam.netlify.app/",
       repo: "https://github.com/Trycatch-tv/devs-latam-frontend",
     },
     {
-      title: "Acortador de links",
+      icon: "🔗",
+      title: "Acortador de Links",
       description:
-        "Acortador de enlaces con AWS Lambdas, React y DynamoDB para los videos que se comparten en las diferentes cuentas.",
+        "Servicio para acortar URLs usando AWS Lambda, DynamoDB y React. Ideal para compartir contenido en redes.",
       link: "https://trycatchlinks.netlify.app",
       repo: "https://github.com/Trycatch-tv?q=short&type=all&language=&sort=",
     },
   ],
-};
+}
 ---
 
 <section>
   <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8 shadow-lg">
+    <div
+      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
+    >
       <!-- Título -->
-      <div class="text-center">
-        <h2 class="text-tc-gray-l text-3xl lg:text-4xl font-extrabold">
+      <div class="text-center mb-10">
+        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
           {info.title}
         </h2>
-        <p class="text-tc-gray text-base mt-3">{info.description}</p>
+        <p class="text-gray-300 text-base max-w-2xl mx-auto">
+          {info.description}
+        </p>
       </div>
 
-      <!-- Contenedor de Proyectos -->
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {info.proyectos.map((proyecto) => (
-          <div class="bg-tc-black-l p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
-            <h3 class="text-tc-gray-l text-lg font-semibold">{proyecto.title}</h3>
-            <p class="text-tc-gray text-sm mt-2">{proyecto.description}</p>
-
-            <!-- Botones -->
-            <div class="mt-4 flex justify-between">
-              <a
-                href={proyecto.link}
-                target="_blank"
-                class="flex items-center gap-2 px-4 py-2 bg-gray-300 rounded-md text-sm font-semibold hover:bg-tc-black hover:text-tc-yellow transition"
-              >
-                <Icon class="w-5 h-5 text-tc-black-l" name="carbon:view-filled" />
-                Ver
-              </a>
-              <a
-                href={proyecto.repo}
-                target="_blank"
-                class="flex items-center gap-2 px-4 py-2 bg-gray-300 rounded-md text-sm font-semibold hover:bg-tc-black hover:text-tc-yellow transition"
-              >
-                <Icon class="w-5 h-5 text-tc-black-l" name="mdi:github" />
-                Repo
-              </a>
+      <!-- Lista de proyectos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          info.proyectos.map((proyecto) => (
+            <div class="bg-tc-black-l border border-gray-700 rounded-md p-6 flex flex-col justify-between hover:shadow-xl transition-transform transform hover:scale-105 text-center">
+              <div class="flex flex-col gap-3 items-center">
+                <div class="text-3xl">{proyecto.icon}</div>
+                <h3 class="text-lg font-bold text-tc-yellow">
+                  {proyecto.title}
+                </h3>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                  {proyecto.description}
+                </p>
+              </div>
+              <div class="mt-6 flex gap-3">
+                <a
+                  href={proyecto.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 flex items-center justify-center gap-2 bg-gray-300 hover:bg-white text-black font-semibold text-sm px-4 py-2 rounded-md transition"
+                >
+                  <Icon class="w-5 h-5" name="carbon:view-filled" />
+                  Ver
+                </a>
+                <a
+                  href={proyecto.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 flex items-center justify-center gap-2 bg-gray-300 hover:bg-white text-black font-semibold text-sm px-4 py-2 rounded-md transition"
+                >
+                  <Icon class="w-5 h-5" name="mdi:github" />
+                  Repo
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
