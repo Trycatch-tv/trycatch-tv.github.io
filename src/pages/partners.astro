@@ -1,13 +1,21 @@
 ---
-import { Image } from "astro:assets";
-import CodeCrafter from "../assets/img/partners/codecraftersio.jpeg";
-import CodiumAI from "../assets/img/partners/codium.png";
-import ContactOut from "../assets/img/partners/contactout.png";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets"
+import CloudCamp from "../assets/img/partners/cloudcamp.jpeg"
+import CodeCrafter from "../assets/img/partners/codecraftersio.jpeg"
+import CodiumAI from "../assets/img/partners/codium.png"
+import ContactOut from "../assets/img/partners/contactout.png"
+import BaseLayout from "../layouts/BaseLayout.astro"
 
 const info = {
   titleTeam: "Partners",
   partnersTeam: [
+    {
+      name: "CloudCamp",
+      description:
+        "Te convertimos en un experto en todos los temas de la nube, con cursos en vivo.",
+      logo: CloudCamp,
+      url: "https://cloudcamp.la/",
+    },
     {
       name: "ContactOut",
       description:
@@ -30,33 +38,37 @@ const info = {
       url: "https://www.codium.ai/",
     },
   ],
-};
+}
 ---
 
 <BaseLayout title="Partners">
-  <div class="max-w-5xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl text-center mt-24">
+  <div
+    class="max-w-5xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl text-center mt-24"
+  >
     <!-- Título -->
     <h2 class="text-3xl lg:text-4xl font-extrabold text-tc-gray-l mb-6">
       {info.titleTeam}
     </h2>
-    
+
     <hr class="border-t border-gray-600 mb-8" />
 
     <!-- Grid de Partners -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {info.partnersTeam.map((partner) => (
-        <a href={partner.url} target="_blank" class="group">
-          <div class="bg-tc-black-l rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center">
-            <Image
-              class="rounded-full h-28 w-28 object-cover mb-4 shadow-md border-2 border-gray-600"
-              src={partner.logo}
-              alt={partner.name}
-            />
-            <h3 class="text-tc-yellow font-bold text-lg">{partner.name}</h3>
-            <p class="text-gray-300 text-sm mt-2">{partner.description}</p>
-          </div>
-        </a>
-      ))}
+      {
+        info.partnersTeam.map((partner) => (
+          <a href={partner.url} target="_blank" class="group">
+            <div class="bg-tc-black-l rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center">
+              <Image
+                class="rounded-full h-48 w-48 object-cover mb-4 shadow-md border-2 border-gray-600"
+                src={partner.logo}
+                alt={partner.name}
+              />
+              <h3 class="text-tc-yellow font-bold text-lg">{partner.name}</h3>
+              <p class="text-gray-300 text-sm mt-2">{partner.description}</p>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
