@@ -1,4 +1,5 @@
 ---
+import BlogSearch from "../components/landing/blog/BlogSearch.jsx"
 import BaseLayout from "../layouts/BaseLayout.astro"
 const allPosts = await Astro.glob("../pages/posts/*.md")
 const posts = allPosts.sort((a, b) => {
@@ -7,6 +8,17 @@ const posts = allPosts.sort((a, b) => {
     new Date(a.frontmatter.date).getTime()
   )
 })
+
+// Obtener parámetros de búsqueda desde la URL SSR
+const url = new URL(Astro.request.url)
+const q = url.searchParams.get("q") || ""
+const searchQuery = q.toLowerCase()
+
+const filteredPosts = posts.filter(
+  (post) =>
+    post.frontmatter.title.toLowerCase().includes(searchQuery) ||
+    post.frontmatter.author.toLowerCase().includes(searchQuery)
+)
 ---
 
 <BaseLayout title={`Blog`}>
@@ -21,36 +33,12 @@ const posts = allPosts.sort((a, b) => {
       Últimas entradas:
     </h2>
 
-    <div class="space-y-6">
-      {
-        posts.map((post: any) => (
-          <a
-            href={post.url}
-            class="block hover:bg-tc-black-l dark:hover:bg-tc-gray bg-tc-gray dark:bg-tc-black rounded-md p-4 transition"
-          >
-            <div class="flex items-center space-x-8 hover:text-white">
-              <img
-                class="w-20 h-20 rounded-full object-cover"
-                src={post.frontmatter.image.url}
-                alt={post.frontmatter.image.alt}
-              />
-              <div class="flex flex-col text-tc-black dark:text-white">
-                <span class="text-xl font-medium">
-                  {post.frontmatter.title}
-                </span>
-                <span class="text-sm">
-                  {post.frontmatter.author} |{" "}
-                  {new Date(post.frontmatter.date).toLocaleDateString("es-CO", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              </div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
+    <BlogSearch
+      client:load
+      posts={posts.map((post) => ({
+        url: post.url,
+        frontmatter: post.frontmatter,
+      }))}
+    />
   </div>
 </BaseLayout>
