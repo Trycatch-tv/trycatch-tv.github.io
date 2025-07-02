@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon"
+import TestimoniosCarousel from "./TestimoniosCarousel.jsx"
 
 const info = {
   title: "Testimonios",
@@ -10,28 +10,28 @@ const info = {
       name: "Yohan Ospina",
       country: "Colombia",
       quote:
-        "Descubrí TryCatch.tv haciendo scroll en TikTok y fue amor a primera vista: aquí no solo hablan de código, también de habilidades blandas y—lo mejor—Julián responde todas mis preguntas en vivo. Como principiante, los lives y el libro Codear me dieron el empujoncito que necesitaba: ahora tengo un plan de estudio claro, más valentía y confianza para seguir este camino. Pasé de estar perdido a usar el “scroll infinito” para aprender, y recomiendo el canal a ojo cerrado porque siempre encuentras a alguien que lee tu mensaje y te ayuda a subir de nivel.",
+        'Descubrí TryCatch.tv haciendo scroll en TikTok y fue amor a primera vista: aquí no solo hablan de código, también de habilidades blandas y—lo mejor—Julián responde todas mis preguntas en vivo. Como principiante, los lives y el libro Codear me dieron el empujoncito que necesitaba: ahora tengo un plan de estudio claro, más valentía y confianza para seguir este camino. Pasé de estar perdido a usar el "scroll infinito" para aprender, y recomiendo el canal a ojo cerrado porque siempre encuentras a alguien que lee tu mensaje y te ayuda a subir de nivel.',
     },
     {
       name: "Daniel Arango",
       country: "Colombia",
       quote:
-        "Llegué a TryCatch.tv por una revisión de portafolio en Facebook y me quedé cuando Julián mencionó Debugging Teams. Ese libro me hizo replantear qué quiero, qué tengo y qué necesito en mi rol. La famosa analogía del “dev pega-ladrillos” me impulsó a buscar un propósito más grande que solo cerrar tickets. Por eso recomiendo el canal: desglosa el conocimiento de forma práctica y te motiva a crecer en cada etapa de la carrera.",
+        'Llegué a TryCatch.tv por una revisión de portafolio en Facebook y me quedé cuando Julián mencionó Debugging Teams. Ese libro me hizo replantear qué quiero, qué tengo y qué necesito en mi rol. La famosa analogía del "dev pega-ladrillos" me impulsó a buscar un propósito más grande que solo cerrar tickets. Por eso recomiendo el canal: desglosa el conocimiento de forma práctica y te motiva a crecer en cada etapa de la carrera.',
     },
     {
       name: "Andrea Jimenez",
       country: "Colombia",
       quote:
-        "La sesión con Julián fue súper útil. Se nota de inmediato su experiencia, y me ayudó a resolver un problema con consejos muy prácticos. Aunque su sugerencia implicaba una tarea grande (y algo dispendiosa), te da todas las herramientas para dividirla, empezarla y avanzar de forma autónoma hasta terminarla.Además, tiene una visión optimista pero realista sobre los sistemas, lo cual ayuda muchísimo cuando estás planteando soluciones: no solo te aconseja, sino que construye la solución contigo durante la sesión.Sin duda, lo recomiendo si buscas acompañamiento claro, aterrizado y efectivo.",
+        "La sesión con Julián fue súper útil. Se nota de inmediato su experiencia, y me ayudó a resolver un problema con consejos muy prácticos. Aunque su sugerencia implicaba una tarea grande (y algo dispendiosa), te da todas las herramientas para dividirla, empezarla y avanzar de forma autónoma hasta terminarla. Además, tiene una visión optimista pero realista sobre los sistemas, lo cual ayuda muchísimo cuando estás planteando soluciones: no solo te aconseja, sino que construye la solución contigo durante la sesión. Sin duda, lo recomiendo si buscas acompañamiento claro, aterrizado y efectivo.",
     },
     {
       name: "Álvaro Gómez Barragán",
       country: "Colombia",
       quote:
-        "¡Muchas gracias! Me alegra mucho que te haya gustado la publicación. Justamente tu video fue ese 'clic' que necesitaba para conectar experiencia con reflexión. A veces uno se obsesiona con hacer lo “correcto” y olvida que la simplicidad también es una virtud técnica. Ese principio de KISS ha cobrado mucho más sentido para mí con el tiempo.Claro que sí, la compartiré en Medium también, ¡gracias por la recomendación! Y gracias por todo el contenido que compartes, aporta muchísimo valor.Un abrazo grande y seguimos construyendo",
+        "¡Muchas gracias! Me alegra mucho que te haya gustado la publicación. Justamente tu video fue ese 'clic' que necesitaba para conectar experiencia con reflexión. A veces uno se obsesiona con hacer lo \"correcto\" y olvida que la simplicidad también es una virtud técnica. Ese principio de KISS ha cobrado mucho más sentido para mí con el tiempo. Claro que sí, la compartiré en Medium también, ¡gracias por la recomendación! Y gracias por todo el contenido que compartes, aporta muchísimo valor. Un abrazo grande y seguimos construyendo",
     },
     {
-      name: "Charly “CharlyTV” TVO",
+      name: 'Charly "CharlyTV" TVO',
       country: "Colombia",
       quote: "Esta muy chévere el contenido",
     },
@@ -44,7 +44,6 @@ const info = {
     <div
       class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
     >
-      <!-- Título -->
       <div class="text-center mb-8">
         <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
           {info.title}
@@ -53,27 +52,7 @@ const info = {
           {info.description}
         </p>
       </div>
-
-      <!-- Testimonios -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
-      >
-        {
-          info.testimonials.map((testimonial) => (
-            <div class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105">
-              <Icon
-                class="w-8 h-8 text-tc-yellow mb-3 mx-auto"
-                name="mdi:format-quote-close"
-              />
-              <p class="text-gray-300 text-sm italic mb-4">
-                “{testimonial.quote}”
-              </p>
-              <h4 class="text-white font-bold text-sm">{testimonial.name}</h4>
-              <p class="text-gray-400 text-xs">{testimonial.country}</p>
-            </div>
-          ))
-        }
-      </div>
+      <TestimoniosCarousel client:load testimonials={info.testimonials} />
     </div>
   </div>
 </section>
