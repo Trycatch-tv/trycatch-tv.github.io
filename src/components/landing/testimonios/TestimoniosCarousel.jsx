@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import MdChevronLeft from "react-icons/md/MdChevronLeft";
-import MdChevronRight from "react-icons/md/MdChevronRight";
-import MdFormatQuote from "react-icons/md/MdFormatQuote";
+import { MdChevronLeft, MdChevronRight, MdFormatQuote } from "react-icons/md";
 
 export default function TestimoniosCarousel({ testimonials }) {
   const [current, setCurrent] = useState(0);
