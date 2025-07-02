@@ -1,5 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+
+// Obtener la lista de suscriptores desde la función Netlify (SSR)
+const apiUrl = "https://trycatch.tv/.netlify/functions/twitch-subscribers"
+
+// Definir el tipo para los suscriptores
+interface TwitchSub {
+  user_name: string
+  user_profile_image_url?: string
+  created_at?: string
+  plan_name?: string
+  is_gift?: boolean
+}
+
+let subs: TwitchSub[] = []
+try {
+  const res = await fetch(apiUrl)
+  const data = await res.json()
+  // El array de subs está en data.data según la respuesta de la API de Twitch
+  subs = data.data || []
+} catch (e) {
+  subs = []
+}
+
 const info = {
   titleTeam: "Tryckers Team",
   tryckersTeam: [
@@ -153,18 +176,35 @@ const info = {
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
       {
-        info.tryckersPremium.map((trycker) => (
-          <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
-            <img
-              class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
-              src={trycker.avatar}
-              alt={trycker.username}
-            />
-            <h3 class="text-tc-yellow font-bold text-lg">{trycker.username}</h3>
-            <p class="text-gray-300 text-sm">{trycker.platform}</p>
-            <p class="text-gray-400 text-xs mt-1">Desde {trycker.since}</p>
+        subs.length === 0 ? (
+          <div class="col-span-4 text-center text-gray-400">
+            No hay suscriptores activos o no se pudo obtener la lista.
           </div>
-        ))
+        ) : (
+          subs.map((sub) => (
+            <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+              <img
+                class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+                src={
+                  sub.user_profile_image_url ||
+                  "https://static-cdn.jtvnw.net/user-default-pictures-uv/dbdc9198-def8-11e9-8681-784f43822e80-profile_image-70x70.png"
+                }
+                alt={sub.user_name}
+              />
+              <h3 class="text-tc-yellow font-bold text-lg">{sub.user_name}</h3>
+              {sub.plan_name && (
+                <p class="text-purple-400 text-xs mt-1">
+                  {sub.plan_name} {sub.is_gift ? "🎁" : ""}
+                </p>
+              )}
+              {sub.created_at && (
+                <p class="text-gray-400 text-xs mt-1">
+                  Desde {new Date(sub.created_at).toLocaleDateString("es-CO")}
+                </p>
+              )}
+            </div>
+          ))
+        )
       }
     </div>
   </div>
