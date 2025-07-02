@@ -53,18 +53,47 @@ const info = {
     <hr class="border-t border-gray-600 mb-8" />
 
     <!-- Grid de Partners -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 h-full">
       {
         info.partnersTeam.map((partner) => (
-          <a href={partner.url} target="_blank" class="group">
-            <div class="bg-tc-black-l rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center">
-              <Image
-                class="rounded-full h-48 w-48 object-cover mb-4 shadow-md border-2 border-gray-600"
-                src={partner.logo}
-                alt={partner.name}
-              />
-              <h3 class="text-tc-yellow font-bold text-lg">{partner.name}</h3>
-              <p class="text-gray-300 text-sm mt-2">{partner.description}</p>
+          <a
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group h-full"
+          >
+            <div class="w-full max-w-xs mx-auto bg-tc-black-l rounded-xl shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col justify-between items-center text-center border border-gray-700 hover:bg-tc-gray/20 min-h-[420px] h-full">
+              {/* Badge con el nombre */}
+              <span class="inline-block px-3 py-1 mb-2 rounded-full bg-tc-yellow text-tc-black text-xs font-bold shadow-md -mt-8 z-10 relative border border-tc-black group-hover:bg-tc-black group-hover:text-tc-yellow transition-colors">
+                {partner.name}
+              </span>
+              <div class="flex-1 flex flex-col justify-center w-full">
+                <Image
+                  class="rounded-lg h-32 w-32 object-contain mb-4 shadow-md border-2 border-gray-600 bg-white p-2 mx-auto"
+                  src={partner.logo}
+                  alt={partner.name}
+                />
+                <p class="text-gray-200 text-sm min-h-[60px] flex items-center justify-center flex-1">
+                  {partner.description}
+                </p>
+              </div>
+              <span class="mt-4 inline-flex items-center gap-1 text-tc-yellow text-xs font-semibold group-hover:underline">
+                Visitar sitio
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 7l-10 10m0 0h7m-7 0V7"
+                  />
+                </svg>
+              </span>
             </div>
           </a>
         ))
