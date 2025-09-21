@@ -1,0 +1,853 @@
+---
+import { Image } from "astro:assets"
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+// Imágenes del libro
+import PortadaLibro from "../assets/img/libro/portada_libro_guía_completa.jpg"
+import ContraportadaLibro from "../assets/img/libro/contraportada_libro_guía_completa.png"
+import ProfileImage from "../assets/img/profile.jpg"
+
+const bookData = {
+  title: "📘 Guía Completa: Cómo Iniciar en el Desarrollo de Software",
+  author: "Julián Darío Luna Patiño",
+  pages: 176,
+  testimonials: [
+    {
+      text: "Siempre sentí que quería entrar al mundo del software, pero no sabía si enfocarme en frontend, backend o data. Gracias a esta guía pude cuestionarme de verdad qué me gusta hacer y qué rol encaja con mis intereses. Ahora estoy seguro de hacia dónde quiero ir y tengo un roadmap claro para comenzar.",
+      author: "Laura G.",
+      role: "estudiante de ingeniería",
+    },
+    {
+      text: "Al leer el capítulo de selección de roles me vi en un dilema: ya tenía claro que me gustaba el backend, pero la forma en que el libro expone los caminos me hizo reflexionar si realmente estaba tomando la mejor decisión. Ese cuestionamiento fue valioso, porque me confirmó lo que quería y me dio más confianza para seguir adelante.",
+      author: "Andrés P.",
+      role: "desarrollador en transición de carrera",
+    },
+    {
+      text: "Lo que más valoro de este libro es que no se queda en teoría. Los checklists, mini retos y el proyecto del e-commerce me dieron claridad y pasos concretos. Hoy tengo mi portafolio en marcha y me siento preparado para postular a mi primer empleo en tech.",
+      author: "Mariana S.",
+      role: "aspirante a QA Tester",
+    },
+  ],
+  prices: {
+    digital: 9.99,
+    paperback: 70000,
+    hardcover: 110000,
+  },
+}
+---
+
+<BaseLayout
+  title="Guía Completa: Cómo Iniciar en Programación | Aprende desde Cero"
+>
+  <!-- SEO Meta Tags -->
+  <meta
+    slot="head"
+    name="description"
+    content="El camino claro para entrar al mundo tech. Desde cero hasta estar listo para postular a tu primer trabajo en software. +100 ejemplares vendidos."
+  />
+  <meta
+    slot="head"
+    name="keywords"
+    content="aprender programación, programación principiantes, primer lenguaje programación, desarrollo software"
+  />
+  <link
+    slot="head"
+    rel="canonical"
+    href="https://trycatch.tv/libro-como-iniciar-en-el-desarrollo-de-software"
+  />
+
+  <!-- Open Graph -->
+  <meta
+    slot="head"
+    property="og:title"
+    content="Guía Completa: Cómo Iniciar en el Desarrollo de Software"
+  />
+  <meta
+    slot="head"
+    property="og:description"
+    content="Aprende programación desde cero con un mapa claro. Sin tutoriales infinitos, con tu primer proyecto en 30 días."
+  />
+  <meta
+    slot="head"
+    property="og:image"
+    content="https://trycatch.tv/assets/libro-cover-og.jpg"
+  />
+  <meta
+    slot="head"
+    property="og:url"
+    content="https://trycatch.tv/libro-como-iniciar-en-el-desarrollo-de-software"
+  />
+  <meta slot="head" property="og:type" content="product" />
+
+  <!-- Twitter Card -->
+  <meta slot="head" name="twitter:card" content="summary_large_image" />
+  <meta
+    slot="head"
+    name="twitter:title"
+    content="Guía Completa: Cómo Iniciar en Programación"
+  />
+  <meta
+    slot="head"
+    name="twitter:description"
+    content="La guía que necesitas para dar tus primeros pasos seguros en programación. +130 lectores ya la tienen."
+  />
+  <meta
+    slot="head"
+    name="twitter:image"
+    content="https://trycatch.tv/assets/libro-cover-twitter.jpg"
+  />
+
+  <!-- Schema.org JSON-LD -->
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Book",
+          name: bookData.title,
+          author: {
+            "@type": "Person",
+            name: bookData.author,
+            jobTitle: "AWS Community Builder",
+            affiliation: "TryCatch.tv",
+          },
+          description:
+            "Guía completa para principiantes que quieren iniciar en programación sin perderse en tutoriales infinitos.",
+          numberOfPages: bookData.pages,
+          inLanguage: "es",
+          bookFormat: "EBook",
+          genre: "Educational Technology",
+          publisher: {
+            "@type": "Organization",
+            name: "TryCatch.tv",
+          },
+          datePublished: "2024",
+        },
+        {
+          "@type": "Product",
+          name: bookData.title,
+          description:
+            "Libro digital para aprender programación desde cero con metodología práctica y plan de 90 días.",
+          brand: {
+            "@type": "Brand",
+            name: "TryCatch.tv",
+          },
+          offers: {
+            "@type": "Offer",
+            price: bookData.prices.digital.toString(),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            seller: {
+              "@type": "Organization",
+              name: "TryCatch.tv",
+            },
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            reviewCount: "130",
+          },
+        },
+      ],
+    })}
+  />
+
+  <div class="min-h-screen bg-tc-black text-tc-gray-l">
+    <!-- HERO SECTION -->
+    <section
+      class="relative overflow-hidden bg-gradient-to-br from-tc-black via-tc-black-l to-tc-black pt-20 pb-16"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Contenido del Hero -->
+          <div class="text-center lg:text-left">
+            <!-- Badges de confianza -->
+            <div class="flex justify-between gap-2 mb-6 overflow-x-auto">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-tc-yellow/10 border border-tc-yellow/20 text-tc-yellow text-xs font-semibold"
+              >
+                🔒 Pago 100% seguro
+              </span>
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-semibold"
+              >
+                🎯 Más de 100 ejemplares vendidos
+              </span>
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-tc-yellow/10 border border-tc-yellow/20 text-tc-yellow text-xs font-semibold"
+              >
+                👉 Disponible en digital y físico
+              </span>
+            </div>
+
+            <!-- H1 -->
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
+              El camino claro para
+              <span class="text-tc-yellow">entrar al mundo tech</span>
+            </h1>
+
+            <!-- Subhead -->
+            <p class="text-lg sm:text-xl text-tc-gray mb-8 leading-relaxed">
+              ¿Quieres dar tu primer paso en la industria de software o
+              redirigir tu carrera? Esta guía te lleva desde cero hasta estar
+              listo para postular a tu primer trabajo, con un plan práctico y
+              progresivo.
+            </p>
+
+            <!-- CTAs por formato -->
+            <div class="mb-8">
+              <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <!-- Digital -->
+                <a
+                  href="https://amzn.to/46xEtpJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  <span>Digital</span>
+                  <span class="text-sm font-normal">$9.99 USD</span>
+                </a>
+
+                <!-- Pasta Blanda -->
+                <a
+                  href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  <span>Pasta Blanda</span>
+                  <span class="text-sm font-normal">$70.000 COP</span>
+                </a>
+
+                <!-- Pasta Dura -->
+                <a
+                  href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                >
+                  <span>Pasta Dura</span>
+                  <span class="text-sm font-normal">$110.000 COP</span>
+                </a>
+              </div>
+              <p class="text-sm text-tc-gray text-center">
+                ⚡ Acceso inmediato | 🚚 Envíos a todo Colombia
+              </p>
+            </div>
+          </div>
+
+          <!-- Mockup del libro -->
+          <div class="flex justify-center lg:justify-end">
+            <div class="relative">
+              <!-- Portada del libro -->
+              <div
+                class="relative transform hover:scale-105 transition-transform duration-300"
+              >
+                <Image
+                  src={PortadaLibro}
+                  alt="Portada del libro: Guía Completa - Cómo Iniciar en el Desarrollo de Software"
+                  class="w-80 h-auto rounded-lg shadow-2xl border border-tc-yellow/20"
+                  loading="eager"
+                />
+                <!-- Efecto de brillo -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENIDO DEL LIBRO -->
+    <section class="py-16 bg-tc-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Contenido del libro ({bookData.pages} páginas)
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="space-y-4">
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 1.</h4>
+              <p>Motivación inicial</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 2.</h4>
+              <p>Selección del rol</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 3.</h4>
+              <p>Aprender las bases</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 4.</h4>
+              <p>Roadmaps específicos</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 5.</h4>
+              <p>Crear proyectos</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 6.</h4>
+              <p>Preparación para entrevistas</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 7.</h4>
+              <p>Recursos adicionales</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 8.</h4>
+              <p>Certificaciones y validación</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 9.</h4>
+              <p>Dónde postular</p>
+            </div>
+            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 10.</h4>
+              <p>Conclusión y siguientes pasos</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-tc-yellow/10 border border-tc-yellow/20 rounded-lg p-8 text-center"
+        >
+          <h3 class="text-2xl font-bold mb-4">🎁 Bonus incluidos</h3>
+          <div class="grid md:grid-cols-2 gap-8 text-center">
+            <div>
+              <div class="text-3xl mb-4">✅</div>
+              <h4 class="text-lg font-semibold mb-3">
+                Herramienta para hacer el checklist del libro
+              </h4>
+              <a
+                href="https://bit.ly/librochecklist"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center px-6 py-3 bg-tc-yellow text-tc-black font-semibold rounded-lg hover:bg-tc-yellow/90 transition-colors shadow-md hover:shadow-lg"
+              >
+                📋 Acceder al Checklist
+              </a>
+            </div>
+            <div>
+              <div class="text-3xl mb-4">💬</div>
+              <h4 class="text-lg font-semibold mb-2">
+                Discord de la comunidad
+              </h4>
+              <p class="text-tc-gray text-sm">
+                Acceso a la comunidad exclusiva para resolver dudas y conectar
+                con otros lectores
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detalles del libro -->
+        <div class="mt-12 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="text-2xl font-bold mb-4">📋 Detalles del libro</h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <span class="text-tc-yellow mr-3">✓</span>
+                <span>Metodología práctica y probada</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-tc-yellow mr-3">✓</span>
+                <span>Ejemplos reales y ejercicios</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-tc-yellow mr-3">✓</span>
+                <span>Sin jerga técnica innecesaria</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-tc-yellow mr-3">✓</span>
+                <span
+                  >Libro interactivo con checklist de verificación, mini retos y
+                  secciones "ahora es tu momento"</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <div
+              class="relative transform hover:scale-105 transition-transform duration-300"
+            >
+              <Image
+                src={ContraportadaLibro}
+                alt="Contraportada del libro: Guía Completa - Cómo Iniciar en el Desarrollo de Software"
+                class="w-80 h-auto rounded-lg shadow-2xl border border-tc-yellow/20"
+                loading="lazy"
+              />
+              <!-- Efecto de brillo -->
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿QUÉ ENCONTRARÁS EN ESTE LIBRO? -->
+    <section class="py-16 bg-tc-black-l">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            ¿Qué encontrarás en este libro?
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">🎯</div>
+            <h3 class="text-xl font-semibold mb-3">Explora roles en tech</h3>
+            <p class="text-tc-gray">
+              Descubre cuál encaja contigo (Frontend, Backend, QA, Data, etc.).
+            </p>
+          </div>
+
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">🗺️</div>
+            <h3 class="text-xl font-semibold mb-3">
+              Roadmaps claros por nivel
+            </h3>
+            <p class="text-tc-gray">
+              Jr, Semi, Senior - sepas qué aprender en cada etapa.
+            </p>
+          </div>
+
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">🛒</div>
+            <h3 class="text-xl font-semibold mb-3">
+              Proyecto práctico modular
+            </h3>
+            <p class="text-tc-gray">
+              E-commerce para construir experiencia real.
+            </p>
+          </div>
+
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">💼</div>
+            <h3 class="text-xl font-semibold mb-3">
+              Tips para entrevistas técnicas
+            </h3>
+            <p class="text-tc-gray">
+              Soft skills e inglés para destacar en el proceso.
+            </p>
+          </div>
+
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">✅</div>
+            <h3 class="text-xl font-semibold mb-3">Checklist de progreso</h3>
+            <p class="text-tc-gray">
+              Mini retos y FAQs para no perder el rumbo.
+            </p>
+          </div>
+
+          <div
+            class="bg-tc-black border border-gray-700 rounded-lg p-6 hover:border-tc-yellow/50 transition-colors"
+          >
+            <div class="text-tc-yellow text-2xl mb-4">🚀</div>
+            <h3 class="text-xl font-semibold mb-3">
+              Recursos y certificaciones
+            </h3>
+            <p class="text-tc-gray">
+              Dónde postular para acelerar tu entrada al mercado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS DESTACADOS -->
+    <section class="py-16 bg-tc-black">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            Lo que dicen quienes ya lo tienen
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {
+            bookData.testimonials.map((testimonial, index) => (
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+                <p class="text-tc-gray-l mb-4 italic">"{testimonial.text}"</p>
+                <div class="flex items-center">
+                  <div>
+                    <p class="font-semibold">{testimonial.author}</p>
+                    <p class="text-sm text-tc-gray">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- BONUS INCLUIDOS -->
+    <section class="py-16 bg-tc-black-l">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Bonus incluidos</h2>
+          <p class="text-xl text-tc-gray">
+            Todo esto viene incluido sin costo adicional
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+            <div class="text-tc-yellow text-3xl mb-4">📋</div>
+            <h3 class="text-2xl font-semibold mb-4">Checklists Descargables</h3>
+            <p class="text-tc-gray">
+              Para cada etapa de tu camino: desde la selección del rol hasta la
+              preparación para entrevistas. Nunca más te sentirás perdido.
+            </p>
+          </div>
+
+          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+            <div class="text-tc-yellow text-3xl mb-4">🏗️</div>
+            <h3 class="text-2xl font-semibold mb-4">Proyecto E-commerce</h3>
+            <p class="text-tc-gray">
+              Guía detallada para construir tu proyecto portfolio modular. Desde
+              el MVP hasta funcionalidades avanzadas.
+            </p>
+          </div>
+
+          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+            <div class="text-tc-yellow text-3xl mb-4">👥</div>
+            <h3 class="text-2xl font-semibold mb-4">Acceso a la Comunidad</h3>
+            <p class="text-tc-gray">
+              Únete al Discord de TryCatch.tv con +90,000 desarrolladores. Haz
+              networking y resuelve dudas con profesionales.
+            </p>
+          </div>
+
+          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+            <div class="text-tc-yellow text-3xl mb-4">🎯</div>
+            <h3 class="text-2xl font-semibold mb-4">Mini-retos Prácticos</h3>
+            <p class="text-tc-gray">
+              Ejercicios prácticos al final de cada capítulo para reforzar el
+              aprendizaje y construir confianza paso a paso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN ES / PARA QUIÉN NO -->
+    <section class="py-16 bg-tc-black">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- SÍ es para ti -->
+          <div class="bg-green-500/5 border border-green-500/20 rounded-lg p-8">
+            <h3
+              class="text-2xl font-bold text-green-400 mb-6 flex items-center"
+            >
+              ✅ SÍ es para ti si...
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>Quieres cambiar de carrera</strong> y no sabes por dónde
+                  empezar en programación</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>Eres estudiante</strong> y buscas una guía práctica más
+                  allá de la teoría académica</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>Te sientes perdido</strong> entre tantos tutoriales, cursos
+                  y opiniones contradictorias</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- NO es para ti -->
+          <div class="bg-red-500/5 border border-red-500/20 rounded-lg p-8">
+            <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center">
+              ❌ NO es para ti si...
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="text-red-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>Ya tienes experiencia</strong> programando y buscas contenido
+                  avanzado</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>Prefieres aprender solo con videos</strong> sin seguir
+                  una estructura escrita</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-red-400 mr-3 mt-1">•</span>
+                <span
+                  ><strong>No estás dispuesto a practicar</strong> y solo quieres
+                  leer teoría</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿ESTÁS FUERA DE COLOMBIA? -->
+    <section class="py-16 bg-tc-black-l text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          ¿Estás fuera de Colombia?
+        </h2>
+
+        <p class="text-xl text-tc-gray mb-8 leading-relaxed">
+          ¡No hay problema! Puedes adquirir el libro directamente en Amazon con
+          envíos internacionales. Disponible en todos los formatos.
+        </p>
+
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto"
+        >
+          <!-- Digital Amazon -->
+          <a
+            href="https://amzn.to/46xEtpJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Digital en Amazon</span>
+            <span class="text-sm font-normal">$9.99 USD</span>
+          </a>
+
+          <!-- Pasta Blanda Amazon -->
+          <a
+            href="https://amzn.to/4mtIUHY"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Pasta Blanda en Amazon</span>
+            <span class="text-sm font-normal">$14.99 USD</span>
+          </a>
+
+          <!-- Pasta Dura Amazon -->
+          <a
+            href="https://amzn.to/3W6pNc9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Pasta Dura en Amazon</span>
+            <span class="text-sm font-normal">$24.35 USD</span>
+          </a>
+        </div>
+
+        <p class="text-sm text-tc-gray">
+          🌍 Envíos internacionales | 📦 Amazon Prime disponible | 💳 Pagos
+          seguros con Amazon
+        </p>
+      </div>
+    </section>
+
+    <!-- SOBRE EL AUTOR -->
+    <section class="py-16 bg-tc-black">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-tc-black border border-gray-700 rounded-lg p-8 md:p-12">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold mb-6">Sobre el Autor</h2>
+
+            <!-- Foto del autor -->
+            <div class="w-24 h-24 mx-auto mb-6">
+              <Image
+                src={ProfileImage}
+                alt="Julián Darío Luna Patiño - Autor del libro"
+                class="w-24 h-24 rounded-full object-cover border-2 border-tc-yellow/30"
+                loading="lazy"
+              />
+            </div>
+
+            <h3 class="text-2xl font-bold text-tc-yellow mb-4">
+              {bookData.author}
+            </h3>
+            <p class="text-lg text-tc-gray-l mb-6">
+              <strong>Cloud Solutions Architect</strong>, <strong
+                >AWS Community Builder</strong
+              > y creador de <strong>TryCatch.tv</strong>, con una comunidad de <strong
+                >+90,000 personas en LATAM</strong
+              >.
+            </p>
+
+            <a
+              href="/"
+              class="inline-flex items-center px-6 py-3 border border-tc-yellow text-tc-yellow rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-colors"
+            >
+              🎥 Ver más contenido en TryCatch.tv →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE FINAL -->
+    <section class="py-16 bg-tc-black-l text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          ¿Listo para dar el primer paso?
+        </h2>
+
+        <p class="text-xl text-tc-gray mb-8 leading-relaxed">
+          No dejes que la incertidumbre te paralice. Miles de desarrolladores
+          empezaron exactamente donde estás tú ahora. La diferencia es que ellos
+          dieron el primer paso.
+        </p>
+
+        <div
+          class="bg-tc-black-l border-2 border-tc-yellow rounded-lg p-8 mb-8"
+        >
+          <h3 class="text-2xl font-semibold mb-6">Con esta guía tendrás:</h3>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <div class="text-3xl mb-2">🗺️</div>
+              <p>Un mapa claro para iniciar sin perderte</p>
+            </div>
+            <div>
+              <div class="text-3xl mb-2">🚀</div>
+              <p>Claridad del camino</p>
+            </div>
+            <div>
+              <div class="text-3xl mb-2">💪</div>
+              <p>La confianza para seguir creciendo</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="grid sm:grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-4xl mx-auto"
+        >
+          <!-- Digital -->
+          <a
+            href="https://amzn.to/46xEtpJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Digital</span>
+            <span class="text-sm font-normal">$9.99 USD</span>
+          </a>
+
+          <!-- Pasta Blanda -->
+          <a
+            href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Pasta Blanda</span>
+            <span class="text-sm font-normal">$70.000 COP</span>
+          </a>
+
+          <!-- Pasta Dura -->
+          <a
+            href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+          >
+            <span>Pasta Dura</span>
+            <span class="text-sm font-normal">$110.000 COP</span>
+          </a>
+        </div>
+
+        <p class="text-sm text-tc-gray">
+          🔒 Pago seguro | ⚡ Acceso inmediato | 🚚 Envíos a todo Colombia
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Botón CTA Sticky para móvil -->
+  <div
+    class="fixed bottom-0 left-0 right-0 bg-tc-black border-t border-gray-700 p-4 lg:hidden z-50"
+  >
+    <a
+      href="#comprar"
+      class="block w-full bg-tc-yellow text-tc-black text-center font-bold py-3 rounded-lg"
+    >
+      � Ver en Amazon
+    </a>
+  </div>
+
+  <!-- Tracking Scripts (Placeholders) -->
+  <script>
+    // Google Analytics 4
+    // gtag('event', 'page_view', {
+    //   page_title: 'Libro Programación Landing',
+    //   page_location: window.location.href
+    // });
+
+    // Facebook Pixel
+    // fbq('track', 'ViewContent', {
+    //   content_type: 'product',
+    //   content_ids: ['libro_prog_principiantes'],
+    //   value: 29,
+    //   currency: 'USD'
+    // });
+
+    // Event listeners para CTAs
+    document.addEventListener("DOMContentLoaded", function () {
+      const ctaButtons = document.querySelectorAll(
+        'a[href="#comprar"], a[href="#"]'
+      )
+
+      ctaButtons.forEach((button) => {
+        button.addEventListener("click", function (e) {
+          // Tracking de CTA click
+          // gtag('event', 'cta_click', {
+          //   event_category: 'engagement',
+          //   event_label: 'cta_primary',
+          //   value: 1
+          // });
+
+          const target = e.target as HTMLElement
+          console.log("CTA clicked:", target.textContent?.trim())
+        })
+      })
+    })
+  </script>
+</BaseLayout>
