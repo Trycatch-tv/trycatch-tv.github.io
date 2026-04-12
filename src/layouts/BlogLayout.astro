@@ -1,7 +1,20 @@
 ---
-const { frontmatter } = Astro.props
 import Footer from "../components/global/Footer.astro"
 import Navbar from "../components/global/Navbar.astro"
+
+const { frontmatter } = Astro.props
+
+const april2026Hero = new URL(
+  "../assets/img/comunidades/bucaramanga/encuentros/abril-2026/abril 2026.JPG",
+  import.meta.url,
+).href
+
+const heroImageSrc =
+  frontmatter.slug === "meetup-soft-skills-abril-2026"
+    ? april2026Hero
+    : frontmatter.image.url
+
+const heroImageAlt = frontmatter.image?.alt ?? frontmatter.title
 ---
 
 <!doctype html>
@@ -14,19 +27,17 @@ import Navbar from "../components/global/Navbar.astro"
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-  </head><astro:head>
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=G-1KX127N7NK`}></script>
-    <script>
-      {
-        ;`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1KX127N7NK');
-          `
+  </head>
+  <astro:head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KX127N7NK"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        window.dataLayer.push(arguments)
       }
+      gtag("js", new Date())
+      gtag("config", "G-1KX127N7NK")
     </script>
   </astro:head>
   <title>{frontmatter.title}</title>
@@ -39,8 +50,8 @@ import Navbar from "../components/global/Navbar.astro"
       <div class="relative h-96 overflow-hidden rounded-md shadow-inner mb-">
         <img
           class="absolute inset-0 w-full h-full object-cover object-center"
-          src={frontmatter.image.url}
-          alt={frontmatter.image.alt}
+          src={heroImageSrc}
+          alt={heroImageAlt}
         />
       </div>
 
@@ -65,7 +76,8 @@ import Navbar from "../components/global/Navbar.astro"
   <style is:global>
     @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
     html {
-      font-family: "JetBrains Mono", monospace, system-ui, sans-serif !important;
+      font-family:
+        "JetBrains Mono", monospace, system-ui, sans-serif !important;
       background-color: rgb(71 70 70);
     }
   </style>
