@@ -43,19 +43,15 @@ const info = {
 ---
 
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8"
-    >
-      <!-- Encabezado con imagen y texto -->
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+    <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-10">
-        <!-- Imagen o placeholder -->
         {
           info.imageSrc ? (
             <img
               src={info.imageSrc}
               alt="Banner comunidad Nas.io"
-              class="w-full rounded-lg border border-gray-600 shadow-md"
+              class="w-full h-[340px] object-cover rounded-lg border border-gray-600 shadow-md"
             />
           ) : (
             <div class="w-full h-64 bg-tc-black-l border border-gray-700 rounded-lg flex items-center justify-center text-6xl text-gray-600">
@@ -64,33 +60,45 @@ const info = {
           )
         }
 
-        <!-- Título + subtítulo -->
         <div class="text-center lg:text-left">
-          <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">
+          <span
+            class="inline-block text-xs px-3 py-1 rounded-full bg-tc-black-l border border-gray-600 text-tc-yellow font-semibold tracking-wide mb-4"
+          >
+            NAS.IO TRYCATCH
+          </span>
+          <h2
+            class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight"
+          >
             {info.title}
           </h2>
-          <p class="text-gray-300 text-lg">{info.subtitle}</p>
+          <p
+            class="text-gray-300 text-base lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0"
+          >
+            {info.subtitle}
+          </p>
         </div>
       </div>
 
-      <!-- Características -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-6xl mx-auto"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 max-w-screen-2xl mx-auto"
       >
         {
           info.features.map((item) => (
-            <div class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-md p-6 text-center">
-              <div class="text-3xl mb-2">{item.icon}</div>
-              <h3 class="text-tc-yellow font-bold text-lg mb-1">
+            <article class="bg-tc-black-l border border-gray-700 hover:shadow-2xl hover:border-gray-500 transition-all duration-200 rounded-lg p-6 text-center min-h-[220px] flex flex-col items-center justify-start">
+              <div class="w-12 h-12 rounded-full bg-tc-black border border-gray-600 flex items-center justify-center text-2xl mb-3">
+                {item.icon}
+              </div>
+              <h3 class="text-tc-yellow font-bold text-xl mb-2 leading-snug">
                 {item.title}
               </h3>
-              <p class="text-gray-400 text-sm">{item.description}</p>
-            </div>
+              <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
+                {item.description}
+              </p>
+            </article>
           ))
         }
       </div>
 
-      <!-- Botón -->
       <Button
         buttonText="Únete a la comunidad"
         buttonLink="https://nas.io/trycatchtv"

@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets"
+import CoverBucaramanga from "../assets/img/comunidades/bucaramanga/cover.jpg"
+import DefaultCommunityCover from "../assets/img/comunidades/default-cover.svg"
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const comunidades = [
+  {
+    city: "Bucaramanga",
+    slug: "bucaramanga",
+    status: "activa",
+    description:
+      "Encuentros presenciales y virtuales, resumenes con galeria de fotos y novedades tech locales.",
+    cover: CoverBucaramanga,
+    coverAlt: "Comunidad Bucaramanga",
+  },
+  {
+    city: "Bogota",
+    slug: "bogota",
+    status: "proximamente",
+    description:
+      "Proximamente: agenda local, alianzas y cobertura de eventos de la ciudad.",
+    cover: DefaultCommunityCover,
+    coverAlt: "Portada por defecto de comunidad",
+  },
+  {
+    city: "Medellin",
+    slug: "medellin",
+    status: "proximamente",
+    description:
+      "Proximamente: actividades con comunidades, lanzamientos y noticias tech.",
+    cover: DefaultCommunityCover,
+    coverAlt: "Portada por defecto de comunidad",
+  },
+]
+---
+
+<BaseLayout title={`Comunidades | TryCatch.tv`}>
+  <main class="max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+    <section
+      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl lift-in"
+    >
+      <h1
+        class="text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide"
+      >
+        Comunidades por ciudad
+      </h1>
+      <p
+        class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg"
+      >
+        Explora espacios locales para aprender, hacer networking y compartir
+        conocimiento. Cada ciudad tiene dos lineas de contenido: encuentros y
+        novedades.
+      </p>
+    </section>
+
+    <section class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        comunidades.map((comunidad) => (
+          <article class="rounded-2xl border border-slate-700 bg-tc-black-l p-5 shadow-lg card-hover min-h-[390px] flex flex-col">
+            {comunidad.cover && (
+              <div class="mb-4 overflow-hidden rounded-xl border border-slate-700">
+                <Image
+                  src={comunidad.cover}
+                  alt={comunidad.coverAlt || `Portada ${comunidad.city}`}
+                  class="h-44 w-full object-cover"
+                />
+              </div>
+            )}
+            <div class="flex items-center justify-between gap-2">
+              <h2 class="text-xl font-semibold text-white">{comunidad.city}</h2>
+              <span
+                class={`text-xs px-2 py-1 rounded-full font-semibold tracking-wide ${
+                  comunidad.status === "activa"
+                    ? "bg-emerald-600/90 text-white"
+                    : "bg-slate-700 text-slate-200"
+                }`}
+              >
+                {comunidad.status === "activa" ? "Activa" : "Proximamente"}
+              </span>
+            </div>
+            <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+              {comunidad.description}
+            </p>
+
+            {comunidad.status === "activa" ? (
+              <a
+                href={`/comunidades/${comunidad.slug}`}
+                class="inline-flex items-center mt-auto pt-4 text-tc-yellow hover:text-amber-200 transition"
+              >
+                Ver contenido de {comunidad.city}
+              </a>
+            ) : (
+              <span class="inline-block mt-auto pt-4 text-sm text-slate-400">
+                En preparacion
+              </span>
+            )}
+          </article>
+        ))
+      }
+    </section>
+  </main>
+
+  <style>
+    .lift-in {
+      animation: liftIn 0.55s ease-out both;
+    }
+
+    .card-hover {
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-3px);
+      border-color: rgba(252, 211, 77, 0.55);
+      box-shadow: 0 18px 36px rgba(2, 6, 23, 0.42);
+    }
+
+    @keyframes liftIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</BaseLayout>

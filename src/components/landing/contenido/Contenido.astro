@@ -45,35 +45,44 @@ const info = {
 ---
 
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
+      class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-12"
     >
-      <!-- Título -->
-      <div class="text-center mb-8">
-        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
+      <div class="text-center mb-10">
+        <span
+          class="inline-block text-xs px-3 py-1 rounded-full bg-tc-black-l border border-gray-600 text-tc-yellow font-semibold tracking-wide mb-4"
+        >
+          FORMATO TRY CATCH
+        </span>
+        <h2
+          class="text-white text-3xl lg:text-5xl font-extrabold mb-3 leading-tight"
+        >
           {info.title}
         </h2>
-        <p class="text-gray-300 text-base max-w-2xl mx-auto">
+        <p
+          class="text-gray-300 text-base lg:text-lg max-w-3xl mx-auto leading-relaxed"
+        >
           {info.description}
         </p>
       </div>
 
-      <!-- Tarjetas -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
       >
         {
           info.contentTypes.map((item) => (
-            <div class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105">
-              <div class="text-4xl mb-3">{item.icon}</div>
-              <h3 class="text-tc-yellow font-bold text-lg mb-2">
+            <article class="bg-tc-black-l border border-gray-700 rounded-lg p-6 text-center min-h-[250px] flex flex-col items-center justify-start hover:shadow-xl hover:border-gray-500 transition-all duration-200">
+              <div class="w-14 h-14 rounded-full bg-tc-black border border-gray-600 flex items-center justify-center text-3xl mb-4">
+                {item.icon}
+              </div>
+              <h3 class="text-tc-yellow font-bold text-xl mb-3 leading-snug">
                 {item.title}
               </h3>
-              <p class="text-gray-300 text-sm leading-relaxed">
+              <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
                 {item.description}
               </p>
-            </div>
+            </article>
           ))
         }
       </div>

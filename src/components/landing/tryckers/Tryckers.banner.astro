@@ -1,37 +1,41 @@
 ---
 import { Icon } from "astro-icon"
-import Button from "../../global/ui/button.astro"
+import { Image } from "astro:assets"
+import CoverBucaramanga from "../../../assets/img/comunidades/bucaramanga/cover.jpg"
+import DefaultCommunityCover from "../../../assets/img/comunidades/default-cover.svg"
 
 const info = {
-  title: "Tryckers",
+  title: "Comunidad Trycker",
   subtitle:
-    "Nuestra comunidad está formada por personas apasionadas por la tecnología, el aprendizaje continuo y la colaboración. ¡Conoce a quienes hacen parte de esta red que impulsa el crecimiento en LATAM!",
-  features: [
+    "Esto es mas que una comunidad: es una tribu tech para aprender, compartir, conocer gente y crecer juntos.",
+  cities: [
     {
-      icon: "🌎",
-      title: "Diversidad LATAM",
-      description: "Conecta con personas de diferentes países y trayectorias.",
+      title: "Bucaramanga",
+      status: "Activa",
+      description:
+        "Encuentros locales para compartir experiencias, aprender y construir comunidad.",
+      cover: CoverBucaramanga,
     },
     {
-      icon: "🤝",
-      title: "Colaboración real",
-      description: "Participa en proyectos open source, talleres y mentorías.",
+      title: "Bogota",
+      status: "Proximamente",
+      description:
+        "Estamos preparando agenda y alianzas para iniciar actividades.",
+      cover: DefaultCommunityCover,
     },
     {
-      icon: "🚀",
-      title: "Crecimiento continuo",
-      description: "Aprende sobre tech, soft skills y oportunidades laborales.",
+      title: "Medellin",
+      status: "Proximamente",
+      description: "Nuevo nodo de comunidad en construccion.",
+      cover: DefaultCommunityCover,
     },
   ],
 }
 ---
 
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8"
-    >
-      <!-- Título -->
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+    <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-10 mb-8">
       <div
         class="flex items-center justify-center text-tc-gray-l text-3xl lg:text-4xl font-extrabold mb-4"
       >
@@ -39,31 +43,79 @@ const info = {
         <span class="ml-3">{info.title}</span>
       </div>
 
-      <!-- Subtítulo -->
       <p class="text-center text-gray-300 max-w-3xl mx-auto text-lg mb-8">
         {info.subtitle}
       </p>
 
-      <!-- Características / Beneficios -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row justify-center gap-3 mb-8">
+        <a
+          href="https://chat.whatsapp.com/G2aXPLC8Kc382MRVdLsJyG?mode=gi_t"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 py-3 px-6 text-base font-semibold rounded-lg bg-emerald-500 text-white border border-emerald-400/70 hover:bg-emerald-400 transition-transform transform hover:scale-105"
+        >
+          Unirme a la comunidad
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20.52 3.48A11.93 11.93 0 0012.03 0C5.4 0 .02 5.38.02 12c0 2.11.55 4.18 1.59 6.01L0 24l6.17-1.6A11.94 11.94 0 0012.03 24h.01c6.62 0 11.99-5.38 11.99-12 0-3.2-1.25-6.2-3.51-8.52zM12.04 21.9h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.22-3.66.95.98-3.57-.24-.37a9.88 9.88 0 01-1.52-5.31c0-5.46 4.44-9.9 9.9-9.9a9.83 9.83 0 017 2.91 9.82 9.82 0 012.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.43-7.43c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.96-.93 1.16-.17.2-.34.23-.64.08-.3-.15-1.26-.46-2.41-1.46-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.47.13-.62.13-.13.3-.34.45-.5.15-.17.2-.29.3-.49.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 1.99-1.42.25-.69.25-1.29.17-1.42-.08-.12-.28-.2-.58-.35z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="/tryckers"
+          class="inline-flex items-center justify-center gap-2 py-3 px-6 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-105"
+        >
+          Ir a Comunidad Trycker
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-screen-2xl mx-auto"
+      >
         {
-          info.features.map((item) => (
-            <div class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-md p-6 text-center">
-              <div class="text-3xl mb-2">{item.icon}</div>
-              <h3 class="text-tc-yellow font-bold text-lg mb-1">
-                {item.title}
-              </h3>
-              <p class="text-gray-400 text-sm">{item.description}</p>
-            </div>
+          info.cities.map((item) => (
+            <article class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-lg p-4 flex flex-col min-h-[380px]">
+              <div class="overflow-hidden rounded-md border border-slate-700 mb-3">
+                <Image
+                  src={item.cover}
+                  alt={`Portada ${item.title}`}
+                  class="h-52 w-full object-cover"
+                />
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-tc-yellow font-bold text-lg">{item.title}</h3>
+                <span
+                  class={`text-xs px-2 py-1 rounded-full font-semibold ${
+                    item.status === "Activa"
+                      ? "bg-emerald-600/90 text-white"
+                      : "bg-slate-700 text-slate-200"
+                  }`}
+                >
+                  {item.status}
+                </span>
+              </div>
+              <p class="text-gray-400 text-sm mt-2">{item.description}</p>
+            </article>
           ))
         }
       </div>
-
-      <!-- Enlace Tryckers -->
-      <Button
-        buttonText="Conoce a los Tryckers de la comunidad"
-        buttonLink="/tryckers"
-      />
     </div>
   </div>
 </section>

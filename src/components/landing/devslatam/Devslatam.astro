@@ -31,41 +31,51 @@ const info = {
 ---
 
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
-    <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8"
-    >
-      <!-- Título y subtítulo -->
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+    <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-8">
       <div class="text-center mb-10">
+        <span
+          class="inline-block text-xs px-3 py-1 rounded-full bg-tc-black-l border border-gray-600 text-tc-yellow font-semibold tracking-wide mb-4"
+        >
+          COMUNIDAD LATAM
+        </span>
         <div
-          class="flex justify-center items-center text-3xl lg:text-4xl text-white font-extrabold mb-4"
+          class="flex justify-center items-center text-3xl lg:text-5xl text-white font-extrabold mb-4 leading-tight"
         >
           <Icon class="w-10 h-10 text-white mr-2" name="mdi:account-group" />
           <span>{info.title}</span>
         </div>
-        <p class="text-gray-300 max-w-2xl mx-auto text-lg">{info.subtitle}</p>
+        <p
+          class="text-gray-300 max-w-3xl mx-auto text-base lg:text-xl leading-relaxed"
+        >
+          {info.subtitle}
+        </p>
       </div>
 
-      <!-- Estadísticas -->
       <div class="mb-12">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
+        >
           {
             info.stats.map((stat) => (
-              <div class="bg-tc-black-l border border-gray-700 hover:shadow-2xl transition-transform transform hover:scale-105 rounded-md p-6 text-center">
-                <h3 class="text-2xl font-bold text-white">{stat.value}</h3>
-                <p class="text-sm text-gray-400">{stat.label}</p>
-              </div>
+              <article class="bg-tc-black-l border border-gray-700 hover:shadow-2xl hover:border-gray-500 transition-all duration-200 rounded-lg p-6 text-center min-h-[120px] flex flex-col justify-center">
+                <h3 class="text-4xl font-black text-white tracking-wide">
+                  {stat.value}
+                </h3>
+                <p class="text-base text-gray-300 mt-1">{stat.label}</p>
+              </article>
             ))
           }
         </div>
       </div>
 
-      <!-- Side Project -->
       <div class="text-center mb-6">
-        <h3 class="text-white text-xl lg:text-2xl font-semibold mb-6">
+        <h3 class="text-white text-2xl lg:text-3xl font-semibold mb-6">
           Side Project: GlassCamp
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
+        >
           {
             info.links.map((link) => (
               <a
@@ -74,12 +84,12 @@ const info = {
                 rel="noopener noreferrer"
                 class="group"
               >
-                <div class="p-6 bg-tc-black-l border border-gray-700 rounded-md flex flex-col items-center transition-transform transform group-hover:scale-105">
+                <div class="p-6 bg-tc-black-l border border-gray-700 rounded-lg min-h-[140px] flex flex-col items-center justify-center transition-all duration-200 group-hover:shadow-xl group-hover:border-gray-500 group-hover:scale-[1.02]">
                   <Icon
                     class="w-10 h-10 text-white group-hover:text-tc-yellow transition"
                     name={link.icon}
                   />
-                  <span class="mt-2 text-sm text-gray-300 font-bold">
+                  <span class="mt-3 text-base text-gray-200 font-bold tracking-wide">
                     {link.name}
                   </span>
                 </div>
