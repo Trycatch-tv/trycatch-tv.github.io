@@ -1,0 +1,254 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+const publicBase = "/comunidades/bucaramanga"
+
+const encuentros = [
+  {
+    year: 2026,
+    title: "Encuentro de abril 2026",
+    dateLabel: "Abril 2026",
+    date: "2026-04-01",
+    summary:
+      "Quinta reunion de la comunidad: se hablaron temas como IA, realidad laboral, formas de trabajo, conceptos e ideas; ademas nacio la sugerencia de abrir este espacio web para publicar encuentros y eventos de interes.",
+    image: encodeURI(`${publicBase}/encuentros/abril-2026/abril 2026.JPG`),
+    imageAlt: "Encuentro de abril 2026 en Bucaramanga",
+    href: "/comunidades/bucaramanga/eventos/meetup-soft-skills-abril-2026",
+  },
+  {
+    year: 2026,
+    title: "Encuentro de febrero 2026",
+    dateLabel: "Febrero 2026",
+    date: "2026-02-01",
+    summary:
+      "Cuarta reunion con mayor asistencia y el apoyo de Connotar para llevar a cabo el encuentro, consolidando el crecimiento de la comunidad.",
+    image: encodeURI(`${publicBase}/encuentros/febrero-2026/febrero 2026.jpg`),
+    imageAlt: "Encuentro de febrero 2026 en Bucaramanga",
+  },
+  {
+    year: 2025,
+    title: "Encuentro de diciembre 2025",
+    dateLabel: "Diciembre 2025",
+    date: "2025-12-01",
+    summary:
+      "Tercera reunion de comunidad: compartimos el cierre de año, aprendimos juntos y la pasamos bien en un ambiente cercano.",
+    image: encodeURI(
+      `${publicBase}/encuentros/diciembre-2025/diciembre 2025.JPG`,
+    ),
+    imageAlt: "Encuentro de diciembre 2025 en Bucaramanga",
+  },
+  {
+    year: 2025,
+    title: "Encuentro de noviembre 2025",
+    dateLabel: "Noviembre 2025",
+    date: "2025-11-01",
+    summary:
+      "Segunda reunion, participativa y cercana, en la que empezamos a ver con claridad como la comunidad venia creciendo.",
+    image: encodeURI(
+      `${publicBase}/encuentros/noviembre-2025/noviembre 2025.JPG`,
+    ),
+    imageAlt: "Encuentro de noviembre 2025 en Bucaramanga",
+  },
+  {
+    year: 2025,
+    title: "Encuentro de octubre 2025",
+    dateLabel: "Octubre 2025",
+    date: "2025-10-01",
+    summary:
+      "Primera reunion de la comunidad, el punto de partida para construir este espacio local de aprendizaje y networking.",
+    image: encodeURI(`${publicBase}/encuentros/octubre-2025/octubre 2025.JPG`),
+    imageAlt: "Encuentro de octubre 2025 en Bucaramanga",
+  },
+]
+
+const encuentrosPorAno = Object.values(
+  encuentros.reduce<Record<string, typeof encuentros>>((grouped, encuentro) => {
+    const key = String(encuentro.year)
+
+    if (!grouped[key]) {
+      grouped[key] = []
+    }
+
+    grouped[key].push(encuentro)
+    return grouped
+  }, {}),
+).sort((a, b) => b[0].year - a[0].year)
+---
+
+<BaseLayout title={`Comunidad Bucaramanga | TryCatch.tv`}>
+  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+    <section
+      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 items-center">
+        <div>
+          <span
+            class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold tracking-wide"
+            >Activa</span
+          >
+          <h1
+            class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide"
+          >
+            Comunidad Bucaramanga
+          </h1>
+          <p
+            class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg"
+          >
+            Este es el espacio de la comunidad tech de Bucaramanga: aqui
+            compartimos el recorrido de nuestros encuentros, aprendizajes,
+            experiencias reales y lo que vamos construyendo juntos en cada
+            reunion.
+          </p>
+          <a
+            href="https://chat.whatsapp.com/BrM52oPJBNBG7tB5wsWp0C?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-400/70 bg-emerald-500 px-5 py-3 text-sm md:text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+          >
+            Unirme al grupo de WhatsApp
+            <svg
+              aria-hidden="true"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M20.52 3.48A11.93 11.93 0 0012.03 0C5.4 0 .02 5.38.02 12c0 2.11.55 4.18 1.59 6.01L0 24l6.17-1.6A11.94 11.94 0 0012.03 24h.01c6.62 0 11.99-5.38 11.99-12 0-3.2-1.25-6.2-3.51-8.52zM12.04 21.9h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.22-3.66.95.98-3.57-.24-.37a9.88 9.88 0 01-1.52-5.31c0-5.46 4.44-9.9 9.9-9.9a9.83 9.83 0 017 2.91 9.82 9.82 0 012.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.43-7.43c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.96-.93 1.16-.17.2-.34.23-.64.08-.3-.15-1.26-.46-2.41-1.46-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.47.13-.62.13-.13.3-.34.45-.5.15-.17.2-.29.3-.49.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 1.99-1.42.25-.69.25-1.29.17-1.42-.08-.12-.28-.2-.58-.35z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="overflow-hidden rounded-xl border border-slate-700">
+          <img
+            src={encodeURI(`${publicBase}/cover.jpg`)}
+            alt="Portada comunidad Bucaramanga"
+            class="h-80 w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <article
+        class="rounded-2xl border border-slate-500 bg-[#141414] p-6 shadow-lg card-hover"
+      >
+        <h2 class="text-tc-yellow text-xl font-bold uppercase">Novedades</h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Convocatorias, lanzamientos y noticias tech locales.
+        </p>
+        <div class="mt-4 rounded-xl border border-slate-600 p-4 bg-tc-black">
+          <p class="text-slate-200 leading-relaxed">
+            Aun no hay novedades publicadas para Bucaramanga.
+          </p>
+          <p class="text-slate-300 mt-3 leading-relaxed">
+            Si deseas publicar alguna, puedes enviarla al correo
+            <a
+              class="text-tc-yellow font-semibold hover:text-amber-200 transition"
+              href="mailto:judlup@trycatch.tv"
+            >
+              judlup@trycatch.tv
+            </a>.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="mt-10">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div>
+          <h2 class="text-tc-yellow text-2xl font-bold uppercase tracking-wide">
+            Recorrido de la comunidad
+          </h2>
+          <p class="text-sm text-slate-300 mt-2">
+            Asi hemos crecido en Bucaramanga: cada encuentro con su fecha, foto
+            y contexto de lo que vivimos juntos.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 space-y-8">
+        {
+          encuentrosPorAno.map((grupo) => (
+            <section class="rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover">
+              <div class="flex items-center justify-between gap-3 mb-4">
+                <h3 class="text-xl font-bold text-white">{grupo[0].year}</h3>
+                <span class="text-xs px-3 py-1 rounded-full bg-slate-700 text-slate-200 font-semibold">
+                  {grupo.length} encuentro{grupo.length === 1 ? "" : "s"}
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                {grupo.map((encuentro) => (
+                  <article class="overflow-hidden rounded-xl border border-slate-600 bg-tc-black">
+                    <div class="h-52 overflow-hidden">
+                      {encuentro.href ? (
+                        <a href={encuentro.href} class="block h-full">
+                          <img
+                            src={encuentro.image}
+                            alt={encuentro.imageAlt}
+                            class="h-full w-full object-cover transition duration-200 hover:scale-105"
+                          />
+                        </a>
+                      ) : (
+                        <img
+                          src={encuentro.image}
+                          alt={encuentro.imageAlt}
+                          class="h-full w-full object-cover"
+                        />
+                      )}
+                    </div>
+
+                    <div class="p-4">
+                      <div class="flex items-center justify-between gap-2 text-xs text-slate-400">
+                        <span>{encuentro.dateLabel}</span>
+                        <span>{encuentro.year}</span>
+                      </div>
+                      <h4 class="mt-2 text-lg font-semibold text-white leading-snug">
+                        {encuentro.title}
+                      </h4>
+                      <p class="mt-2 text-sm text-slate-200 leading-relaxed">
+                        {encuentro.summary}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .lift-in {
+      animation: liftIn 0.55s ease-out both;
+    }
+
+    .card-hover {
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-3px);
+      border-color: rgba(252, 211, 77, 0.55);
+      box-shadow: 0 18px 36px rgba(2, 6, 23, 0.42);
+    }
+
+    @keyframes liftIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</BaseLayout>

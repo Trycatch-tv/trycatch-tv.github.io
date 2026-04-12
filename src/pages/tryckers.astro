@@ -1,211 +1,164 @@
 ---
+import { Image } from "astro:assets"
+import CoverBucaramanga from "../assets/img/comunidades/bucaramanga/cover.jpg"
+import DefaultCommunityCover from "../assets/img/comunidades/default-cover.svg"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
-// Obtener la lista de suscriptores desde la función Netlify (SSR)
-const apiUrl = "https://trycatch.tv/.netlify/functions/twitch-subscribers"
-
-// Definir el tipo para los suscriptores
-interface TwitchSub {
-  user_name: string
-  user_profile_image_url?: string
-  created_at?: string
-  plan_name?: string
-  is_gift?: boolean
-}
-
-let subs: TwitchSub[] = []
-try {
-  const res = await fetch(apiUrl)
-  const data = await res.json()
-  // El array de subs está en data.data según la respuesta de la API de Twitch
-  subs = data.data || []
-} catch (e) {
-  subs = []
-}
-
-const info = {
-  titleTeam: "Tryckers Team",
-  tryckersTeam: [
-    {
-      username: "ElProgramadorGT",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/7fb16515-ed68-4fdd-9ec9-94630c05de09-profile_image-70x70.png",
-      url: "https://www.twitch.tv/elprogramadorgt",
-    },
-    {
-      username: "ChrisVDev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/33d67b61-c1be-4f36-9cbc-10aabf9a4f4c-profile_image-70x70.png",
-      url: "https://www.twitch.tv/chrisvdev",
-    },
-    {
-      username: "FrancoLabs",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/2e456aac-989b-41e4-af41-9c1179da4782-profile_image-70x70.png",
-      url: "https://www.twitch.tv/francolabs",
-    },
-    {
-      username: "CodingWithStrangers",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/dc386d21-87c4-498e-8d53-bad77fc23141-profile_image-70x70.png",
-      url: "https://www.twitch.tv/codingwithstrangers",
-    },
-    {
-      username: "AntonyDev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/8d6c1156-584e-4543-a679-4fa61f30d7a3-profile_image-70x70.png",
-      url: "https://www.twitch.tv/antonydev",
-    },
-    {
-      username: "MetalitoDev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/81d6dc2a-1378-45f2-898a-02bee1aff39d-profile_image-70x70.png",
-      url: "https://www.twitch.tv/metalitodev",
-    },
-    {
-      username: "The_FrontDev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/bf627c06-5e31-4962-82ca-ea4f340b43d5-profile_image-70x70.jpeg",
-      url: "https://www.twitch.tv/the_frontdev",
-    },
-    {
-      username: "QuantumApprentice",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/e45d8530-48a4-4f82-9449-18cda04d7a23-profile_image-70x70.png",
-      url: "https://www.twitch.tv/quantumapprentice",
-    },
-  ],
-  titleSubs: "Tryckers Subs",
-  tryckersPremium: [
-    {
-      username: "MranDvX",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/164bb36d-db91-4c50-aafb-0734c475a3f2-profile_image-70x70.png",
-      since: "Febrero 2023",
-    },
-    {
-      username: "JaimACuSdev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/fa794444-a97c-40ea-82b6-7ff54d771a6b-profile_image-70x70.png",
-      since: "Mayo 2023",
-    },
-    {
-      username: "ApitoriaDev",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/e6e52ab3-691b-403f-8dbc-4347ea57f36b-profile_image-70x70.png",
-      since: "Agosto 2023",
-    },
-    {
-      username: "Nexeum",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/user-default-pictures-uv/dbdc9198-def8-11e9-8681-784f43822e80-profile_image-70x70.png",
-      since: "Enero 2024",
-    },
-    {
-      username: "ManuPro",
-      platform: "Twitch",
-      avatar:
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/7b943b44-427b-4921-b777-45bf7ac58631-profile_image-70x70.png",
-      since: "Octubre 2023",
-    },
-  ],
-  titleDestacados: "Tryckers Destacados",
-  tryckersDestacados: [
-    {
-      username: "",
-      platform: "",
-      avatar: "",
-    },
-  ],
-}
+const comunidades = [
+  {
+    city: "Bucaramanga",
+    status: "activa",
+    description:
+      "Comunidad local donde nos reunimos a hablar de tech, compartir experiencias y crecer juntos. Un espacio abierto para conectar, aprender y construir comunidad en Bucaramanga.",
+    href: "/comunidades/bucaramanga",
+    cover: CoverBucaramanga,
+    coverAlt: "Comunidad Bucaramanga",
+  },
+  {
+    city: "Bogota",
+    status: "proximamente",
+    description:
+      "Estamos estructurando alianzas y agenda para comenzar actividades de comunidad.",
+    href: "",
+    cover: DefaultCommunityCover,
+    coverAlt: "Portada por defecto de comunidad",
+  },
+  {
+    city: "Medellin",
+    status: "proximamente",
+    description:
+      "Proximo nodo local para eventos, divulgacion y colaboracion tecnica.",
+    href: "",
+    cover: DefaultCommunityCover,
+    coverAlt: "Portada por defecto de comunidad",
+  },
+]
 ---
 
-<BaseLayout title={`Tryckers`}>
-  <div
-    class="max-w-5xl mx-auto my-16 p-10 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24"
-  >
-    <h2
-      class="text-tc-yellow text-3xl font-bold text-center mb-6 uppercase tracking-wide"
+<BaseLayout title={`Comunidad Trycker`}>
+  <main class="max-w-screen-2xl mx-auto mt-24 px-4 md:px-6">
+    <section
+      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl lift-in"
     >
-      {info.titleTeam}
-    </h2>
-    <hr class="border-gray-600 mb-6" />
+      <div>
+        <h1
+          class="mt-4 text-3xl md:text-5xl font-bold text-tc-yellow uppercase tracking-wide leading-tight"
+        >
+          Comunidad Trycker
+        </h1>
+        <p
+          class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg"
+        >
+          Con estos espacios informales buscamos construir una verdadera tribu
+          tech. Un lugar para aprender, compartir, conocer gente y crecer
+          juntos, sin importar en que punto estes. Aqui vive lo que pasa en cada
+          encuentro y lo que la comunidad construye dia a dia.
+        </p>
+        <a
+          href="https://chat.whatsapp.com/G2aXPLC8Kc382MRVdLsJyG?mode=gi_t"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-400/70 bg-emerald-500 px-5 py-3 text-sm md:text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+        >
+          Unirme a la comunidad
+          <svg
+            aria-hidden="true"
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20.52 3.48A11.93 11.93 0 0012.03 0C5.4 0 .02 5.38.02 12c0 2.11.55 4.18 1.59 6.01L0 24l6.17-1.6A11.94 11.94 0 0012.03 24h.01c6.62 0 11.99-5.38 11.99-12 0-3.2-1.25-6.2-3.51-8.52zM12.04 21.9h-.01a9.9 9.9 0 01-5.04-1.38l-.36-.22-3.66.95.98-3.57-.24-.37a9.88 9.88 0 01-1.52-5.31c0-5.46 4.44-9.9 9.9-9.9a9.83 9.83 0 017 2.91 9.82 9.82 0 012.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.43-7.43c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.76.96-.93 1.16-.17.2-.34.23-.64.08-.3-.15-1.26-.46-2.41-1.46-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.47.13-.62.13-.13.3-.34.45-.5.15-.17.2-.29.3-.49.1-.2.05-.37-.03-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 1.99-1.42.25-.69.25-1.29.17-1.42-.08-.12-.28-.2-.58-.35z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </section>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-    >
-      {
-        info.tryckersTeam.map((trycker) => (
-          <a href={trycker.url} target="_blank" class="group">
-            <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
-              <img
-                class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform group-hover:scale-110"
-                src={trycker.avatar}
-                alt={trycker.username}
-              />
-              <h3 class="text-purple-400 font-bold text-lg">
-                {trycker.username}
-              </h3>
-              <p class="text-gray-300 text-sm">{trycker.platform}</p>
-            </div>
-          </a>
-        ))
-      }
-    </div>
-
-    <h2
-      class="text-tc-yellow text-3xl font-bold text-center mt-12 mb-6 uppercase tracking-wide"
-    >
-      {info.titleSubs}
-    </h2>
-    <hr class="border-gray-600 mb-6" />
-
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-    >
-      {
-        subs.length === 0 ? (
-          <div class="col-span-4 text-center text-gray-400">
-            No hay suscriptores activos o no se pudo obtener la lista.
-          </div>
-        ) : (
-          subs.map((sub) => (
-            <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
-              <img
-                class="rounded-full h-24 w-24 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
-                src={
-                  sub.user_profile_image_url ||
-                  "https://static-cdn.jtvnw.net/user-default-pictures-uv/dbdc9198-def8-11e9-8681-784f43822e80-profile_image-70x70.png"
-                }
-                alt={sub.user_name}
-              />
-              <h3 class="text-tc-yellow font-bold text-lg">{sub.user_name}</h3>
-              {sub.plan_name && (
-                <p class="text-purple-400 text-xs mt-1">
-                  {sub.plan_name} {sub.is_gift ? "🎁" : ""}
-                </p>
+    <section class="mt-10 mb-16 md:mb-24">
+      <h2
+        class="text-tc-yellow text-2xl font-bold mb-4 uppercase tracking-wide"
+      >
+        Ciudades
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {
+          comunidades.map((comunidad) => (
+            <article class="rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover min-h-[390px] flex flex-col">
+              {comunidad.cover && (
+                <div class="mb-4 overflow-hidden rounded-xl border border-slate-700">
+                  <Image
+                    src={comunidad.cover}
+                    alt={comunidad.coverAlt || `Portada ${comunidad.city}`}
+                    class="h-44 w-full object-cover"
+                  />
+                </div>
               )}
-              {sub.created_at && (
-                <p class="text-gray-400 text-xs mt-1">
-                  Desde {new Date(sub.created_at).toLocaleDateString("es-CO")}
-                </p>
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-xl font-semibold text-white">
+                  {comunidad.city}
+                </h3>
+                <span
+                  class={`text-xs px-2 py-1 rounded-full font-semibold tracking-wide ${
+                    comunidad.status === "activa"
+                      ? "bg-emerald-600/90 text-white"
+                      : "bg-slate-700 text-slate-200"
+                  }`}
+                >
+                  {comunidad.status === "activa" ? "Activa" : "Proximamente"}
+                </span>
+              </div>
+              <p class="mt-3 text-sm text-slate-200 leading-relaxed">
+                {comunidad.description}
+              </p>
+
+              {comunidad.href ? (
+                <a
+                  href={comunidad.href}
+                  class="inline-flex items-center mt-auto pt-4 text-tc-yellow font-semibold hover:text-amber-200 transition"
+                >
+                  Ir a comunidad
+                </a>
+              ) : (
+                <span class="inline-block mt-auto pt-4 text-slate-300 text-sm">
+                  Pronto habilitada
+                </span>
               )}
-            </div>
+            </article>
           ))
-        )
+        }
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .lift-in {
+      animation: liftIn 0.55s ease-out both;
+    }
+
+    .card-hover {
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-3px);
+      border-color: rgba(252, 211, 77, 0.55);
+      box-shadow: 0 18px 36px rgba(2, 6, 23, 0.42);
+    }
+
+    @keyframes liftIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
       }
-    </div>
-  </div>
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </BaseLayout>
