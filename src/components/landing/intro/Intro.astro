@@ -23,7 +23,7 @@ const info = {
 ---
 
 <section class="mt-24">
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
       class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8 shadow-lg text-center"
     >
@@ -37,17 +37,19 @@ const info = {
       </div>
 
       <!-- Información del perfil -->
-      <div class="mt-6">
-        <h2 class="text-tc-gray-l text-2xl lg:text-4xl font-extrabold">
+      <div class="mt-6 max-w-5xl mx-auto">
+        <h2
+          class="text-tc-gray-l text-3xl lg:text-5xl font-extrabold leading-tight"
+        >
           {info.title}
         </h2>
-        <p class="text-lg text-tc-gray mt-2">{info.subtitle}</p>
+        <p class="text-base lg:text-xl text-tc-gray mt-3">{info.subtitle}</p>
         <p
-          class="text-tc-gray-l p-4 text-sm lg:text-base leading-relaxed text-justify mx-auto max-w-2xl"
+          class="text-tc-gray-l px-2 md:px-0 pt-5 pb-2 text-base lg:text-[1.45rem] leading-8 lg:leading-10 text-center mx-auto max-w-[72ch]"
         >
           {info.description}
         </p>
-        <p class="text-tc-yellow font-semibold mt-2">{info.daughterName}</p>
+        <p class="text-tc-yellow font-semibold mt-3">{info.daughterName}</p>
       </div>
 
       <!-- Botones de CTA -->

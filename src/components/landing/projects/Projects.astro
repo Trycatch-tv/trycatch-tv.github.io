@@ -35,55 +35,64 @@ const info = {
 ---
 
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
+      class="bg-tc-black border border-slate-700/80 rounded-2xl p-8 lg:p-12 mb-12 shadow-[0_22px_50px_-28px_rgba(0,0,0,0.85)]"
     >
-      <!-- Título -->
-      <div class="text-center mb-10">
-        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
+      <div class="text-center mb-10 lg:mb-12">
+        <p class="text-xs tracking-[0.24em] uppercase text-slate-300 mb-3">
+          Comunidad y Herramientas
+        </p>
+        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-3">
           {info.title}
         </h2>
-        <p class="text-gray-300 text-base max-w-2xl mx-auto">
+        <p class="text-slate-300 text-base leading-relaxed max-w-3xl mx-auto">
           {info.description}
         </p>
       </div>
 
-      <!-- Lista de proyectos -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           info.proyectos.map((proyecto) => (
-            <div class="bg-tc-black-l border border-gray-700 rounded-md p-6 flex flex-col justify-between hover:shadow-xl transition-transform transform hover:scale-105 text-center">
-              <div class="flex flex-col gap-3 items-center">
-                <div class="text-3xl">{proyecto.icon}</div>
-                <h3 class="text-lg font-bold text-tc-yellow">
+            <article class="relative bg-tc-black-l border border-slate-700/90 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_22px_36px_-22px_rgba(0,0,0,0.95)]">
+              <div class="flex flex-col gap-4 items-center">
+                <div class="h-12 w-12 rounded-full bg-slate-200/10 border border-slate-500/60 flex items-center justify-center text-2xl">
+                  {proyecto.icon}
+                </div>
+                <h3 class="text-xl font-extrabold text-tc-yellow">
                   {proyecto.title}
                 </h3>
-                <p class="text-sm text-gray-300 leading-relaxed">
+                <p class="text-sm text-slate-300 leading-relaxed min-h-[96px]">
                   {proyecto.description}
                 </p>
               </div>
-              <div class="mt-6 flex gap-3">
+              <div class="mt-7 grid grid-cols-2 gap-3">
                 <a
                   href={proyecto.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 flex items-center justify-center gap-2 bg-gray-300 hover:bg-white text-black font-semibold text-sm px-4 py-2 rounded-md transition"
+                  class="group/cta flex items-center justify-center gap-2 rounded-lg border border-tc-yellow/70 bg-tc-yellow text-black font-extrabold text-sm px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f4dc7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tc-yellow/60"
                 >
-                  <Icon class="w-5 h-5" name="carbon:view-filled" />
+                  <Icon
+                    class="w-4 h-4 transition-transform duration-300 group-hover/cta:scale-110"
+                    name="carbon:view-filled"
+                  />
                   Ver
                 </a>
                 <a
                   href={proyecto.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 flex items-center justify-center gap-2 bg-gray-300 hover:bg-white text-black font-semibold text-sm px-4 py-2 rounded-md transition"
+                  class="group/cta flex items-center justify-center gap-2 rounded-lg border border-slate-400/70 bg-transparent text-slate-100 font-bold text-sm px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-200 hover:bg-slate-100 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/60"
                 >
-                  <Icon class="w-5 h-5" name="mdi:github" />
+                  <Icon
+                    class="w-4 h-4 transition-transform duration-300 group-hover/cta:rotate-6"
+                    name="mdi:github"
+                  />
                   Repo
                 </a>
               </div>
-            </div>
+            </article>
           ))
         }
       </div>

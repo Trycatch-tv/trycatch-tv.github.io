@@ -1,78 +1,82 @@
 ---
 import { Icon } from "astro-icon"
-import Button from "./ui/button.astro"
 
 const info = {
-  donationText:
-    "Si te ha gustado el contenido o te ha servido en tu camino como dev, puedes apoyar el proyecto con una donación.",
-  donationLink: "https://buymeacoffee.com/trycatchtv",
   feedbackText:
-    "¿Quieres dejar tu testimonio o sugerencia? Usa el siguiente enlace y ayúdanos a mejorar y crecer como comunidad.",
-  feedbackLink: "https://forms.gle/5RmFDcpJp5tv3DgM8",
+    "Tu experiencia nos ayuda a mejorar. Comparte sugerencias, ideas o un testimonio sobre lo que has vivido en la comunidad.",
   year: new Date().getFullYear(),
   feedbackForm: "https://bit.ly/encuesta_trycatch",
   testimonialForm: "https://bit.ly/testimoniotc",
-  mpLink: "https://mpago.li/13UWNV7",
-  paypalLink: "https://paypal.me/judlup",
 }
-const footerItems = []
 ---
-
-<!-- Footer fijo reducido (solo legal y navegación) -->
-<footer class="bg-tc-black rounded-md shadow m-4 md:fixed md:bottom-0 z-50">
-  <div
-    class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
-  >
-    <span class="text-sm text-gray-500 sm:text-center">
-      © {info.year}
-      <a href="https://trycatch.tv/" class="hover:underline"> TryCatch.tv</a>
-    </span>
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0"
-    >
-      {
-        footerItems.map((item) => (
-          <li>
-            <a href={item.path} class="mr-4 hover:underline md:mr-6">
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</footer>
 
 <!-- Footer completo con contenido -->
 <footer class="bg-tc-black border-t border-gray-700 pt-10 text-center px-4">
-  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-    <!-- Donaciones -->
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 gap-10">
     <div
-      class="bg-tc-black-l border border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition"
+      class="bg-tc-black-l border border-slate-600 rounded-xl p-6 md:p-10 hover:shadow-lg transition"
     >
-      <Icon class="w-8 h-8 text-tc-yellow mb-2" name="mdi:coffee" />
-      <h3 class="text-white font-bold text-lg mb-2">Apóyanos con un café ☕</h3>
-      <p class="text-gray-300 text-sm mb-4 max-w-xs">{info.donationText}</p>
-      <div class="flex gap-3">
-        <Button buttonText="MercadoPago" buttonLink={info.mpLink} />
-        <Button buttonText="PayPal" buttonLink={info.paypalLink} />
+      <div
+        class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-center text-left"
+      >
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-500 text-tc-yellow text-xs font-semibold tracking-wide mb-4"
+          >
+            <Icon class="w-4 h-4" name="mdi:message-draw" />
+            PARTICIPA EN LA COMUNIDAD
+          </div>
+          <h3 class="text-white font-bold text-2xl leading-tight">
+            Dejanos tu opinion
+          </h3>
+          <p class="text-gray-300 text-base mt-3 max-w-2xl leading-relaxed">
+            {info.feedbackText}
+          </p>
+        </div>
+
+        <div
+          class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3"
+        >
+          <a
+            href={info.feedbackForm}
+            class="flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
+          >
+            Enviar feedback
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+
+          <a
+            href={info.testimonialForm}
+            class="flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
+          >
+            Compartir testimonio
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-
-    <!-- Feedback y Testimonios -->
-    <div
-      class="bg-tc-black-l border border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition"
-    >
-      <Icon class="w-8 h-8 text-tc-yellow mb-2" name="mdi:message-draw" />
-      <h3 class="text-white font-bold text-lg mb-2">Déjanos tu opinión 💬</h3>
-      <p class="text-gray-300 text-sm mb-4 max-w-sm">{info.feedbackText}</p>
-      <div class="flex gap-3">
-        <Button buttonText="Feedback" buttonLink={info.feedbackForm} />
-        <Button buttonText="Testimonio" buttonLink={info.testimonialForm} />
-      </div>
-    </div>
-
-    <!-- Calendario -->
   </div>
 
   <!-- Copyright -->

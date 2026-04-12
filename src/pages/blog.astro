@@ -17,13 +17,13 @@ const searchQuery = q.toLowerCase()
 const filteredPosts = posts.filter(
   (post) =>
     post.frontmatter.title.toLowerCase().includes(searchQuery) ||
-    post.frontmatter.author.toLowerCase().includes(searchQuery)
+    post.frontmatter.author.toLowerCase().includes(searchQuery),
 )
 ---
 
 <BaseLayout title={`Blog`}>
   <div
-    class="max-w-4xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+    class="max-w-screen-2xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
   >
     <h1 class="text-4xl mb-4 font-bold text-white dark:text-tc-black">
       TryCatch.tv | Blog

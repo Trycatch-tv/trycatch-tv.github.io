@@ -1,47 +1,68 @@
+---
+import Icon from "astro-icon"
+---
+
 <section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-12"
+      class="bg-tc-black border border-slate-700/80 rounded-2xl p-8 lg:p-12 mb-12 shadow-[0_22px_50px_-28px_rgba(0,0,0,0.85)]"
     >
-      <!-- Título -->
-      <div class="text-center mb-8">
-        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-2">
+      <div class="text-center mb-8 lg:mb-10">
+        <p class="text-xs tracking-[0.24em] uppercase text-slate-300 mb-3">
+          Hablemos
+        </p>
+        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-3">
           Contacto
         </h2>
-        <p class="text-gray-300 text-base">
+        <p class="text-slate-300 text-base max-w-2xl mx-auto">
           Si en algo puedo ayudarte, no dudes en contactarme.
         </p>
       </div>
 
-      <!-- Datos de Contacto -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
+      >
         <a
           href="mailto:judlup@trycatch.tv"
-          class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105"
+          class="group bg-tc-black-l border border-slate-700/90 rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_22px_36px_-22px_rgba(0,0,0,0.95)]"
         >
-          <div class="text-2xl mb-2">📧</div>
-          <h3 class="text-tc-yellow font-semibold text-lg mb-1">Correo</h3>
-          <p class="text-sm text-gray-300">judlup@trycatch.tv</p>
+          <div
+            class="h-12 w-12 mx-auto mb-3 rounded-full bg-slate-200/10 border border-slate-500/60 flex items-center justify-center text-slate-100 group-hover:border-slate-300/80 transition-colors"
+          >
+            <Icon class="w-6 h-6" name="mdi:email-outline" />
+          </div>
+          <h3 class="text-tc-yellow font-bold text-lg mb-1">Correo</h3>
+          <p class="text-sm text-slate-300">judlup@trycatch.tv</p>
         </a>
 
         <a
           href="https://www.linkedin.com/in/judlup/"
           target="_blank"
-          class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105"
+          rel="noopener noreferrer"
+          class="group bg-tc-black-l border border-slate-700/90 rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_22px_36px_-22px_rgba(0,0,0,0.95)]"
         >
-          <div class="text-2xl mb-2">🔗</div>
-          <h3 class="text-tc-yellow font-semibold text-lg mb-1">LinkedIn</h3>
-          <p class="text-sm text-gray-300">in/judlup</p>
+          <div
+            class="h-12 w-12 mx-auto mb-3 rounded-full bg-slate-200/10 border border-slate-500/60 flex items-center justify-center text-slate-100 group-hover:border-slate-300/80 transition-colors"
+          >
+            <Icon class="w-6 h-6" name="mdi:linkedin" />
+          </div>
+          <h3 class="text-tc-yellow font-bold text-lg mb-1">LinkedIn</h3>
+          <p class="text-sm text-slate-300">in/judlup</p>
         </a>
 
         <a
           href="https://www.instagram.com/trycatch_tv/"
           target="_blank"
-          class="bg-tc-black-l border border-gray-700 rounded-md p-6 text-center hover:shadow-xl transition-transform transform hover:scale-105"
+          rel="noopener noreferrer"
+          class="group bg-tc-black-l border border-slate-700/90 rounded-xl p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_22px_36px_-22px_rgba(0,0,0,0.95)]"
         >
-          <div class="text-2xl mb-2">📸</div>
-          <h3 class="text-tc-yellow font-semibold text-lg mb-1">Instagram</h3>
-          <p class="text-sm text-gray-300">@TryCatch_tv</p>
+          <div
+            class="h-12 w-12 mx-auto mb-3 rounded-full bg-slate-200/10 border border-slate-500/60 flex items-center justify-center text-slate-100 group-hover:border-slate-300/80 transition-colors"
+          >
+            <Icon class="w-6 h-6" name="mdi:instagram" />
+          </div>
+          <h3 class="text-tc-yellow font-bold text-lg mb-1">Instagram</h3>
+          <p class="text-sm text-slate-300">@TryCatch_tv</p>
         </a>
       </div>
     </div>

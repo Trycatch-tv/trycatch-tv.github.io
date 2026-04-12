@@ -1,8 +1,8 @@
 ---
-import { Icon } from "astro-icon";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon"
+import BaseLayout from "../layouts/BaseLayout.astro"
 
-const whatsAppNumber = "573164907627";
+const whatsAppNumber = "573164907627"
 const info = {
   title: "Trycker Store",
   buyProcessTitle: "Proceso de compra y pago",
@@ -323,21 +323,21 @@ const info = {
   whatsappButton: {
     link: `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text=Hola,+más+info+por+favor+mi+nombre+es&type=phone_number&app_absent=0`,
   },
-};
+}
 
 const getRandomPromo = () => {
-  const random = Math.floor(Math.random() * info.sliderPromo.length);
-  return info.sliderPromo[random];
-};
+  const random = Math.floor(Math.random() * info.sliderPromo.length)
+  return info.sliderPromo[random]
+}
 
 const generateWhatSappLink = (product) => {
-  return `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text%3DHola%20me%20interesa%20el%20pro/ducto%3A%20${product.reference}%20-%20mi%20talla%20es%3A%20y%20requiero%201%20unidad%28es%29`;
-};
+  return `https://api.whatsapp.com/send/?phone=${whatsAppNumber}&text%3DHola%20me%20interesa%20el%20pro/ducto%3A%20${product.reference}%20-%20mi%20talla%20es%3A%20y%20requiero%201%20unidad%28es%29`
+}
 ---
 
 <BaseLayout title="Trycker Store">
   <section class="mt-5 py-16">
-    <div class="px-4 lg:mx-auto lg:max-w-screen-xl">
+    <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
       <div class="flex flex-col text-center mb-4">
         <span class="text-2xl text-white bg-tc-black p-4 rounded-md mt-4"
           >{info.title}</span
