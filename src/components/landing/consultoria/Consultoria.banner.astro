@@ -1,0 +1,102 @@
+---
+const info = {
+  title: "Consultoría",
+  subtitle:
+    "Acompañamiento estratégico para tomar mejores decisiones, fortalecer tu perfil y avanzar con claridad en tu carrera o negocio.",
+  products: [
+    {
+      badge: "Estrategia empresarial",
+      title: "Consultoría Empresarial",
+      description:
+        "Soluciones claras y accionables para definir prioridades, destrabar decisiones y avanzar con una hoja de ruta inmediata.",
+      price: "$ 800.000",
+      href: "https://store.trycatch.tv/producto/consultoria-empresarial/",
+    },
+    {
+      badge: "Acompañamiento 1:1",
+      title: "Mentoría personalizadas",
+      description:
+        "Sesiones enfocadas en tus objetivos para ayudarte a resolver bloqueos, validar ideas y acelerar tu crecimiento profesional.",
+      price: "$ 400.000",
+      href: "https://store.trycatch.tv/producto/mentoria-personalizadas/",
+    },
+    {
+      badge: "Marca profesional",
+      title: "Revisión de Perfil",
+      description:
+        "Optimiza tu perfil para destacar frente a reclutadores, clientes y oportunidades que realmente quieras aprovechar.",
+      price: "$ 100.000",
+      href: "https://store.trycatch.tv/producto/revision-de-perfil/",
+    },
+  ],
+}
+---
+
+<section>
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+    <div
+      class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-8 shadow-lg"
+    >
+      <div class="max-w-3xl mx-auto text-center mb-10 lg:mb-12">
+        <span
+          class="inline-flex items-center rounded-full border border-gray-600 bg-tc-black-l px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-tc-yellow mb-4"
+        >
+          Store TryCatch.tv
+        </span>
+        <h2
+          class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight"
+        >
+          {info.title}
+        </h2>
+        <p class="text-gray-300 text-base lg:text-xl leading-relaxed">
+          {info.subtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {
+          info.products.map((product) => (
+            <article class="relative overflow-hidden rounded-lg border border-gray-700 bg-tc-black-l p-6 lg:p-7 shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:border-gray-500">
+              <div class="mb-6 inline-flex rounded-full bg-tc-black px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-tc-yellow border border-gray-600">
+                {product.badge}
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 leading-tight">
+                {product.title}
+              </h3>
+              <p class="text-gray-300 text-base leading-relaxed mb-6 min-h-[96px]">
+                {product.description}
+              </p>
+              <div class="flex items-center justify-between gap-4 mb-6">
+                <span class="text-lg font-semibold text-tc-yellow">
+                  {product.price}
+                </span>
+                <span class="text-sm text-gray-500">Valor único</span>
+              </div>
+              <a
+                href={product.href}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tc-gray-l px-5 py-3 text-base font-semibold text-tc-black transition-transform duration-200 hover:scale-[1.02] hover:bg-tc-yellow"
+              >
+                Comprar ahora
+                <svg
+                  aria-hidden="true"
+                  class="h-5 w-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
