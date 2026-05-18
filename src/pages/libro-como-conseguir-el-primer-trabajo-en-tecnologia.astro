@@ -1,0 +1,296 @@
+---
+import { Image } from "astro:assets"
+import Portada from "../assets/img/libro/Portada_como_conseguir_primer_trabajo.jpg"
+import BaseLayout from "../layouts/BaseLayout.astro"
+const meta = {
+  title: "Guía Completa: Cómo conseguir el primer trabajo en tecnología",
+  description:
+    "Aprende a construir un perfil que destaque, conseguir entrevistas y moverte estratégicamente en el mercado tech.",
+}
+---
+
+<BaseLayout title={meta.title}>
+  <meta slot="head" name="description" content={meta.description} />
+  <meta slot="head" property="og:title" content={meta.title} />
+  <meta slot="head" property="og:description" content={meta.description} />
+
+  <div class="min-h-screen bg-tc-black text-tc-gray-l">
+    <section
+      class="relative overflow-hidden bg-gradient-to-br from-tc-black via-tc-black-l to-tc-black pt-28 md:pt-32 pb-16"
+    >
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="text-center lg:text-left">
+            <div
+              class="flex flex-wrap gap-2 mb-5 justify-center lg:justify-start"
+            >
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                >🔒 Pago 100% seguro</span
+              >
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                >🎯 Lectores beta</span
+              >
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                >👉 EPUB + físico</span
+              >
+            </div>
+
+            <h1
+              class="max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 leading-tight"
+            >
+              Guía Completa: Cómo conseguir el primer trabajo en tecnología
+            </h1>
+            <p
+              class="max-w-xl text-base sm:text-lg text-tc-gray mb-7 leading-relaxed"
+            >
+              Aprende a construir un perfil que destaque, conseguir entrevistas
+              y moverte estratégicamente en el mercado tech en pasos prácticos y
+              accionables.
+            </p>
+
+            <div class="mb-7">
+              <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+                <a
+                  href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/20 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                >
+                  <span>Pasta Blanda</span>
+                  <span class="text-sm font-normal">Edición física</span>
+                </a>
+
+                <a
+                  href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/20 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                >
+                  <span>Pasta Dura</span>
+                  <span class="text-sm font-normal">Edición premium</span>
+                </a>
+              </div>
+              <p class="text-sm text-tc-gray text-center lg:text-left">
+                ⚡ Acceso inmediato | 🚚 Envíos a todo LATAM
+              </p>
+
+              <div class="mt-5 border-t border-white/10 pt-5">
+                <div
+                  class="flex items-center justify-center lg:justify-start gap-2 mb-4"
+                >
+                  <span
+                    class="text-[10px] uppercase tracking-[0.28em] text-tc-gray-l/70"
+                  >
+                    Fuera de Colombia
+                  </span>
+                  <span class="h-px w-10 bg-white/10"></span>
+                </div>
+
+                <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-3">
+                  <a
+                    href="https://amzn.to/3P2qseW"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                  >
+                    <span>Pasta blanda</span>
+                    <span class="text-sm font-normal opacity-80">Amazon</span>
+                  </a>
+
+                  <a
+                    href="https://amzn.to/42xDwMt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                  >
+                    <span>Pasta dura</span>
+                    <span class="text-sm font-normal opacity-80">Amazon</span>
+                  </a>
+
+                  <a
+                    href="https://amzn.to/4e8ZZGP"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                  >
+                    <span>Kindle</span>
+                    <span class="text-sm font-normal opacity-80">Amazon</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center lg:justify-end">
+            <div
+              class="relative transform hover:scale-105 transition-transform duration-300"
+            >
+              <Image
+                src={Portada}
+                alt="Portada libro"
+                class="w-80 h-auto rounded-lg shadow-2xl border border-tc-yellow/20"
+                loading="eager"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 bg-tc-black">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+              ¿Qué problema resuelve?
+            </h2>
+            <p class="text-tc-gray mb-6">
+              Estudias, haces cursos y mejoras tus habilidades, pero aplicas y
+              nadie responde. Muchas veces el problema no es tu capacidad: es
+              estrategia, visibilidad y comunicación. Este libro te da un plan
+              práctico para cambiar eso.
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-3">¿Qué aprenderás?</h3>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Optimizar CV y LinkedIn
+              </li>
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Destacar frente a otros candidatos
+              </li>
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Preparación para entrevistas técnicas
+              </li>
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Usar IA para productividad
+              </li>
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Construir experiencia sin empleo
+              </li>
+              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Ejecución y seguimiento
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold mb-3">El sistema</h3>
+            <p class="text-tc-gray mb-4">
+              Un método basado en 6 principios: Claridad, Perfil, Evidencia,
+              Visibilidad, Comunicación y Ejecución.
+            </p>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Claridad
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Perfil
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Evidencia
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Visibilidad
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Comunicación
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+                Ejecución
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 bg-tc-black-l">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Lo que recibes</h2>
+        <p class="text-tc-gray mb-6">
+          +150 páginas, EPUB + físico, tapa blanda y dura, y acceso digital
+          inmediato.
+        </p>
+        <a
+          href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center px-8 py-4 bg-tc-yellow text-tc-black font-bold rounded-lg shadow-lg hover:shadow-xl"
+          >Comprar ahora</a
+        >
+      </div>
+    </section>
+
+    <section class="py-12 bg-tc-black">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold mb-4">Testimonios</h3>
+            <div class="space-y-4">
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+                "Me consiguió entrevistas reales en 2 semanas" — Lectores beta
+              </div>
+              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+                "Contenido práctico y accionable" — Comunidad TryCatch.tv
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-4">Preguntas frecuentes</h3>
+            <details
+              class="bg-tc-black-l border border-gray-700 rounded-lg p-4"
+            >
+              <summary class="font-semibold"
+                >¿Sirve si no tengo experiencia?</summary
+              ><p class="mt-2 text-tc-gray">
+                Sí. Contiene tácticas para construir evidencia y posicionarte.
+              </p>
+            </details>
+            <details
+              class="bg-tc-black-l border border-gray-700 rounded-lg p-4"
+            >
+              <summary class="font-semibold">¿Incluye IA?</summary><p
+                class="mt-2 text-tc-gray"
+              >
+                Sí, tácticas para usar IA en búsqueda de trabajo y preparación.
+              </p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-tc-black-l text-center">
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          ¿Listo para moverte estratégicamente?
+        </h2>
+        <a
+          href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center px-10 py-4 bg-tc-yellow text-tc-black font-bold rounded-lg shadow-lg hover:shadow-xl"
+          >Comprar ahora</a
+        >
+      </div>
+    </section>
+
+    <a
+      href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
+      target="_blank"
+      rel="noreferrer"
+      class="fixed bottom-6 right-6 bg-tc-yellow text-tc-black font-semibold px-5 py-3 rounded-full shadow-lg"
+      >Comprar libro</a
+    >
+  </div>
+</BaseLayout>
