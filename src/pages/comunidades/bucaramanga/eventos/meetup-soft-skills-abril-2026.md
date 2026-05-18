@@ -3,7 +3,7 @@ layout: "../../../../layouts/BlogLayout.astro"
 title: "Meetup Bucaramanga | Soft skills para potenciar tu carrera tech"
 author: "Equipo TryCatch.tv"
 image:
-  url: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop"
+  url: "/comunidades/bucaramanga/encuentros/abril-2026/abril%202026.JPG"
   alt: "Asistentes durante encuentro de comunidad en Bucaramanga"
 tags: ["Bucaramanga", "Comunidad", "Meetup", "Soft Skills"]
 date: 2026-04-10

@@ -1,4 +1,8 @@
 ---
+const Book2Cover = new URL(
+  "../../../assets/img/libro/Portada_como_conseguir_primer_trabajo.jpg",
+  import.meta.url,
+).href
 const info = {
   title: "¡Ya disponible!",
   subtitle: "Guía completa: Cómo iniciar en el desarrollo de software",
@@ -9,6 +13,17 @@ const info = {
     "https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/",
   image:
     "https://s3.us-west-2.amazonaws.com/store.trycatch.tv/wp-content/uploads/2025/04/23095930/Portada-libro-guia-para-iniciar-en-desarrollo-de-software.jpg",
+}
+const book2 = {
+  title: "Cómo Conseguir el Primer Trabajo en Tecnología",
+  subtitle: "Guía completa para conseguir tu primer empleo en tecnología",
+  description:
+    "Estrategias prácticas, ejercicios y rutas de aprendizaje para posicionarte y conseguir tu primera oportunidad en el sector tech.",
+  cta: "Comprar libro",
+  ctaLink:
+    "https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/",
+  image:
+    "https://s3.us-west-2.amazonaws.com/store.trycatch.tv/wp-content/uploads/2026/04/27003549/Portada.jpg",
 }
 ---
 
@@ -54,6 +69,59 @@ const info = {
           </a>
           <a
             href="/libro-como-iniciar-en-el-desarrollo-de-software"
+            class="inline-block border-2 border-tc-yellow text-tc-yellow font-semibold px-6 py-3 rounded-md hover:bg-tc-yellow hover:text-tc-black transition text-center"
+          >
+            📖 Ver más información
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Segunda entrada del libro debajo de la anterior -->
+<section class="relative overflow-hidden rounded-2xl">
+  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+    <div
+      class="relative bg-tc-black border border-gray-700 rounded-lg p-8 lg:p-12 mb-8 grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] items-center gap-8 lg:gap-10"
+    >
+      <!-- Imagen del libro 2 -->
+      <img
+        src={book2.image}
+        alt="Libro Cómo Conseguir el Primer Trabajo"
+        class="w-56 sm:w-64 lg:w-[280px] rounded-md shadow-md border mx-auto"
+      />
+
+      <!-- Contenido libro 2 -->
+      <div class="text-center lg:text-left w-full">
+        <h2
+          class="text-tc-yellow text-2xl lg:text-3xl font-bold mb-2 tracking-wide"
+        >
+          {book2.title}
+        </h2>
+        <h3
+          class="text-white text-lg lg:text-xl font-semibold mb-4 leading-snug"
+        >
+          {book2.subtitle}
+        </h3>
+        <p
+          class="text-gray-300 text-base lg:text-[1.2rem] leading-8 mb-6 max-w-[62ch] mx-auto lg:mx-0"
+        >
+          {book2.description}
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+        >
+          <a
+            href={book2.ctaLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-tc-yellow text-tc-black font-semibold px-6 py-3 rounded-md hover:opacity-90 transition text-center"
+          >
+            {book2.cta}
+          </a>
+          <a
+            href="/libro-como-conseguir-el-primer-trabajo-en-tecnologia"
             class="inline-block border-2 border-tc-yellow text-tc-yellow font-semibold px-6 py-3 rounded-md hover:bg-tc-yellow hover:text-tc-black transition text-center"
           >
             📖 Ver más información
