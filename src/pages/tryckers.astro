@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import CoverBucaramanga from "../assets/img/comunidades/bucaramanga/cover.jpg"
+import CoverBogota from "../assets/img/comunidades/bogota/cover.jpg"
 import DefaultCommunityCover from "../assets/img/comunidades/default-cover.svg"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
@@ -16,19 +17,19 @@ const comunidades = [
   },
   {
     city: "Bogota",
-    status: "proximamente",
+    status: "activa",
     description:
-      "Estamos estructurando alianzas y agenda para comenzar actividades de comunidad.",
-    href: "",
-    cover: DefaultCommunityCover,
-    coverAlt: "Portada por defecto de comunidad",
+      "Estamos iniciando una nueva comunidad en Bogota, con eventos y actividades para conectar a los tech lovers de la ciudad.",
+    href: "#",
+    cover: CoverBogota,
+    coverAlt: "Comunidad Bogota",
   },
   {
     city: "Medellin",
     status: "proximamente",
     description:
       "Proximo nodo local para eventos, divulgacion y colaboracion tecnica.",
-    href: "",
+    href: "#",
     cover: DefaultCommunityCover,
     coverAlt: "Portada por defecto de comunidad",
   },
@@ -112,7 +113,7 @@ const comunidades = [
                 {comunidad.description}
               </p>
 
-              {comunidad.href ? (
+              {comunidad.href !== "#" ? (
                 <a
                   href={comunidad.href}
                   class="inline-flex items-center mt-auto pt-4 text-tc-yellow font-semibold hover:text-amber-200 transition"
