@@ -72,9 +72,8 @@ async function sendPushNotification(
       included_segments: ["All"],
       headings: { en: "🔴 TryCatch.tv está en vivo" },
       contents: { en: title },
-      url: `https://www.youtube.com/watch?v=${videoId}`,
+      url: "https://www.youtube.com/@TryCatch_tv/live",
     }),
-  });
 
   if (!res.ok) {
     const error = await res.json();
