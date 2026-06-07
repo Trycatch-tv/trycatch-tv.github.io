@@ -1,5 +1,11 @@
 ---
-const navbarItems = [
+type NavItem = {
+  name: string
+  path: string
+  target?: "_blank" | "_self" | "_parent" | "_top"
+}
+
+const navbarItems: NavItem[] = [
   {
     name: "Eventos",
     path: "/eventos",

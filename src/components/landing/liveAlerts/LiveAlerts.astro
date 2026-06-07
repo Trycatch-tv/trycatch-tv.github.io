@@ -1,0 +1,164 @@
+---
+---
+
+<section class="mb-10">
+  <div
+    class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl"
+  >
+    <p class="text-xs tracking-[0.28em] uppercase text-slate-400 mb-3">
+      Notificaciones push
+    </p>
+    <h2
+      class="text-2xl md:text-3xl font-bold text-tc-yellow uppercase tracking-wide mb-4"
+    >
+      🔔 Sé el primero en enterarte
+    </h2>
+    <p class="text-slate-300 text-base max-w-2xl mb-8">
+      Activa las alertas y te avisaré en cuanto empiece una transmisión. Sin
+      spam, solo cuando haya live.
+    </p>
+
+    <!-- Estado: cargando (visible hasta que el SDK inicialice) -->
+    <div id="onesignal-loading" class="flex items-center gap-2">
+      <div
+        class="w-4 h-4 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin"
+      ></div>
+      <span class="text-slate-400 text-sm">Cargando...</span>
+    </div>
+
+    <!-- Estado: navegador no compatible -->
+    <div id="onesignal-unsupported" class="hidden">
+      <p class="text-amber-400 text-sm">
+        Tu navegador no soporta notificaciones web push.<br />
+        Prueba con Chrome, Edge o Firefox actualizado.
+      </p>
+    </div>
+
+    <!-- Estado: permiso bloqueado -->
+    <div id="onesignal-blocked" class="hidden">
+      <p class="text-red-400 text-sm max-w-md">
+        Las notificaciones están bloqueadas.<br />
+        Ve a la configuración del sitio en tu navegador, habilítalas y recarga
+        la página.
+      </p>
+    </div>
+
+    <!-- Estado: no suscrito — botón principal -->
+    <button
+      id="onesignal-subscribe"
+      class="hidden bg-tc-yellow text-tc-black font-bold py-3 px-8 rounded-xl text-base lg:text-lg transition-all duration-200 hover:opacity-90 active:scale-95 cursor-pointer"
+    >
+      🔔 Avisarme cuando esté en vivo
+    </button>
+
+    <!-- Estado: suscrito -->
+    <div id="onesignal-subscribed" class="hidden">
+      <p class="text-tc-cyan font-bold text-lg mb-2">
+        ✅ Notificaciones activadas
+      </p>
+      <p class="text-slate-400 text-sm mb-4">
+        Te avisaré en cuanto empiece el próximo live.
+      </p>
+      <button
+        id="onesignal-unsubscribe"
+        class="text-slate-500 text-xs underline hover:text-slate-300 transition-colors cursor-pointer"
+      >
+        Desactivar notificaciones
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const APP_ID = import.meta.env.PUBLIC_ONESIGNAL_APP_ID as string | undefined;
+
+  const IDS = {
+    loading: "onesignal-loading",
+    unsupported: "onesignal-unsupported",
+    blocked: "onesignal-blocked",
+    subscribe: "onesignal-subscribe",
+    subscribed: "onesignal-subscribed",
+    unsubscribe: "onesignal-unsubscribe",
+  } as const;
+
+  // Referencia al SDK una vez que cargue
+  let _os: any = null;
+
+  function showOnly(id: string) {
+    Object.values(IDS).forEach((stateId) =>
+      document.getElementById(stateId)?.classList.add("hidden")
+    );
+    document.getElementById(id)?.classList.remove("hidden");
+  }
+
+  async function syncUI() {
+    if (!_os) return;
+    const optedIn: boolean = _os.User?.PushSubscription?.optedIn ?? false;
+    if (Notification.permission === "denied") showOnly(IDS.blocked);
+    else if (optedIn) showOnly(IDS.subscribed);
+    else showOnly(IDS.subscribe);
+  }
+
+  function init() {
+    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
+      showOnly(IDS.unsupported);
+      return;
+    }
+
+    // Registrar listeners siempre, antes de cargar el SDK
+    document.getElementById(IDS.subscribe)?.addEventListener("click", async () => {
+      if (!_os) return;
+      showOnly(IDS.loading);
+      try {
+        await _os.Notifications.requestPermission();
+      } catch { /* usuario cerró el diálogo */ }
+      await syncUI();
+    });
+
+    document.getElementById(IDS.unsubscribe)?.addEventListener("click", async () => {
+      if (!_os) return;
+      await _os.User.PushSubscription.optOut();
+      showOnly(IDS.subscribe);
+    });
+
+    if (!APP_ID) {
+      showOnly(IDS.subscribe);
+      return;
+    }
+
+    // Removida la restricción de localhost para permitir pruebas locales.
+    // Asegúrate de usar http://localhost en tu navegador (OneSignal lo requiere con allowLocalhostAsSecureOrigin: true).
+
+    (window as any).OneSignalDeferred = (window as any).OneSignalDeferred || [];
+
+    if (!document.querySelector('script[src*="OneSignalSDK.page"]')) {
+      const sdk = document.createElement("script");
+      sdk.src = "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js";
+      sdk.defer = true;
+      document.head.appendChild(sdk);
+    }
+
+    (window as any).OneSignalDeferred.push(async function (OneSignal: any) {
+      try {
+        await OneSignal.init({
+          appId: APP_ID,
+          allowLocalhostAsSecureOrigin: true,
+          notifyButton: { enable: false },
+          serviceWorkerParam: { scope: "/" },
+          serviceWorkerPath: "/OneSignalSDKWorker.js",
+        });
+        _os = OneSignal;
+        await syncUI();
+      } catch (err) {
+        console.error("[LiveAlerts] Error al inicializar OneSignal:", err);
+        showOnly(IDS.subscribe);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+</script>

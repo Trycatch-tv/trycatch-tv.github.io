@@ -124,6 +124,55 @@ const info = {
             ))
           }
         </ul>
+        <!-- Bloque de alertas en vivo — entre íconos y calendario -->
+        <div
+          class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-tc-black-l border border-slate-700/50 rounded-xl p-5"
+        >
+          <div>
+            <p class="text-white font-bold text-base">🔴 Alertas en vivo</p>
+            <p class="text-slate-400 text-sm mt-0.5">
+              Te aviso cuando empiece una transmisión. Sin spam.
+            </p>
+          </div>
+
+          <!-- Cargando -->
+          <div id="la-loading" class="flex items-center gap-2">
+            <div
+              class="w-3 h-3 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin"
+            ></div>
+            <span class="text-slate-400 text-xs">Cargando...</span>
+          </div>
+
+          <!-- Navegador no compatible -->
+          <p id="la-unsupported" class="hidden text-amber-400 text-xs">
+            Tu navegador no soporta notificaciones push.
+          </p>
+
+          <!-- Permiso bloqueado -->
+          <p id="la-blocked" class="hidden text-red-400 text-xs">
+            Notificaciones bloqueadas en el navegador.
+          </p>
+
+          <!-- Botón suscribirse -->
+          <button
+            id="la-subscribe"
+            class="hidden bg-tc-yellow text-tc-black font-bold py-2 px-5 rounded-lg text-sm hover:opacity-90 active:scale-95 cursor-pointer whitespace-nowrap transition-all"
+          >
+            🔔 Avisarme cuando esté en vivo
+          </button>
+
+          <!-- Suscrito -->
+          <div id="la-subscribed" class="hidden space-y-1 text-right">
+            <p class="text-tc-cyan font-bold text-sm">✅ Activado</p>
+            <button
+              id="la-unsubscribe"
+              class="text-slate-500 text-xs underline hover:text-slate-300 cursor-pointer transition-colors"
+            >
+              Desactivar
+            </button>
+          </div>
+        </div>
+
         <iframe
           src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FBogota&showPrint=0&showCalendars=0&mode=MONTH&src=YTc3ZmVkNmYwNDhiZDk3OTFhZTQ0MmIzODBiZWE2MGNmZTk2YjM1MTJiMWJiZjRiMWVhM2IzY2UxZWUwMzIxYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161"
           style="border-width:0"
@@ -137,3 +186,103 @@ const info = {
     </div>
   </div>
 </section>
+
+<script>
+  const APP_ID = import.meta.env.PUBLIC_ONESIGNAL_APP_ID as string | undefined;
+
+  const IDS = {
+    loading: "la-loading",
+    unsupported: "la-unsupported",
+    blocked: "la-blocked",
+    subscribe: "la-subscribe",
+    subscribed: "la-subscribed",
+    unsubscribe: "la-unsubscribe",
+  } as const;
+
+  // Referencia al SDK una vez que cargue
+  let _os: any = null;
+
+  function showOnly(id: string) {
+    Object.values(IDS).forEach((sid) =>
+      document.getElementById(sid)?.classList.add("hidden")
+    );
+    document.getElementById(id)?.classList.remove("hidden");
+  }
+
+  async function syncUI() {
+    if (!_os) return;
+    const optedIn: boolean = _os.User?.PushSubscription?.optedIn ?? false;
+    if (Notification.permission === "denied") showOnly(IDS.blocked);
+    else if (optedIn) showOnly(IDS.subscribed);
+    else showOnly(IDS.subscribe);
+  }
+
+  function init() {
+    if (!("Notification" in window) || !("serviceWorker" in navigator)) {
+      showOnly(IDS.unsupported);
+      return;
+    }
+
+    // Registrar listeners aquí siempre, independientemente del APP_ID
+    document.getElementById(IDS.subscribe)?.addEventListener("click", async () => {
+      if (!_os) return;
+      showOnly(IDS.loading);
+      try {
+        await _os.Notifications.requestPermission();
+      } catch { /* usuario canceló el diálogo */ }
+      await syncUI();
+    });
+
+    document.getElementById(IDS.unsubscribe)?.addEventListener("click", async () => {
+      if (!_os) return;
+      await _os.User.PushSubscription.optOut();
+      showOnly(IDS.subscribe);
+    });
+
+    if (!APP_ID) {
+      showOnly(IDS.subscribe);
+      return;
+    }
+
+    // OneSignal solo funciona en el dominio configurado — omitir en localhost
+    if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      console.info("[LiveAlerts] Localhost detectado — OneSignal activo solo en producción (https://trycatch.tv)");
+      showOnly(IDS.subscribe);
+      return;
+    }
+
+    (window as any).OneSignalDeferred = (window as any).OneSignalDeferred || [];
+
+    if (!document.querySelector('script[src*="OneSignalSDK.page"]')) {
+      const sdk = document.createElement("script");
+      sdk.src = "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js";
+      sdk.defer = true;
+      document.head.appendChild(sdk);
+    }
+
+    // El SDK llama a esta función cuando termina de cargar
+    (window as any).OneSignalDeferred.push(async function (OneSignal: any) {
+      try {
+        await OneSignal.init({
+          appId: APP_ID,
+          allowLocalhostAsSecureOrigin: true,
+          notifyButton: { enable: false },
+          serviceWorkerParam: { scope: "/" },
+          serviceWorkerPath: "/OneSignalSDKWorker.js",
+        });
+        _os = OneSignal;
+        await syncUI();
+      } catch (err) {
+        console.error("[LiveAlerts] Error al inicializar OneSignal:", err);
+        // Mostrar botón en lugar de quedarse en "cargando"
+        showOnly(IDS.subscribe);
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+</script>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LiveAlerts from "../components/landing/liveAlerts/LiveAlerts.astro";
+---
+
+<BaseLayout title="Live Alerts — TryCatch.tv">
+  <main class="max-w-screen-2xl mx-auto mt-24 px-4 md:px-6 mb-16">
+    <!-- Hero — mismo patrón que tryckers.astro -->
+    <section
+      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl lift-in mb-10"
+    >
+      <p class="text-xs tracking-[0.28em] uppercase text-tc-cyan mb-3">
+        TryCatch.tv
+      </p>
+      <h1
+        class="text-3xl md:text-5xl font-bold text-tc-yellow uppercase tracking-wide leading-tight"
+      >
+        Alertas en vivo
+      </h1>
+      <p
+        class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg"
+      >
+        Activa las notificaciones y te avisaré cuando empiece una transmisión en
+        vivo. Sin spam, solo cuando haya live.
+      </p>
+    </section>
+
+    <!-- Componente de suscripción -->
+    <LiveAlerts />
+
+    <p class="text-slate-600 text-sm text-center pb-4">
+      Notificaciones vía web push · puedes desactivarlas en cualquier momento ·
+      <a
+        href="https://www.youtube.com/@trycatch_tv"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-tc-cyan hover:underline">Canal de YouTube →</a
+      >
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .lift-in {
+    animation: liftIn 0.55s ease-out both;
+  }
+
+  @keyframes liftIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
