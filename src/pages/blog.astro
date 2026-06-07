@@ -1,7 +1,16 @@
 ---
 import BlogSearch from "../components/landing/blog/BlogSearch.jsx"
 import BaseLayout from "../layouts/BaseLayout.astro"
-const allPosts = await Astro.glob("../pages/posts/*.md")
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true }),
+) as Array<{
+  url: string
+  frontmatter: {
+    date: string
+    title: string
+    author: string
+  }
+}>
 const posts = allPosts.sort((a, b) => {
   return (
     new Date(b.frontmatter.date).getTime() -
