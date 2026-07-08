@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css"
+import { getImage } from "astro:assets"
 import Footer from "../components/global/Footer.astro"
 import Navbar from "../components/global/Navbar.astro"
 
@@ -10,12 +11,48 @@ const april2026Hero = new URL(
   import.meta.url,
 ).href
 
+const communityImages = import.meta.glob(
+  "../assets/img/comunidades/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  { eager: true, import: "default" },
+) as Record<string, ImageMetadata>
+
+const normalizeFolder = (folder = "") =>
+  folder.replace(/\\/g, "/").replace(/^src\//, "../").replace(/\/?$/, "/")
+
+const normalizeAsset = (asset = "") =>
+  asset.replace(/\\/g, "/").replace(/^src\//, "../")
+
+const imageAsset = normalizeAsset(frontmatter.image?.asset)
+const heroImageAsset =
+  imageAsset && communityImages[imageAsset]
+    ? await getImage({ src: communityImages[imageAsset] })
+    : null
+
 const heroImageSrc =
   frontmatter.slug === "meetup-soft-skills-abril-2026"
     ? april2026Hero
-    : frontmatter.image.url
+    : heroImageAsset?.src ?? frontmatter.image.url
 
 const heroImageAlt = frontmatter.image?.alt ?? frontmatter.title
+
+const photosFolder = normalizeFolder(frontmatter.photosFolder)
+const galleryEntries = photosFolder.includes("/galeria/")
+  ? Object.entries(communityImages)
+      .filter(([path]) => path.startsWith(photosFolder))
+      .sort(([a], [b]) => a.localeCompare(b))
+  : []
+
+const galleryImages = await Promise.all(
+  galleryEntries.map(async ([path, src], index) => {
+    const image = await getImage({ src })
+
+    return {
+      src: image.src,
+      alt: `${frontmatter.title} - foto ${index + 1}`,
+      name: path.split("/").pop() ?? `Foto ${index + 1}`,
+    }
+  }),
+)
 ---
 
 <!doctype html>
@@ -70,6 +107,31 @@ const heroImageAlt = frontmatter.image?.alt ?? frontmatter.title
       <div class="prose dark:prose-dark max-w-none">
         <slot />
       </div>
+
+      {
+        galleryImages.length > 0 && (
+          <section class="mt-12 border-t-2 border-gray-200 pt-8">
+            <h2 class="text-2xl font-bold mb-5">Galeria del encuentro</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {galleryImages.map((photo) => (
+                <a
+                  href={photo.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group block overflow-hidden rounded-md bg-white shadow-md"
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    loading="lazy"
+                    class="h-64 w-full object-cover transition duration-200 group-hover:scale-105"
+                  />
+                </a>
+              ))}
+            </div>
+          </section>
+        )
+      }
     </div>
     <Footer />
   </body>

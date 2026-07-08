@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets"
+import CoverMedellin from "../../assets/img/comunidades/medellin/encuentros/cover.JPG"
+import MedellinJuneImage from "../../assets/img/comunidades/medellin/encuentros/junio-2026/junio2026.JPG"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+const encuentros = [
+  {
+    year: 2026,
+    title: "Encuentro de junio 2026",
+    dateLabel: "Junio 2026",
+    summary:
+      "Primer encuentro registrado de la comunidad en Medellin, con conversaciones para conectar talento, ideas y aprendizaje colectivo.",
+    image: MedellinJuneImage,
+    imageAlt: "Encuentro de junio 2026 en Medellin",
+    href: "/comunidades/medellin/eventos/encuentro-junio-2026",
+  },
+]
+---
+
+<BaseLayout title={`Comunidad Medellin | TryCatch.tv`}>
+  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+    <section class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in">
+      <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 items-center">
+        <div>
+          <span class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold tracking-wide">Activa</span>
+          <h1 class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide">Comunidad Medellin</h1>
+          <p class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg">
+            Este es el espacio de la comunidad tech de Medellin: encuentros para conversar sobre tecnologia, compartir aprendizajes y conectar con personas que quieren construir comunidad.
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-xl border border-slate-700">
+          <Image src={CoverMedellin} alt="Portada comunidad Medellin" class="h-80 w-full object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <article class="rounded-2xl border border-slate-500 bg-[#141414] p-6 shadow-lg card-hover">
+        <h2 class="text-tc-yellow text-xl font-bold uppercase">Novedades</h2>
+        <p class="text-sm text-slate-300 mt-2">Convocatorias, lanzamientos y noticias tech locales.</p>
+        <div class="mt-4 rounded-xl border border-slate-600 p-4 bg-tc-black">
+          <p class="text-slate-200 leading-relaxed">Aun no hay novedades publicadas para Medellin.</p>
+          <p class="text-slate-300 mt-3 leading-relaxed">
+            Si deseas publicar alguna, puedes enviarla al correo
+            <a class="text-tc-yellow font-semibold hover:text-amber-200 transition" href="mailto:judlup@trycatch.tv">judlup@trycatch.tv</a>.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-tc-yellow text-2xl font-bold uppercase tracking-wide">Recorrido de la comunidad</h2>
+      <p class="text-sm text-slate-300 mt-2">Encuentros, fotos y contexto de lo que vamos viviendo juntos en Medellin.</p>
+
+      <div class="mt-6 rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover">
+        <div class="flex items-center justify-between gap-3 mb-4">
+          <h3 class="text-xl font-bold text-white">2026</h3>
+          <span class="text-xs px-3 py-1 rounded-full bg-slate-700 text-slate-200 font-semibold">{encuentros.length} encuentro</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {
+            encuentros.map((encuentro) => (
+              <article class="overflow-hidden rounded-xl border border-slate-600 bg-tc-black">
+                <a href={encuentro.href} class="block h-52 overflow-hidden">
+                  <Image src={encuentro.image} alt={encuentro.imageAlt} class="h-full w-full object-cover transition duration-200 hover:scale-105" />
+                </a>
+                <div class="p-4">
+                  <div class="flex items-center justify-between gap-2 text-xs text-slate-400">
+                    <span>{encuentro.dateLabel}</span>
+                    <span>{encuentro.year}</span>
+                  </div>
+                  <h4 class="mt-2 text-lg font-semibold text-white leading-snug">{encuentro.title}</h4>
+                  <p class="mt-2 text-sm text-slate-200 leading-relaxed">{encuentro.summary}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .lift-in { animation: liftIn 0.55s ease-out both; }
+    .card-hover { transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+    .card-hover:hover { transform: translateY(-3px); border-color: rgba(252, 211, 77, 0.55); box-shadow: 0 18px 36px rgba(2, 6, 23, 0.42); }
+    @keyframes liftIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</BaseLayout>

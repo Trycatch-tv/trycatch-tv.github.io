@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets"
+import CoverBogota from "../assets/img/comunidades/bogota/cover.jpg"
 import CoverBucaramanga from "../assets/img/comunidades/bucaramanga/cover.jpg"
-import DefaultCommunityCover from "../assets/img/comunidades/default-cover.svg"
+import CoverMedellin from "../assets/img/comunidades/medellin/encuentros/cover.JPG"
 import BaseLayout from "../layouts/BaseLayout.astro"
 
 const comunidades = [
@@ -17,20 +18,20 @@ const comunidades = [
   {
     city: "Bogota",
     slug: "bogota",
-    status: "proximamente",
+    status: "activa",
     description:
-      "Proximamente: agenda local, alianzas y cobertura de eventos de la ciudad.",
-    cover: DefaultCommunityCover,
-    coverAlt: "Portada por defecto de comunidad",
+      "Encuentros para conectar, compartir aprendizajes y fortalecer la comunidad tech local.",
+    cover: CoverBogota,
+    coverAlt: "Comunidad Bogota",
   },
   {
     city: "Medellin",
     slug: "medellin",
-    status: "proximamente",
+    status: "activa",
     description:
-      "Proximamente: actividades con comunidades, lanzamientos y noticias tech.",
-    cover: DefaultCommunityCover,
-    coverAlt: "Portada por defecto de comunidad",
+      "Actividades presenciales para aprender, conversar y construir comunidad tech en Medellin.",
+    cover: CoverMedellin,
+    coverAlt: "Comunidad Medellin",
   },
 ]
 ---
