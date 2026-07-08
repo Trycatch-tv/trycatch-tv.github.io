@@ -1,0 +1,250 @@
+---
+import { getImage } from "astro:assets"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { galleryPhotoDates } from "../data/galeria"
+
+type GalleryPhoto = {
+  name: string
+  date: string | null
+  sortDate: number
+  image: ImageMetadata
+  fullSrc: string
+  thumbSrc: string
+  width: number
+  height: number
+}
+
+const monthFormatter = new Intl.DateTimeFormat("es-CO", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+})
+
+const dateFormatter = new Intl.DateTimeFormat("es-CO", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+})
+
+const parseDateFromName = (name: string) => {
+  const patterns = [
+    /(?:IMG|Screenshot)[-_](20\d{2})(\d{2})(\d{2})/i,
+    /P_(20\d{2})(\d{2})(\d{2})/i,
+    /WhatsApp Image (20\d{2})-(\d{2})-(\d{2})/i,
+  ]
+
+  for (const pattern of patterns) {
+    const match = name.match(pattern)
+
+    if (match) {
+      return `${match[1]}-${match[2]}-${match[3]}`
+    }
+  }
+
+  const timestamp = name.match(/^(\d{13})\./)
+
+  if (timestamp) {
+    return new Date(Number(timestamp[1])).toISOString().slice(0, 10)
+  }
+
+  return null
+}
+
+const formatMonth = (date: string) => {
+  const label = monthFormatter.format(new Date(`${date}T00:00:00Z`))
+  return label.charAt(0).toUpperCase() + label.slice(1)
+}
+
+const imageModules = import.meta.glob(
+  "../assets/img/galeria/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  { eager: true, import: "default" },
+) as Record<string, ImageMetadata>
+
+const photos = await Promise.all(
+  Object.entries(imageModules).map(async ([path, image]) => {
+    const name = path.split("/").pop() ?? path
+    const date =
+      galleryPhotoDates[name as keyof typeof galleryPhotoDates] ??
+      parseDateFromName(name)
+    const full = await getImage({ src: image, width: 1800, format: "webp" })
+    const thumb = await getImage({ src: image, width: 560, format: "webp" })
+
+    return {
+      name,
+      date,
+      sortDate: date
+        ? new Date(`${date}T00:00:00Z`).getTime()
+        : Number.MAX_SAFE_INTEGER,
+      image,
+      fullSrc: full.src,
+      thumbSrc: thumb.src,
+      width: image.width,
+      height: image.height,
+    }
+  }),
+)
+
+const photosOrdenadas = photos.sort((a, b) => {
+  if (!a.date) return 1
+  if (!b.date) return -1
+
+  if (a.sortDate !== b.sortDate) {
+    return b.sortDate - a.sortDate
+  }
+
+  return b.name.localeCompare(a.name)
+})
+
+const grupos = Object.values(
+  photosOrdenadas.reduce<Record<string, { key: string; label: string; photos: GalleryPhoto[] }>>(
+    (acc, photo) => {
+      const key = photo.date ? photo.date.slice(0, 7) : "sin-fecha"
+      const label = photo.date ? formatMonth(photo.date) : "Más"
+
+      if (!acc[key]) {
+        acc[key] = { key, label, photos: [] }
+      }
+
+      acc[key].photos.push(photo)
+      return acc
+    },
+    {},
+  ),
+)
+---
+
+<BaseLayout title={`Galeria | TryCatch.tv`}>
+  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+    <section
+      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in"
+    >
+      <span
+        class="inline-block text-xs px-3 py-1 rounded-full bg-tc-yellow text-tc-black font-bold tracking-wide"
+      >
+        Comunidad
+      </span>
+      <h1
+        class="mt-3 text-3xl md:text-5xl font-bold text-tc-yellow uppercase tracking-wide leading-tight"
+      >
+        Galeria de recuerdos
+      </h1>
+      <p
+        class="mt-4 text-slate-200 max-w-4xl leading-relaxed text-base md:text-lg"
+      >
+        Fotos que nacen en encuentros, eventos y conversaciones con la
+        comunidad. Cada imagen guarda un momento compartido, una historia y una
+        persona que hace parte de TryCatch.tv.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3 text-sm text-slate-300">
+        <span class="rounded-lg border border-slate-600 bg-[#141414] px-3 py-2">
+          {photos.length} fotos
+        </span>
+        <span class="rounded-lg border border-slate-600 bg-[#141414] px-3 py-2">
+          {grupos.length} segmentos
+        </span>
+      </div>
+    </section>
+
+    <div class="mt-10 space-y-12">
+      {
+        grupos.map((grupo) => (
+          <section id={grupo.key} class="scroll-mt-24">
+            <div class="mb-5 flex items-end justify-between gap-4 flex-wrap">
+              <div>
+                <h2 class="text-2xl font-bold text-tc-yellow uppercase tracking-wide">
+                  {grupo.label}
+                </h2>
+                <p class="mt-1 text-sm text-slate-300">
+                  {grupo.photos.length} foto{grupo.photos.length === 1 ? "" : "s"}
+                </p>
+              </div>
+            </div>
+
+            <div class="gallery-columns">
+              {grupo.photos.map((photo, index) => (
+                <a
+                  href={photo.fullSrc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="gallery-item group"
+                >
+                  <img
+                    src={photo.thumbSrc}
+                    width={photo.width}
+                    height={photo.height}
+                    alt={
+                      photo.date
+                        ? `Foto con la comunidad tomada el ${dateFormatter.format(
+                            new Date(`${photo.date}T00:00:00Z`),
+                          )}`
+                        : `Foto con la comunidad ${index + 1}`
+                    }
+                    loading="lazy"
+                    class="h-auto w-full object-cover transition duration-200 group-hover:scale-[1.02]"
+                  />
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </main>
+
+  <style>
+    .lift-in {
+      animation: liftIn 0.55s ease-out both;
+    }
+
+    .gallery-columns {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+
+    .gallery-item {
+      display: block;
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border: 1px solid rgb(71 85 105);
+      border-radius: 0.5rem;
+      background: #141414;
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.28);
+    }
+
+    .gallery-item:hover {
+      border-color: rgba(252, 211, 77, 0.55);
+    }
+
+    @media (min-width: 640px) {
+      .gallery-columns {
+        column-count: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-columns {
+        column-count: 3;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .gallery-columns {
+        column-count: 4;
+      }
+    }
+
+    @keyframes liftIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</BaseLayout>
