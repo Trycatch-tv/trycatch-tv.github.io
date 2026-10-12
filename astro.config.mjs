@@ -8,6 +8,9 @@ export default defineConfig({
   site: "https://trycatch.tv",
   integrations: [icon(), react(), mdx()],
   vite: {
+    optimizeDeps: {
+      include: ["react-dom/client"],
+    },
     ssr: {
       external: ["svgo"],
     },

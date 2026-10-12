@@ -42,17 +42,41 @@ const navbarItems: NavItem[] = [
     path: "/blog",
   },
   {
-    name: "Galeria",
+    name: "Galería",
     path: "/galeria",
   },
 ]
 ---
 
-<script is:inline>
-  function toggleMenu() {
-    const menu = document.getElementById("navbar-sticky")
-    menu?.classList.toggle("hidden")
+<script>
+  const menu = document.getElementById("navbar-sticky")
+  const toggle = document.getElementById("navbar-toggle")
+  const desktop = window.matchMedia("(min-width: 1280px)")
+
+  function setMenuOpen(open: boolean) {
+    menu?.classList.toggle("hidden", !open)
+    toggle?.setAttribute("aria-expanded", String(open))
+    toggle?.setAttribute("aria-label", open ? "Cerrar menú principal" : "Abrir menú principal")
   }
+
+  toggle?.addEventListener("click", () => {
+    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true")
+  })
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false))
+  })
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+      setMenuOpen(false)
+      toggle.focus()
+    }
+  })
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Node && !menu?.contains(event.target) && !toggle?.contains(event.target)) {
+      setMenuOpen(false)
+    }
+  })
+  desktop.addEventListener("change", () => setMenuOpen(false))
 </script>
 
 <nav
@@ -69,13 +93,14 @@ const navbarItems: NavItem[] = [
       >
     </a>
     <button
+      id="navbar-toggle"
       type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       aria-controls="navbar-sticky"
       aria-expanded="false"
-      onclick="toggleMenu()"
+      aria-label="Abrir menú principal"
     >
-      <span class="sr-only">Open main menu</span>
+      <span class="sr-only">Menú principal</span>
       <svg
         class="w-5 h-5"
         aria-hidden="true"
@@ -92,11 +117,11 @@ const navbarItems: NavItem[] = [
       </svg>
     </button>
     <div
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      class="items-center justify-between hidden w-full xl:flex xl:w-auto xl:order-1"
       id="navbar-sticky"
     >
       <ul
-        class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0"
+        class="flex flex-col p-4 xl:p-0 mt-4 font-medium border rounded-lg xl:flex-row xl:space-x-8 xl:mt-0 xl:border-0"
       >
         {
           navbarItems.map((item) => (
@@ -104,7 +129,9 @@ const navbarItems: NavItem[] = [
               <a
                 href={item.path}
                 target={item.target || "_self"}
-                class="block py-2 pl-3 pr-4 rounded hover:bg-transparent md:p-0 text-white hover:text-tc-yellow"
+                rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
+                aria-current={Astro.url.pathname === item.path ? "page" : undefined}
+                class="block py-2 pl-3 pr-4 rounded hover:bg-transparent xl:p-0 text-white hover:text-tc-yellow"
               >
                 {item.name}
               </a>

@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components"
+import CommunityCalendar from "../../global/CommunityCalendar.astro"
 
 const info = {
   title: "Redes Sociales",
@@ -90,15 +91,15 @@ const info = {
 
 <section>
   <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
-    <div class="bg-tc-black border border-gray-700 rounded-lg p-12 mb-8">
+    <div class="bg-tc-black border border-gray-700 rounded-lg p-6 sm:p-12 mb-8">
       <div class="mt-5 mb-6">
         <!-- Título -->
-        <div
+        <h2
           class="flex items-center justify-center flex-row text-tc-gray-l text-3xl lg:text-4xl"
         >
           <Icon class="w-10 h-10 text-white" name="ri:share-fill" />
           <span class="font-extrabold ml-2">{info.title}</span>
-        </div>
+        </h2>
 
         <!-- Subtítulo transmisiones -->
         <p class="text-center text-sm text-gray-300 mt-4 mb-4">
@@ -157,13 +158,21 @@ const info = {
 
           <!-- Permiso bloqueado -->
           <p id="la-blocked" class="hidden text-red-400 text-xs">
-            Notificaciones bloqueadas en el navegador.
+            Notificaciones bloqueadas. Puedes habilitarlas en los permisos de este sitio.
           </p>
+
+          <p id="la-unavailable" class="hidden text-slate-300 text-xs" role="status">
+            Las alertas están disponibles en <a href="https://trycatch.tv" class="text-tc-yellow underline">trycatch.tv</a>.
+          </p>
+          <div id="la-error" class="hidden text-sm" role="status">
+            <p class="text-amber-400">No pudimos conectar con las alertas.</p>
+            <button id="la-retry" class="mt-2 text-tc-yellow underline">Volver a intentar</button>
+          </div>
 
           <!-- Botón suscribirse -->
           <button
             id="la-subscribe"
-            class="hidden bg-tc-yellow text-tc-black font-bold py-2 px-5 rounded-lg text-sm hover:opacity-90 active:scale-95 cursor-pointer whitespace-nowrap transition-all"
+            class="hidden bg-tc-yellow text-tc-black font-bold py-2 px-5 rounded-lg text-sm hover:opacity-90 active:scale-95 cursor-pointer transition-all"
           >
             🔔 Avisarme cuando esté en vivo
           </button>
@@ -180,15 +189,13 @@ const info = {
           </div>
         </div>
 
-        <iframe
-          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FBogota&showPrint=0&showCalendars=0&mode=MONTH&src=YTc3ZmVkNmYwNDhiZDk3OTFhZTQ0MmIzODBiZWE2MGNmZTk2YjM1MTJiMWJiZjRiMWVhM2IzY2UxZWUwMzIxYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161"
-          style="border-width:0"
-          style="border-width:0"
-          width="100%"
-          height="400"
-          frameborder="0"
-          scrolling="no"
-          class="w-full rounded-md mt-4"></iframe>
+        <section aria-labelledby="agenda-title" class="mt-6">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+            <h3 id="agenda-title" class="text-white text-base font-bold">Calendario de la comunidad</h3>
+            <a href="/eventos#calendario" class="text-tc-yellow text-sm font-semibold hover:underline">Ver calendario completo</a>
+          </div>
+          <CommunityCalendar mode="MONTH" height={500} />
+        </section>
       </div>
     </div>
   </div>
@@ -201,9 +208,10 @@ const info = {
     loading: "la-loading",
     unsupported: "la-unsupported",
     blocked: "la-blocked",
+    unavailable: "la-unavailable",
+    error: "la-error",
     subscribe: "la-subscribe",
     subscribed: "la-subscribed",
-    unsubscribe: "la-unsubscribe",
   } as const;
 
   // Referencia al SDK una vez que cargue
@@ -232,38 +240,61 @@ const info = {
 
     // Registrar listeners aquí siempre, independientemente del APP_ID
     document.getElementById(IDS.subscribe)?.addEventListener("click", async () => {
-      if (!_os) return;
+      if (!_os) {
+        showOnly(IDS.error);
+        return;
+      }
       showOnly(IDS.loading);
       try {
         await _os.Notifications.requestPermission();
-      } catch { /* usuario canceló el diálogo */ }
-      await syncUI();
+        if (Notification.permission === "granted") {
+          await _os.User.PushSubscription.optIn();
+        }
+        await syncUI();
+      } catch (err) {
+        console.error("[LiveAlerts] Error al activar alertas:", err);
+        showOnly(IDS.error);
+      }
     });
 
-    document.getElementById(IDS.unsubscribe)?.addEventListener("click", async () => {
+    document.getElementById("la-unsubscribe")?.addEventListener("click", async () => {
       if (!_os) return;
-      await _os.User.PushSubscription.optOut();
-      showOnly(IDS.subscribe);
+      showOnly(IDS.loading);
+      try {
+        await _os.User.PushSubscription.optOut();
+        await syncUI();
+      } catch (err) {
+        console.error("[LiveAlerts] Error al desactivar alertas:", err);
+        showOnly(IDS.error);
+      }
     });
+    document.getElementById("la-retry")?.addEventListener("click", () => window.location.reload());
 
     if (!APP_ID) {
-      showOnly(IDS.subscribe);
+      showOnly(IDS.unavailable);
       return;
     }
 
     // OneSignal solo funciona en el dominio configurado — omitir en localhost
     if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
       console.info("[LiveAlerts] Localhost detectado — OneSignal activo solo en producción (https://trycatch.tv)");
-      showOnly(IDS.subscribe);
+      showOnly(IDS.unavailable);
       return;
     }
 
     (window as any).OneSignalDeferred = (window as any).OneSignalDeferred || [];
+    const loadTimeout = window.setTimeout(() => {
+      if (!_os) showOnly(IDS.error);
+    }, 30000);
 
     if (!document.querySelector('script[src*="OneSignalSDK.page"]')) {
       const sdk = document.createElement("script");
       sdk.src = "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js";
       sdk.defer = true;
+      sdk.addEventListener("error", () => {
+        window.clearTimeout(loadTimeout);
+        showOnly(IDS.error);
+      });
       document.head.appendChild(sdk);
     }
 
@@ -278,11 +309,14 @@ const info = {
           serviceWorkerPath: "/OneSignalSDKWorker.js",
         });
         _os = OneSignal;
+        window.clearTimeout(loadTimeout);
+        OneSignal.User.PushSubscription.addEventListener("change", syncUI);
+        OneSignal.Notifications.addEventListener("permissionChange", syncUI);
         await syncUI();
       } catch (err) {
+        window.clearTimeout(loadTimeout);
         console.error("[LiveAlerts] Error al inicializar OneSignal:", err);
-        // Mostrar botón en lugar de quedarse en "cargando"
-        showOnly(IDS.subscribe);
+        showOnly(IDS.error);
       }
     });
   }
