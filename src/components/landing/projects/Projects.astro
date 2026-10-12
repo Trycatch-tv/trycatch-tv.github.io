@@ -1,100 +1,49 @@
 ---
+import { Image } from "astro:assets"
 import { Icon } from "astro-icon/components"
+import kaddoLogo from "../../../assets/img/kaddo-logo.webp"
 
-const info = {
-  title: "Proyectos Open Source",
-  description:
-    "Creamos herramientas pensadas para desarrolladores y equipos de LATAM. Estos proyectos son colaborativos, públicos y están diseñados para resolver problemas reales de nuestra comunidad.",
-  proyectos: [
-    {
-      icon: "🧠",
-      title: "My Level",
-      description:
-        "Extensión de Chrome que permite a los desarrolladores autoevaluar su nivel técnico a través de una encuesta sencilla.",
-      link: "https://chrome.google.com/webstore/detail/my-level/mbdaaoibdkddnkadkpjakclfhfogenma",
-      repo: "https://github.com/Trycatch-tv/my-level",
-    },
-    {
-      icon: "🌐",
-      title: "Sitio Devs Latam",
-      description:
-        "Landing informativa de Devs Latam con datos de la comunidad, proyectos destacados y oportunidades de colaboración.",
-      link: "https://dev-devslatam.netlify.app/",
-      repo: "https://github.com/Trycatch-tv/devs-latam-frontend",
-    },
-    {
-      icon: "🔗",
-      title: "Acortador de Links",
-      description:
-        "Servicio para acortar URLs usando AWS Lambda, DynamoDB y React. Ideal para compartir contenido en redes.",
-      link: "https://trycatchlinks.netlify.app",
-      repo: "https://github.com/Trycatch-tv?q=short&type=all&language=&sort=",
-    },
-  ],
-}
+const links = [
+  { name: "Conocer Kaddo", url: "https://kaddo.org/", icon: "mdi:arrow-top-right" },
+  { name: "Comenzar", url: "https://kaddo.org/getting-started/", icon: "mdi:book-open-outline" },
+  { name: "GitHub", url: "https://github.com/Kaddo-kdd/kaddo", icon: "mdi:github" },
+]
 ---
 
-<section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
-    <div
-      class="bg-tc-black border border-slate-700/80 rounded-2xl p-8 lg:p-12 mb-12 shadow-[0_22px_50px_-28px_rgba(0,0,0,0.85)]"
-    >
-      <div class="text-center mb-10 lg:mb-12">
-        <p class="text-xs tracking-[0.24em] uppercase text-slate-300 mb-3">
-          Comunidad y Herramientas
-        </p>
-        <h2 class="text-white text-3xl lg:text-4xl font-extrabold mb-3">
-          {info.title}
-        </h2>
-        <p class="text-slate-300 text-base leading-relaxed max-w-3xl mx-auto">
-          {info.description}
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          info.proyectos.map((proyecto) => (
-            <article class="relative bg-tc-black-l border border-slate-700/90 rounded-xl p-6 flex flex-col justify-between text-center transition-all duration-300 hover:-translate-y-1 hover:border-slate-400/70 hover:shadow-[0_22px_36px_-22px_rgba(0,0,0,0.95)]">
-              <div class="flex flex-col gap-4 items-center">
-                <div class="h-12 w-12 rounded-full bg-slate-200/10 border border-slate-500/60 flex items-center justify-center text-2xl">
-                  {proyecto.icon}
-                </div>
-                <h3 class="text-xl font-extrabold text-tc-yellow">
-                  {proyecto.title}
-                </h3>
-                <p class="text-sm text-slate-300 leading-relaxed min-h-[96px]">
-                  {proyecto.description}
-                </p>
-              </div>
-              <div class="mt-7 grid grid-cols-2 gap-3">
-                <a
-                  href={proyecto.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group/cta flex items-center justify-center gap-2 rounded-lg border border-tc-yellow/70 bg-tc-yellow text-black font-extrabold text-sm px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f4dc7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tc-yellow/60"
-                >
-                  <Icon
-                    class="w-4 h-4 transition-transform duration-300 group-hover/cta:scale-110"
-                    name="carbon:view-filled"
-                  />
-                  Ver
-                </a>
-                <a
-                  href={proyecto.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group/cta flex items-center justify-center gap-2 rounded-lg border border-slate-400/70 bg-transparent text-slate-100 font-bold text-sm px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-slate-200 hover:bg-slate-100 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300/60"
-                >
-                  <Icon
-                    class="w-4 h-4 transition-transform duration-300 group-hover/cta:rotate-6"
-                    name="mdi:github"
-                  />
-                  Repo
-                </a>
-              </div>
-            </article>
-          ))
-        }
+<section id="kaddo" aria-labelledby="kaddo-title" class="bg-tc-black border-y border-gray-700 mb-12">
+  <div class="px-6 py-12 lg:px-12 lg:py-16 mx-auto max-w-screen-2xl">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-tc-yellow text-sm font-semibold mb-5">Open source · Knowledge Driven Development</p>
+      <h2 id="kaddo-title">
+        <Image src={kaddoLogo} alt="Kaddo" width={300} class="w-56 sm:w-72 h-auto mx-auto" />
+      </h2>
+      <p class="text-white text-xl lg:text-2xl font-bold mt-6 leading-snug text-justify">
+        El conocimiento de tu proyecto, conectado con tu código.
+      </p>
+      <p class="text-gray-300 text-base leading-relaxed mt-4 text-justify">
+        Kaddo organiza el contexto de negocio, producto, arquitectura y entrega
+        para que tu equipo y tus agentes de IA comprendan el sistema.
+        Acompaña cada cambio desde la idea hasta la implementación y su verificación,
+        en proyectos nuevos, existentes y legacy.
+      </p>
+      <p class="text-tc-cyan text-sm font-semibold mt-6">CLI · MCP · Admin · Agentes</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        {links.map((link, index) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class:list={[
+              "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tc-yellow",
+              index === 0
+                ? "bg-tc-yellow text-black hover:bg-yellow-200"
+                : "border border-gray-600 text-white hover:border-white hover:bg-tc-black-l",
+            ]}
+          >
+            <Icon name={link.icon} class="w-5 h-5 shrink-0" />
+            {link.name}
+          </a>
+        ))}
       </div>
     </div>
   </div>
