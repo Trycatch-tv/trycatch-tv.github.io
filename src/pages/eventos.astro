@@ -14,6 +14,7 @@ import SinRuedaTecnologica2024 from "../assets/img/events/sinruedatecnologica-20
 import UJaveriana2024 from "../assets/img/events/ujaveriana-2024.png"
 import ZeroXUltraVioleta2024 from "../assets/img/events/zeroxultravioleta-2024.jpg"
 import BaseLayout from "../layouts/BaseLayout.astro"
+import CommunityCalendar from "../components/global/CommunityCalendar.astro"
 const info = {
   title: "Eventos",
   eventos: [
@@ -145,15 +146,21 @@ const info = {
 }
 ---
 
-<BaseLayout title={`Tryckers`}>
+<BaseLayout title="Eventos | TryCatch.tv" description="Consulta el calendario de TryCatch.tv y explora charlas, entrevistas y encuentros con la comunidad tecnológica.">
   <div
     class="max-w-screen-2xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24"
   >
-    <h2
+    <h1
       class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8 uppercase tracking-wide"
     >
       {info.title}
-    </h2>
+    </h1>
+
+    <section id="calendario" aria-labelledby="calendar-title" class="mb-10">
+      <h2 id="calendar-title" class="text-white text-xl font-bold mb-4">Calendario de la comunidad</h2>
+      <CommunityCalendar />
+    </section>
+    <h2 class="text-white text-xl font-bold mb-4">Charlas y eventos anteriores</h2>
 
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4"

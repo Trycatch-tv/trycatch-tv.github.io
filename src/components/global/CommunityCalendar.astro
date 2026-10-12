@@ -1,0 +1,28 @@
+---
+interface Props {
+  mode?: "MONTH" | "AGENDA"
+  height?: number
+}
+
+const { mode = "MONTH", height = 500 } = Astro.props
+const calendarURL = new URL("https://calendar.google.com/calendar/embed")
+calendarURL.search = new URLSearchParams({
+  height: String(height),
+  wkst: "1",
+  ctz: "America/Bogota",
+  showPrint: "0",
+  showCalendars: "0",
+  mode,
+  src: "a77fed6f048bd9791ae442b380bea60cfe96b3512b1bbf4b1ea3b3ce1ee0321b@group.calendar.google.com",
+  color: "#616161",
+}).toString()
+---
+
+<iframe
+  src={calendarURL.href}
+  title={mode === "AGENDA" ? "Próximos eventos de TryCatch.tv" : "Calendario de eventos de TryCatch.tv"}
+  width="100%"
+  height={height}
+  loading="lazy"
+  class="w-full rounded-md border-0"
+></iframe>

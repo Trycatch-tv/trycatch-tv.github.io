@@ -1,22 +1,23 @@
 ---
 import profile from "../../../assets/img/profile.jpg"
 import Button from "../../global/ui/button.astro"
+import { Image } from "astro:assets"
 
 const info = {
-  altProfile: "Judlup",
+  altProfile: "Julián Luna, creador de TryCatch.tv",
   title: "Bienvenido Trycker",
   subtitle: "Aprender haciendo 👨‍💻.",
   description:
-    "👋 Hola! Soy Julián Luna, tengo más de 10 años de experiencia en el mundo tech. Hago parte del programa AWS Community Builder. JavaScript, Soft Skills y la Arquitectura de Software son los temas que más me gustan. 🖥️ Comparto mis conocimientos y experiencias en TikTok y en Twitch.",
+    "Soy Julián Luna, AWS Community Builder con más de 10 años en tecnología. Aprende conmigo desarrollo de software, arquitectura y habilidades blandas, y conecta con una comunidad que crece contigo.",
   daughterName: "❤ Nikol Daniela",
   ctas: [
     {
-      text: "Contacto",
-      link: "mailto:judlup@trycatch.tv",
+      text: "Unirme a la comunidad",
+      link: "/tryckers",
     },
     {
-      text: "Links",
-      link: "https://linktr.ee/trycatch.tv",
+      text: "Ver contenido",
+      link: "#contenido",
     },
   ],
 }
@@ -25,27 +26,31 @@ const info = {
 <section class="mt-24">
   <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-10 lg:p-12 mb-8 shadow-lg text-center"
+      class="bg-tc-black border border-gray-700 rounded-lg p-6 lg:p-12 mb-8 shadow-lg text-center"
     >
       <!-- Imagen de perfil -->
       <div class="flex justify-center">
-        <img
-          src={profile.src}
+        <Image
+          src={profile}
           alt={info.altProfile}
-          class="w-40 h-40 lg:w-60 lg:h-60 rounded-full shadow-md transition-transform transform hover:scale-105"
+          width={240}
+          height={240}
+          loading="eager"
+          fetchpriority="high"
+          class="w-28 h-28 lg:w-60 lg:h-60 object-cover rounded-full shadow-md transition-transform transform hover:scale-105"
         />
       </div>
 
       <!-- Información del perfil -->
       <div class="mt-6 max-w-5xl mx-auto">
-        <h2
+        <h1
           class="text-tc-gray-l text-3xl lg:text-5xl font-extrabold leading-tight"
         >
           {info.title}
-        </h2>
+        </h1>
         <p class="text-base lg:text-xl text-tc-gray mt-3">{info.subtitle}</p>
         <p
-          class="text-tc-gray-l px-2 md:px-0 pt-5 pb-2 text-base lg:text-[1.45rem] leading-8 lg:leading-10 text-center mx-auto max-w-[72ch]"
+          class="text-tc-gray-l pt-4 pb-2 text-base lg:text-xl leading-relaxed text-center mx-auto max-w-[60ch]"
         >
           {info.description}
         </p>

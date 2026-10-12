@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components"
 const info = {
   title: "Tipos de Contenido",
   description:
@@ -7,36 +8,48 @@ const info = {
     {
       icon: "🎥",
       title: "Videos educativos",
+      href: "https://www.youtube.com/@trycatch_tv/videos",
+      action: "Ver videos",
       description:
         "Tutoriales, análisis de herramientas y conceptos clave de desarrollo y arquitectura.",
     },
     {
       icon: "📺",
       title: "Transmisiones en vivo",
+      href: "https://www.twitch.tv/trycatch_tv",
+      action: "Ir a Twitch",
       description:
         "Sesiones interactivas con la comunidad resolviendo dudas, creando proyectos y compartiendo experiencias.",
     },
     {
       icon: "🧵",
       title: "Shorts y tips",
+      href: "https://www.youtube.com/@trycatch_tv/shorts",
+      action: "Ver shorts",
       description:
         "Videos breves con hacks, recomendaciones y reflexiones del mundo tech.",
     },
     {
       icon: "📚",
       title: "Lecturas en comunidad",
+      href: "https://www.youtube.com/playlist?list=PL4LOq_2-aO28TOeq36k5omDrdER8uZno2",
+      action: "Ver lecturas",
       description:
         "Club de lectura de libros sobre software, soft skills y liderazgo.",
     },
     {
       icon: "📣",
       title: "Divulgación y opinión",
+      href: "https://medium.trycatch.tv/",
+      action: "Leer artículos",
       description:
         "Noticias, comentarios y reflexiones sobre lo que pasa en la industria de la tecnología.",
     },
     {
       icon: "🎙️",
       title: "Entrevistas",
+      href: "https://www.youtube.com/playlist?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
+      action: "Ver entrevistas",
       description:
         "Conversaciones con personas referentes del ecosistema tech sobre sus historias y aprendizajes.",
     },
@@ -44,7 +57,7 @@ const info = {
 }
 ---
 
-<section>
+<section id="contenido" aria-labelledby="contenido-title">
   <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div
       class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-12"
@@ -56,6 +69,7 @@ const info = {
           FORMATO TRY CATCH
         </span>
         <h2
+          id="contenido-title"
           class="text-white text-3xl lg:text-5xl font-extrabold mb-3 leading-tight"
         >
           {info.title}
@@ -82,6 +96,15 @@ const info = {
               <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
                 {item.description}
               </p>
+              <a
+                href={item.href}
+                target={item.href.startsWith("https://") ? "_blank" : undefined}
+                rel={item.href.startsWith("https://") ? "noopener noreferrer" : undefined}
+                class="mt-auto pt-5 inline-flex items-center gap-2 text-tc-yellow text-sm font-semibold hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-tc-yellow"
+              >
+                {item.action}
+                <Icon name="mdi:arrow-right" class="w-4 h-4" />
+              </a>
             </article>
           ))
         }

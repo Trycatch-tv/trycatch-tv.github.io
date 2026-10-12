@@ -10,23 +10,6 @@ const info = {
     { value: "+15", label: "Países" },
     { value: "+35", label: "Proyectos" },
   ],
-  links: [
-    {
-      name: "Docs",
-      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
-      icon: "mdi:github",
-    },
-    {
-      name: "Backend",
-      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
-      icon: "mdi:github",
-    },
-    {
-      name: "Frontend",
-      url: "https://github.com/Trycatch-tv/ValidadorBootcamp",
-      icon: "mdi:github",
-    },
-  ],
 }
 ---
 
@@ -39,12 +22,12 @@ const info = {
         >
           COMUNIDAD LATAM
         </span>
-        <div
+        <h2
           class="flex justify-center items-center text-3xl lg:text-5xl text-white font-extrabold mb-4 leading-tight"
         >
           <Icon class="w-10 h-10 text-white mr-2" name="mdi:account-group" />
           <span>{info.title}</span>
-        </div>
+        </h2>
         <p
           class="text-gray-300 max-w-3xl mx-auto text-base lg:text-xl leading-relaxed"
         >
@@ -52,7 +35,7 @@ const info = {
         </p>
       </div>
 
-      <div class="mb-12">
+      <div>
         <div
           class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
         >
@@ -69,35 +52,6 @@ const info = {
         </div>
       </div>
 
-      <div class="text-center mb-6">
-        <h3 class="text-white text-2xl lg:text-3xl font-semibold mb-6">
-          Side Project: GlassCamp
-        </h3>
-        <div
-          class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
-        >
-          {
-            info.links.map((link) => (
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group"
-              >
-                <div class="p-6 bg-tc-black-l border border-gray-700 rounded-lg min-h-[140px] flex flex-col items-center justify-center transition-all duration-200 group-hover:shadow-xl group-hover:border-gray-500 group-hover:scale-[1.02]">
-                  <Icon
-                    class="w-10 h-10 text-white group-hover:text-tc-yellow transition"
-                    name={link.icon}
-                  />
-                  <span class="mt-3 text-base text-gray-200 font-bold tracking-wide">
-                    {link.name}
-                  </span>
-                </div>
-              </a>
-            ))
-          }
-        </div>
-      </div>
     </div>
   </div>
 </section>

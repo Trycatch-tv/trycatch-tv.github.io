@@ -1,10 +1,17 @@
 ---
 import "../styles/global.css"
+import profile from "../assets/img/profile.jpg"
 export interface Props {
   title: string
+  description?: string
 }
 
-const { title } = Astro.props
+const {
+  title,
+  description = "Aprende desarrollo de software, arquitectura y habilidades blandas con Julián Luna y la comunidad TryCatch.tv. Contenido, encuentros y recursos para crecer en tecnología.",
+} = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://trycatch.tv")
+const socialImage = new URL(profile.src, canonicalURL).href
 import Footer from "../components/global/Footer.astro"
 import Navbar from "../components/global/Navbar.astro"
 ---
@@ -15,27 +22,35 @@ import Navbar from "../components/global/Navbar.astro"
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=0.8, maximum-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=1"
     />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-  </head><astro:head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TryCatch.tv" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Julián Luna, creador de TryCatch.tv" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
     <script
       async
       src={`https://www.googletagmanager.com/gtag/js?id=G-1KX127N7NK`}></script>
-    <script>
-      {
-        ;`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1KX127N7NK');
-          `
-      }
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1KX127N7NK');
     </script>
-  </astro:head>
-
-  <title>{title}</title>
+  </head>
 
   <body class="min-h-screen flex flex-col">
     <Navbar />

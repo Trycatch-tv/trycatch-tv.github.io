@@ -46,6 +46,8 @@ export default function TestimoniosCarousel({ testimonials }) {
 
       <button
         onClick={prev}
+        aria-label="Testimonio anterior"
+        title="Testimonio anterior"
         className="absolute left-0 md:-left-2 top-1/2 -translate-y-1/2 bg-tc-black-l border border-gray-600 text-tc-yellow rounded-full p-2.5 shadow hover:bg-tc-yellow hover:text-tc-black transition-colors"
       >
         <MdChevronLeft className="w-6 h-6" />
@@ -53,6 +55,8 @@ export default function TestimoniosCarousel({ testimonials }) {
 
       <button
         onClick={next}
+        aria-label="Testimonio siguiente"
+        title="Testimonio siguiente"
         className="absolute right-0 md:-right-2 top-1/2 -translate-y-1/2 bg-tc-black-l border border-gray-600 text-tc-yellow rounded-full p-2.5 shadow hover:bg-tc-yellow hover:text-tc-black transition-colors"
       >
         <MdChevronRight className="w-6 h-6" />
@@ -78,4 +82,4 @@ export default function TestimoniosCarousel({ testimonials }) {
       </div>
     </div>
   );
-} 
+}

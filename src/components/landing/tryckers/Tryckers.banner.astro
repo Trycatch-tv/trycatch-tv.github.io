@@ -3,32 +3,35 @@ import { Icon } from "astro-icon/components"
 import { Image } from "astro:assets"
 import CoverBucaramanga from "../../../assets/img/comunidades/bucaramanga/cover.jpg"
 import CoverBogota from "../../../assets/img/comunidades/bogota/cover.jpg"
-import DefaultCommunityCover from "../../../assets/img/comunidades/default-cover.svg"
+import CoverMedellin from "../../../assets/img/comunidades/medellin/encuentros/cover.JPG"
 
 const info = {
   title: "Comunidad Trycker",
   subtitle:
-    "Esto es mas que una comunidad: es una tribu tech para aprender, compartir, conocer gente y crecer juntos.",
+    "Esto es más que una comunidad: es una tribu tech para aprender, compartir, conocer gente y crecer juntos.",
   cities: [
     {
       title: "Bucaramanga",
+      href: "/comunidades/bucaramanga",
       status: "Activa",
       description:
         "Encuentros locales para compartir experiencias, aprender y construir comunidad.",
       cover: CoverBucaramanga,
     },
     {
-      title: "Bogota",
+      title: "Bogotá",
+      href: "/comunidades/bogota",
       status: "Activa",
       description:
-        "Estamos iniciando una nueva comunidad en Bogota, con eventos y actividades para conectar a los tech lovers de la ciudad.",
+        "Encuentros para conectar, compartir aprendizajes y fortalecer la comunidad tech de Bogotá.",
       cover: CoverBogota,
     },
     {
-      title: "Medellin",
-      status: "Proximamente",
-      description: "Nuevo nodo de comunidad en construccion.",
-      cover: DefaultCommunityCover,
+      title: "Medellín",
+      href: "/comunidades/medellin",
+      status: "Activa",
+      description: "Encuentros presenciales para conversar sobre tecnología, compartir experiencias y construir comunidad.",
+      cover: CoverMedellin,
     },
   ],
 }
@@ -37,12 +40,12 @@ const info = {
 <section>
   <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
     <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-10 mb-8">
-      <div
+      <h2
         class="flex items-center justify-center text-tc-gray-l text-3xl lg:text-4xl font-extrabold mb-4"
       >
         <Icon class="w-12 h-12 text-white" name="raphael:people" />
         <span class="ml-3">{info.title}</span>
-      </div>
+      </h2>
 
       <p class="text-center text-gray-300 max-w-3xl mx-auto text-lg mb-8">
         {info.subtitle}
@@ -113,6 +116,9 @@ const info = {
                 </span>
               </div>
               <p class="text-gray-400 text-sm mt-2">{item.description}</p>
+              <a href={item.href} class="mt-auto pt-4 text-tc-yellow text-sm font-semibold hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-tc-yellow">
+                Ver encuentros de {item.title}
+              </a>
             </article>
           ))
         }
