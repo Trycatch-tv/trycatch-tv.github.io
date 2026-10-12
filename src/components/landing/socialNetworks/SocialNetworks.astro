@@ -65,6 +65,11 @@ const info = {
       url: "https://github.com/judlup",
     },
     {
+      name: "Sessionize",
+      icon: "mdi:microphone",
+      url: "https://sessionize.com/judlup/",
+    },
+    {
       name: "Calendario",
       icon: "fa-regular:calendar",
       url: "https://calendar.google.com/calendar/u/4?cid=YTc3ZmVkNmYwNDhiZDk3OTFhZTQ0MmIzODBiZWE2MGNmZTk2YjM1MTJiMWJiZjRiMWVhM2IzY2UxZWUwMzIxYkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -111,6 +116,8 @@ const info = {
               <li class="text-white">
                 <a
                   href={socialNetwork.url}
+                  aria-label={socialNetwork.name}
+                  title={socialNetwork.name}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="flex items-center justify-center rounded-full transition-transform transform hover:scale-110"
