@@ -18,6 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://trycatch
 const socialImage = new URL(profile.src, canonicalURL).href
 import Footer from "../components/global/Footer.astro"
 import Navbar from "../components/global/Navbar.astro"
+import WhatsAppButton from "../components/global/WhatsAppButton.astro"
 ---
 
 <!doctype html>
@@ -64,6 +65,7 @@ import Navbar from "../components/global/Navbar.astro"
       </div>
     </main>
     <Footer />
+    <WhatsAppButton />
   </body>
 
   <style is:global>
