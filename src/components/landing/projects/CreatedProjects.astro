@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components"
+
+const projects = [
+  {
+    name: "Dotear",
+    category: "Fidelización de clientes",
+    description: "Una plataforma para que los negocios conecten con sus clientes a través de puntos, recompensas y programas de fidelización.",
+    url: "https://dotear.com/",
+    icon: "mdi:gift-outline",
+  },
+  {
+    name: "Oferti",
+    category: "Ofertas y descuentos",
+    description: "Un espacio para explorar ofertas de distintas tiendas y descubrir oportunidades de compra en un solo lugar.",
+    url: "https://oferti.co/",
+    icon: "mdi:tag-outline",
+  },
+]
+---
+
+<section id="proyectos" aria-labelledby="proyectos-title" class="landing-section landing-band">
+  <div class="landing-shell">
+    <header class="landing-header">
+      <p class="landing-eyebrow">De la idea al producto</p>
+      <h2 id="proyectos-title" class="landing-title">Proyectos que he creado</h2>
+      <p class="landing-lead">Ideas que he convertido en productos para resolver necesidades reales.</p>
+    </header>
+    <div class="landing-grid landing-book-grid">
+      {projects.map((project) => (
+        <article class="landing-card created-project">
+          <Icon name={project.icon} class="landing-icon mb-5" />
+          <p class="landing-eyebrow">{project.category}</p>
+          <h3 class="landing-card-title">{project.name}</h3>
+          <p class="landing-copy mt-4 mb-6">{project.description}</p>
+          <a href={project.url} target="_blank" rel="noopener noreferrer" class="landing-button landing-button-primary project-link">
+            <Icon name="mdi:arrow-top-right" class="w-5 h-5 shrink-0" />
+            Visitar {project.name}
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .created-project { display: flex; flex-direction: column; align-items: flex-start; }
+  .project-link { margin-top: auto; }
+</style>

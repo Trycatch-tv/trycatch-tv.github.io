@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import themePreview from "../../../assets/img/trycatch-theme-preview.png"
+---
+
+<section id="trycatch-theme" aria-labelledby="trycatch-theme-title" class="landing-section">
+  <div class="landing-shell">
+    <header class="landing-header">
+      <p class="landing-eyebrow">Visual Studio Code y Kiro</p>
+      <h2 id="trycatch-theme-title" class="landing-title">TryCatch Theme</h2>
+      <p class="landing-lead">
+        Lleva el estilo de TryCatch a tu editor. Un tema para acompañarte
+        mientras creas en Visual Studio Code y Kiro, hecho con la comunidad.
+      </p>
+    </header>
+    <Image
+      src={themePreview}
+      alt="Vista previa oficial de TryCatch Theme aplicado al editor de código"
+      widths={[640, 960, 1200]}
+      sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1264px) calc(100vw - 64px), 1200px"
+      class="theme-preview"
+      loading="lazy"
+    />
+    <div class="landing-actions mt-8">
+      <a href="https://marketplace.visualstudio.com/items?itemName=trycatchtv.trycatch-theme" target="_blank" rel="noopener noreferrer" class="landing-button landing-button-primary">
+        <Icon name="mdi:microsoft-visual-studio-code" class="w-5 h-5 shrink-0" />
+        Instalar en VS Code
+      </a>
+      <a href="https://open-vsx.org/extension/trycatchtv/trycatch-theme" target="_blank" rel="noopener noreferrer" class="landing-button landing-button-primary">
+        <Icon name="mdi:ghost-outline" class="w-5 h-5 shrink-0" />
+        Instalar en Kiro
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .theme-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--landing-border);
+    border-radius: 4px;
+  }
+</style>
