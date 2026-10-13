@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
 import AnaRangel from "../assets/img/guests/anarangel.png"
 import AndresHernandez from "../assets/img/guests/andreshernandez.jpeg"
 import AndresLuna from "../assets/img/guests/andresluna.png"
@@ -435,24 +436,24 @@ const info = {
 }
 ---
 
-<BaseLayout title={`Tryckers`}>
+<BaseLayout title="Invitados | TryCatch.tv">
   <div
-    class="max-w-screen-2xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24"
+    class="site-container"
   >
-    <h2
-      class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8 uppercase tracking-wide"
+    <h1
+      class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8"
     >
       {info.title}
-    </h2>
+    </h1>
 
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6"
     >
       {
         info.guests.map((guest) => (
-          <div class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 p-6 flex flex-col items-center text-center border border-gray-700">
+          <div class="landing-card hover:shadow-2xl transition-transform transform flex flex-col items-center text-center">
             <Image
-              class="rounded-full h-48 w-48 object-cover mb-4 border-4 border-gray-600 shadow-lg transition-transform transform hover:scale-110"
+              class="rounded-full h-40 w-40 object-cover mb-4 border border-gray-600"
               src={guest.avatar}
               alt={guest.name}
             />
@@ -469,16 +470,22 @@ const info = {
                 <a
                   href={guest.contact}
                   target="_blank"
-                  class="text-xs bg-gray-700 px-3 py-1 rounded-md hover:bg-tc-yellow hover:text-tc-black transition"
+                  rel="noopener noreferrer"
+                  title={`Perfil de ${guest.name}`}
+                  aria-label={`Perfil de ${guest.name}`}
+                  class="landing-button landing-button-secondary landing-icon-button"
                 >
-                  🪪
+                  <Icon name="mdi:account-box-outline" class="w-5 h-5" />
                 </a>
                 <a
                   href={guest.url}
                   target="_blank"
-                  class="text-xs bg-gray-700 px-3 py-1 rounded-md hover:bg-tc-yellow hover:text-tc-black transition"
+                  rel="noopener noreferrer"
+                  title={`Ver entrevista con ${guest.name}`}
+                  aria-label={`Ver entrevista con ${guest.name}`}
+                  class="landing-button landing-button-primary landing-icon-button"
                 >
-                  📹
+                  <Icon name="mdi:play-circle-outline" class="w-5 h-5" />
                 </a>
               </div>
             </div>

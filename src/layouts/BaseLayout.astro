@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css"
+import "../styles/landing.css"
+import "../styles/pages.css"
 import profile from "../assets/img/profile.jpg"
 export interface Props {
   title: string
@@ -54,10 +56,12 @@ import Navbar from "../components/global/Navbar.astro"
     </script>
   </head>
 
-  <body class:list={["min-h-screen flex flex-col", { "landing-theme": landing }]}>
+  <body class="landing-theme min-h-screen flex flex-col">
     <Navbar />
     <main class="flex-1">
-      <slot />
+      <div class:list={{ "site-page": !landing }}>
+        <slot />
+      </div>
     </main>
     <Footer />
   </body>

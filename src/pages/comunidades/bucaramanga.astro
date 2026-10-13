@@ -99,18 +99,18 @@ const encuentrosPorAno = Object.values(
 ---
 
 <BaseLayout title={`Comunidad Bucaramanga | TryCatch.tv`}>
-  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+  <main class="site-container">
     <section
-      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in"
+      class="site-header"
     >
       <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 items-center">
         <div>
           <span
-            class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold tracking-wide"
+            class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold"
             >Activa</span
           >
           <h1
-            class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide"
+            class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow"
           >
             Comunidad Bucaramanga
           </h1>
@@ -126,7 +126,7 @@ const encuentrosPorAno = Object.values(
             href="https://chat.whatsapp.com/BrM52oPJBNBG7tB5wsWp0C?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-400/70 bg-emerald-500 px-5 py-3 text-sm md:text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+            class="landing-button landing-button-primary mt-6"
           >
             Unirme al grupo de WhatsApp
             <svg
@@ -154,9 +154,9 @@ const encuentrosPorAno = Object.values(
 
     <section class="mt-10">
       <article
-        class="rounded-2xl border border-slate-500 bg-[#141414] p-6 shadow-lg card-hover"
+        class="landing-card"
       >
-        <h2 class="text-tc-yellow text-xl font-bold uppercase">Novedades</h2>
+        <h2 class="text-tc-yellow text-xl font-bold">Novedades</h2>
         <p class="text-sm text-slate-300 mt-2">
           Convocatorias, lanzamientos y noticias tech locales.
         </p>
@@ -180,7 +180,7 @@ const encuentrosPorAno = Object.values(
     <section class="mt-10">
       <div class="flex items-end justify-between gap-4 flex-wrap">
         <div>
-          <h2 class="text-tc-yellow text-2xl font-bold uppercase tracking-wide">
+          <h2 class="text-tc-yellow text-2xl font-bold">
             Recorrido de la comunidad
           </h2>
           <p class="text-sm text-slate-300 mt-2">
@@ -193,7 +193,7 @@ const encuentrosPorAno = Object.values(
       <div class="mt-6 space-y-8">
         {
           encuentrosPorAno.map((grupo) => (
-            <section class="rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover">
+            <section class="site-group">
               <div class="flex items-center justify-between gap-3 mb-4">
                 <h3 class="text-xl font-bold text-white">{grupo[0].year}</h3>
                 <span class="text-xs px-3 py-1 rounded-full bg-slate-700 text-slate-200 font-semibold">
@@ -203,14 +203,14 @@ const encuentrosPorAno = Object.values(
 
               <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
                 {grupo.map((encuentro) => (
-                  <article class="overflow-hidden rounded-xl border border-slate-600 bg-tc-black">
+                  <article class="landing-card site-media-card overflow-hidden">
                     <div class="h-52 overflow-hidden">
                       {encuentro.href ? (
                         <a href={encuentro.href} class="block h-full">
                           <img
                             src={encuentro.image}
                             alt={encuentro.imageAlt}
-                            class="h-full w-full object-cover transition duration-200 hover:scale-105"
+                            class="h-full w-full object-cover transition duration-200"
                           />
                         </a>
                       ) : (

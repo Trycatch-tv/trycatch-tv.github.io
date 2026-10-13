@@ -115,17 +115,17 @@ const grupos = Object.values(
 ---
 
 <BaseLayout title={`Galeria | TryCatch.tv`}>
-  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+  <main class="site-container">
     <section
-      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in"
+      class="site-header"
     >
       <span
-        class="inline-block text-xs px-3 py-1 rounded-full bg-tc-yellow text-tc-black font-bold tracking-wide"
+        class="inline-block text-xs px-3 py-1 rounded-full bg-tc-yellow text-tc-black font-bold"
       >
         Comunidad
       </span>
       <h1
-        class="mt-3 text-3xl md:text-5xl font-bold text-tc-yellow uppercase tracking-wide leading-tight"
+        class="mt-3 text-3xl md:text-5xl font-bold text-tc-yellow leading-tight"
       >
         Galeria de recuerdos
       </h1>
@@ -152,7 +152,7 @@ const grupos = Object.values(
           <section id={grupo.key} class="scroll-mt-24">
             <div class="mb-5 flex items-end justify-between gap-4 flex-wrap">
               <div>
-                <h2 class="text-2xl font-bold text-tc-yellow uppercase tracking-wide">
+                <h2 class="text-2xl font-bold text-tc-yellow">
                   {grupo.label}
                 </h2>
                 <p class="mt-1 text-sm text-slate-300">
@@ -181,7 +181,7 @@ const grupos = Object.values(
                         : `Foto con la comunidad ${index + 1}`
                     }
                     loading="lazy"
-                    class="h-auto w-full object-cover transition duration-200 group-hover:scale-[1.02]"
+                    class="h-auto w-full object-cover transition duration-200"
                   />
                 </a>
               ))}

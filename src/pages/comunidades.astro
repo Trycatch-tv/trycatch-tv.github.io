@@ -37,12 +37,12 @@ const comunidades = [
 ---
 
 <BaseLayout title={`Comunidades | TryCatch.tv`}>
-  <main class="max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
+  <main class="site-container">
     <section
-      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl lift-in"
+      class="site-header"
     >
       <h1
-        class="text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide"
+        class="text-3xl md:text-4xl font-bold text-tc-yellow"
       >
         Comunidades por ciudad
       </h1>
@@ -58,7 +58,7 @@ const comunidades = [
     <section class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {
         comunidades.map((comunidad) => (
-          <article class="rounded-2xl border border-slate-700 bg-tc-black-l p-5 shadow-lg card-hover min-h-[390px] flex flex-col">
+          <article class="landing-card min-h-[390px] flex flex-col">
             {comunidad.cover && (
               <div class="mb-4 overflow-hidden rounded-xl border border-slate-700">
                 <Image
