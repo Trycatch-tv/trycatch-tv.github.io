@@ -6,7 +6,7 @@ const info = {
     "En TryCatch.tv compartimos contenido variado pensado para impulsar tu crecimiento profesional y técnico. Estos son algunos de los formatos que puedes encontrar:",
   contentTypes: [
     {
-      icon: "🎥",
+      icon: "mdi:play-circle-outline",
       title: "Videos educativos",
       href: "https://www.youtube.com/@trycatch_tv/videos",
       action: "Ver videos",
@@ -14,7 +14,7 @@ const info = {
         "Tutoriales, análisis de herramientas y conceptos clave de desarrollo y arquitectura.",
     },
     {
-      icon: "📺",
+      icon: "mdi:television-play",
       title: "Transmisiones en vivo",
       href: "https://www.twitch.tv/trycatch_tv",
       action: "Ir a Twitch",
@@ -22,7 +22,7 @@ const info = {
         "Sesiones interactivas con la comunidad resolviendo dudas, creando proyectos y compartiendo experiencias.",
     },
     {
-      icon: "🧵",
+      icon: "mdi:lightning-bolt-outline",
       title: "Shorts y tips",
       href: "https://www.youtube.com/@trycatch_tv/shorts",
       action: "Ver shorts",
@@ -30,7 +30,7 @@ const info = {
         "Videos breves con hacks, recomendaciones y reflexiones del mundo tech.",
     },
     {
-      icon: "📚",
+      icon: "mdi:book-open-outline",
       title: "Lecturas en comunidad",
       href: "https://www.youtube.com/playlist?list=PL4LOq_2-aO28TOeq36k5omDrdER8uZno2",
       action: "Ver lecturas",
@@ -38,7 +38,7 @@ const info = {
         "Club de lectura de libros sobre software, soft skills y liderazgo.",
     },
     {
-      icon: "📣",
+      icon: "mdi:bullhorn-outline",
       title: "Divulgación y opinión",
       href: "https://medium.trycatch.tv/",
       action: "Leer artículos",
@@ -46,7 +46,7 @@ const info = {
         "Noticias, comentarios y reflexiones sobre lo que pasa en la industria de la tecnología.",
     },
     {
-      icon: "🎙️",
+      icon: "mdi:microphone-outline",
       title: "Entrevistas",
       href: "https://www.youtube.com/playlist?list=PL4LOq_2-aO28SPi1PJ11Js1CnbfHDnjel",
       action: "Ver entrevistas",
@@ -57,43 +57,43 @@ const info = {
 }
 ---
 
-<section id="contenido" aria-labelledby="contenido-title">
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+<section id="contenido" aria-labelledby="contenido-title" class="landing-section">
+  <div class="landing-shell">
     <div
-      class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-12"
+      class="landing-section-content"
     >
-      <div class="text-center mb-10">
+      <div class="landing-header">
         <span
-          class="inline-block text-xs px-3 py-1 rounded-full bg-tc-black-l border border-gray-600 text-tc-yellow font-semibold tracking-wide mb-4"
+          class="landing-eyebrow"
         >
           FORMATO TRY CATCH
         </span>
         <h2
           id="contenido-title"
-          class="text-white text-3xl lg:text-5xl font-extrabold mb-3 leading-tight"
+          class="landing-title"
         >
           {info.title}
         </h2>
         <p
-          class="text-gray-300 text-base lg:text-lg max-w-3xl mx-auto leading-relaxed"
+          class="landing-lead"
         >
           {info.description}
         </p>
       </div>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
+        class="landing-grid landing-content-grid"
       >
         {
           info.contentTypes.map((item) => (
-            <article class="bg-tc-black-l border border-gray-700 rounded-lg p-6 text-center min-h-[250px] flex flex-col items-center justify-start hover:shadow-xl hover:border-gray-500 transition-all duration-200">
-              <div class="w-14 h-14 rounded-full bg-tc-black border border-gray-600 flex items-center justify-center text-3xl mb-4">
-                {item.icon}
+            <article class="landing-card min-h-[240px] flex flex-col">
+              <div class="mb-4">
+                <Icon name={item.icon} class="landing-icon" />
               </div>
-              <h3 class="text-tc-yellow font-bold text-xl mb-3 leading-snug">
+              <h3 class="landing-card-title mb-3">
                 {item.title}
               </h3>
-              <p class="text-gray-300 text-sm lg:text-base leading-relaxed">
+              <p class="landing-copy">
                 {item.description}
               </p>
               <a

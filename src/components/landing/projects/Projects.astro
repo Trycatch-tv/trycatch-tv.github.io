@@ -10,17 +10,17 @@ const links = [
 ]
 ---
 
-<section id="kaddo" aria-labelledby="kaddo-title" class="bg-tc-black border-y border-gray-700 mb-12">
-  <div class="px-6 py-12 lg:px-12 lg:py-16 mx-auto max-w-screen-2xl">
+<section id="kaddo" aria-labelledby="kaddo-title" class="landing-section landing-band">
+  <div class="landing-shell">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="text-tc-yellow text-sm font-semibold mb-5">Open source · Knowledge Driven Development</p>
+      <p class="landing-eyebrow mb-5">Open source · Knowledge Driven Development</p>
       <h2 id="kaddo-title">
         <Image src={kaddoLogo} alt="Kaddo" width={300} class="w-56 sm:w-72 h-auto mx-auto" />
       </h2>
-      <p class="text-white text-xl lg:text-2xl font-bold mt-6 leading-snug text-justify">
+      <p class="landing-card-title landing-kaddo-copy mt-6">
         El conocimiento de tu proyecto, conectado con tu código.
       </p>
-      <p class="text-gray-300 text-base leading-relaxed mt-4 text-justify">
+      <p class="landing-lead landing-kaddo-copy mt-4">
         Kaddo organiza el contexto de negocio, producto, arquitectura y entrega
         para que tu equipo y tus agentes de IA comprendan el sistema.
         Acompaña cada cambio desde la idea hasta la implementación y su verificación,
@@ -34,10 +34,10 @@ const links = [
             target="_blank"
             rel="noopener noreferrer"
             class:list={[
-              "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tc-yellow",
+              "landing-button",
               index === 0
-                ? "bg-tc-yellow text-black hover:bg-yellow-200"
-                : "border border-gray-600 text-white hover:border-white hover:bg-tc-black-l",
+                ? "landing-button-primary"
+                : "landing-button-secondary",
             ]}
           >
             <Icon name={link.icon} class="w-5 h-5 shrink-0" />

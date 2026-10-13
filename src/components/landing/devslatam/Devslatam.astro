@@ -13,23 +13,23 @@ const info = {
 }
 ---
 
-<section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
-    <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-8">
-      <div class="text-center mb-10">
+<section class="landing-section">
+  <div class="landing-shell">
+    <div class="landing-section-content">
+      <div class="landing-header">
         <span
-          class="inline-block text-xs px-3 py-1 rounded-full bg-tc-black-l border border-gray-600 text-tc-yellow font-semibold tracking-wide mb-4"
+          class="landing-eyebrow"
         >
           COMUNIDAD LATAM
         </span>
         <h2
-          class="flex justify-center items-center text-3xl lg:text-5xl text-white font-extrabold mb-4 leading-tight"
+          class="landing-title flex justify-center items-center gap-3"
         >
-          <Icon class="w-10 h-10 text-white mr-2" name="mdi:account-group" />
+          <Icon class="landing-icon" name="mdi:account-group" />
           <span>{info.title}</span>
         </h2>
         <p
-          class="text-gray-300 max-w-3xl mx-auto text-base lg:text-xl leading-relaxed"
+          class="landing-lead"
         >
           {info.subtitle}
         </p>
@@ -37,12 +37,12 @@ const info = {
 
       <div>
         <div
-          class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-screen-2xl mx-auto"
+          class="landing-grid landing-stats-grid"
         >
           {
             info.stats.map((stat) => (
-              <article class="bg-tc-black-l border border-gray-700 hover:shadow-2xl hover:border-gray-500 transition-all duration-200 rounded-lg p-6 text-center min-h-[120px] flex flex-col justify-center">
-                <h3 class="text-4xl font-black text-white tracking-wide">
+              <article class="landing-card text-center min-h-[120px] flex flex-col justify-center">
+                <h3 class="text-3xl font-bold text-white">
                   {stat.value}
                 </h3>
                 <p class="text-base text-gray-300 mt-1">{stat.label}</p>

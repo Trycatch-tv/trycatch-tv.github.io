@@ -25,30 +25,31 @@ export default function TestimoniosCarousel({ testimonials }) {
   }
 
   return (
-    <div className="relative px-2 md:px-8">
+    <div>
       <div className="flex justify-center gap-6 transition-all duration-500">
         {visibles.map((testimonial, idx) => (
           <article
             key={idx}
-            className="bg-tc-black-l border border-gray-700 rounded-lg p-6 text-center w-full max-w-xl min-h-[380px] hover:shadow-xl hover:border-gray-500 transition-all duration-200 mx-auto flex flex-col"
+            className="landing-card text-left w-full min-h-[380px] flex flex-col"
           >
-            <MdFormatQuote className="w-10 h-10 text-tc-yellow mb-3 mx-auto" />
-            <p className="text-gray-200 text-lg leading-relaxed italic mb-6 flex-1">
+            <MdFormatQuote className="landing-icon mb-3" />
+            <p className="landing-copy mb-6 flex-1">
               “{testimonial.quote}”
             </p>
             <div className="pt-3 border-t border-gray-700">
-              <h4 className="text-white font-bold text-2xl">{testimonial.name}</h4>
+              <h4 className="landing-card-title">{testimonial.name}</h4>
               <p className="text-gray-400 text-sm mt-1">{testimonial.country}</p>
             </div>
           </article>
         ))}
       </div>
 
+      <div className="landing-actions mt-6">
       <button
         onClick={prev}
         aria-label="Testimonio anterior"
         title="Testimonio anterior"
-        className="absolute left-0 md:-left-2 top-1/2 -translate-y-1/2 bg-tc-black-l border border-gray-600 text-tc-yellow rounded-full p-2.5 shadow hover:bg-tc-yellow hover:text-tc-black transition-colors"
+        className="landing-button landing-button-secondary landing-icon-button"
       >
         <MdChevronLeft className="w-6 h-6" />
       </button>
@@ -57,17 +58,16 @@ export default function TestimoniosCarousel({ testimonials }) {
         onClick={next}
         aria-label="Testimonio siguiente"
         title="Testimonio siguiente"
-        className="absolute right-0 md:-right-2 top-1/2 -translate-y-1/2 bg-tc-black-l border border-gray-600 text-tc-yellow rounded-full p-2.5 shadow hover:bg-tc-yellow hover:text-tc-black transition-colors"
+        className="landing-button landing-button-secondary landing-icon-button"
       >
         <MdChevronRight className="w-6 h-6" />
       </button>
+      </div>
 
       <div className="mt-6 flex items-center justify-center gap-2">
         {Array.from({ length: Math.ceil(total / testimoniosPorVista) }).map(
           (_, idx) => {
-            const isActive =
-              idx === Math.floor(current / testimoniosPorVista) ||
-              (idx === 0 && current >= total - (total % testimoniosPorVista || testimoniosPorVista));
+            const isActive = idx === Math.floor(current / testimoniosPorVista);
 
             return (
               <span

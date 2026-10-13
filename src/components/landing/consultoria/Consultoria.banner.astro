@@ -40,24 +40,24 @@ const info = {
 }
 ---
 
-<section id="consultoria" aria-labelledby="consultoria-title">
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
-    <div class="bg-tc-black border border-gray-700 rounded-xl p-8 lg:p-12 mb-8 shadow-lg">
-      <div class="max-w-3xl mx-auto text-center mb-10 lg:mb-12">
-        <span class="inline-flex items-center rounded-full border border-gray-600 bg-tc-black-l px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-tc-yellow mb-4">
+<section id="consultoria" aria-labelledby="consultoria-title" class="landing-section">
+  <div class="landing-shell">
+    <div class="landing-section-content">
+      <div class="landing-header">
+        <span class="landing-eyebrow">
           Store TryCatch.tv
         </span>
-        <h2 id="consultoria-title" class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
+        <h2 id="consultoria-title" class="landing-title">
           {info.title}
         </h2>
-        <p class="text-gray-300 text-base lg:text-xl leading-relaxed">
+        <p class="landing-lead">
           {info.subtitle}
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
+      <div class="landing-grid landing-three-grid">
         {info.products.map((product) => (
-          <article class="service-card" style={`--service-accent: ${product.accent}`}>
+          <article class="landing-card service-card" style={`--service-accent: ${product.accent}`}>
             <header class="mb-4">
               <Icon name={product.icon} class="service-icon w-9 h-9 mb-4" />
               <p class="text-gray-300 text-xs font-semibold leading-relaxed mb-2">
@@ -81,7 +81,7 @@ const info = {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Comprar ${product.title}`}
-                class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-tc-gray-l px-4 py-3 text-sm font-semibold text-tc-black transition-colors hover:bg-tc-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tc-yellow"
+                class="landing-button landing-button-primary w-full"
               >
                 Comprar ahora
                 <Icon name="mdi:arrow-top-right" class="w-4 h-4 shrink-0" />
@@ -100,10 +100,7 @@ const info = {
     flex-direction: column;
     min-width: 0;
     padding: 1.5rem;
-    border: 1px solid #4b4b4b;
     border-top: 3px solid var(--service-accent);
-    border-radius: 8px;
-    background: #191919;
     transition: border-color 160ms ease, box-shadow 160ms ease;
   }
 
