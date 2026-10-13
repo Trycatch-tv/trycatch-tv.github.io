@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components"
+---
+
+<a
+  href={`https://wa.me/573164907627?text=${encodeURIComponent("hola, vengo de la página TryCatch.tv")}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="whatsapp-button"
+  aria-label="Contactar por WhatsApp al +57 316 490 7627"
+  title="Contactar por WhatsApp"
+>
+  <Icon name="mdi:whatsapp" class="w-7 h-7" />
+  <span class="whatsapp-tooltip" aria-hidden="true">Contactar por WhatsApp</span>
+</a>
+
+<style>
+  .whatsapp-button {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(24px, env(safe-area-inset-bottom));
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid #74d89a;
+    border-radius: 50%;
+    background: #157a43;
+    color: #fff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
+    transition: background-color 160ms ease;
+  }
+
+  .whatsapp-button:hover { background: #116337; }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    width: max-content;
+    max-width: calc(100vw - 108px);
+    padding: 8px 12px;
+    border: 1px solid var(--landing-border);
+    border-radius: 4px;
+    background: var(--landing-surface);
+    color: var(--landing-text);
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .whatsapp-button:hover .whatsapp-tooltip,
+  .whatsapp-button:focus-visible .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
