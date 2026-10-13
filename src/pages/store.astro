@@ -336,12 +336,10 @@ const generateWhatSappLink = (product) => {
 ---
 
 <BaseLayout title="Trycker Store">
-  <section class="mt-5 py-16">
-    <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+  <section class="site-store">
+    <div class="site-container">
       <div class="flex flex-col text-center mb-4">
-        <span class="text-2xl text-white bg-tc-black p-4 rounded-md mt-4"
-          >{info.title}</span
-        >
+        <h1>{info.title}</h1>
       </div>
       <div>
         <!--  Banner -->
@@ -415,16 +413,16 @@ const generateWhatSappLink = (product) => {
         <!--  Banner -->
       </div>
       <div>
-        <div class="bg-tc-gray px-8 py-4 rounded-md mt-4">
+        <div class="site-group">
           <h2 class="font-bold">{info.buyProcessTitle}</h2>
           <br />
 
           <ol
-            class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 bg-tc-gray-l p-2 rounded-md"
+            class="landing-grid landing-content-grid"
           >
             {
               info.buySteps.map((item, index) => (
-                <li class="flex items-center text-tc-black space-x-2.5">
+                <li class="flex items-start text-white gap-3 min-w-0">
                   <span class="flex items-center justify-center w-8 h-8 border border-tc-black rounded-full shrink-0">
                     {item.order}
                   </span>
@@ -445,11 +443,11 @@ const generateWhatSappLink = (product) => {
       </div>
       <br />
       <hr />
-      <div class="bg-tc-gray p-4 rounded-md mt-4">
+      <div class="site-group">
         <div class="p-4 bg-tc-black rounded-md">
-          <h1 class="text-white text-xl text-left font-bold">
+          <h2 class="text-white text-xl text-left font-bold">
             {info.productsTitle}
-          </h1>
+          </h2>
         </div>
         <div>
           <br />
@@ -459,7 +457,7 @@ const generateWhatSappLink = (product) => {
               .map((item, index) => (
                 <>
                   <div class="flex justify-start">
-                    <div class="bg-tc-yellow w-3/12 px-4 py-2 rounded-md border-b-tc-gray-l text-center">
+                    <div>
                       <h2 class="font-bold">{item.title}</h2>
                     </div>
                   </div>
@@ -468,18 +466,18 @@ const generateWhatSappLink = (product) => {
                   <br />
                   {/* Category description */}
                   {/* Products */}
-                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="landing-grid landing-content-grid">
                     {item.products.map((product) => (
-                      <div>
+                      <div class="landing-card">
                         <img
-                          class="w-96 h-96 rounded-lg"
+                          class="w-full aspect-square object-cover rounded"
                           src={product.image}
                           alt={product.name}
                         />
                         <a
                           href={generateWhatSappLink(product)}
                           target="_blank"
-                          class="bg-green-500 hover:bg-green-600 rounded-md shadow-lg flex flex-row justify-around w-full md:w-4/12 mt-2"
+                          class="landing-button landing-button-primary w-full mt-4"
                         >
                           <span class="text-white w-fit pl-2 pr-2 flex justify-center items-center ml-2">
                             {product.price.toLocaleString("es-CO", {
@@ -600,7 +598,7 @@ const generateWhatSappLink = (product) => {
           </div>
         </div>
         <br />
-        <div class="space-x-4 px-32 py-3">
+        <div class="py-3">
           <div
             class="bg-tc-black-l py-3 px-4 w-full flex justify-around rounded-md"
           >

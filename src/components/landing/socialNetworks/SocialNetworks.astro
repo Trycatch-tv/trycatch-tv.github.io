@@ -89,16 +89,16 @@ const info = {
 }
 ---
 
-<section>
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
-    <div class="bg-tc-black border border-gray-700 rounded-lg p-6 sm:p-12 mb-8">
-      <div class="mt-5 mb-6">
+<section id="redes" class="landing-section">
+  <div class="landing-shell">
+    <div>
+      <div>
         <!-- Título -->
         <h2
-          class="flex items-center justify-center flex-row text-tc-gray-l text-3xl lg:text-4xl"
+          class="landing-title flex items-center justify-center gap-3"
         >
-          <Icon class="w-10 h-10 text-white" name="ri:share-fill" />
-          <span class="font-extrabold ml-2">{info.title}</span>
+          <Icon class="landing-icon" name="mdi:share-variant-outline" />
+          <span>{info.title}</span>
         </h2>
 
         <!-- Subtítulo transmisiones -->
@@ -110,7 +110,7 @@ const info = {
 
         <!-- Redes sociales -->
         <ul
-          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-8 bg-tc-black-l rounded-md p-5 mt-5"
+          class="landing-social-grid"
         >
           {
             info.socialNetworks.map((socialNetwork) => (
@@ -121,10 +121,10 @@ const info = {
                   title={socialNetwork.name}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center rounded-full transition-transform transform hover:scale-110"
+                  class="landing-social-link"
                 >
                   <Icon
-                    class="text-white hover:text-tc-yellow w-8 h-8"
+                    class="w-7 h-7"
                     name={socialNetwork.icon}
                   />
                 </a>
@@ -134,7 +134,7 @@ const info = {
         </ul>
         <!-- Bloque de alertas en vivo — entre íconos y calendario -->
         <div
-          class="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-tc-black-l border border-slate-700/50 rounded-xl p-5"
+          class="landing-tools mt-5 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div>
             <p class="text-white font-bold text-base">🔴 Alertas en vivo</p>
@@ -172,7 +172,7 @@ const info = {
           <!-- Botón suscribirse -->
           <button
             id="la-subscribe"
-            class="hidden bg-tc-yellow text-tc-black font-bold py-2 px-5 rounded-lg text-sm hover:opacity-90 active:scale-95 cursor-pointer transition-all"
+            class="hidden landing-button landing-button-primary cursor-pointer"
           >
             🔔 Avisarme cuando esté en vivo
           </button>

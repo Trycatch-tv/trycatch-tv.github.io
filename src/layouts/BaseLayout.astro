@@ -1,13 +1,17 @@
 ---
 import "../styles/global.css"
+import "../styles/landing.css"
+import "../styles/pages.css"
 import profile from "../assets/img/profile.jpg"
 export interface Props {
   title: string
   description?: string
+  landing?: boolean
 }
 
 const {
   title,
+  landing = false,
   description = "Aprende desarrollo de software, arquitectura y habilidades blandas con Julián Luna y la comunidad TryCatch.tv. Contenido, encuentros y recursos para crecer en tecnología.",
 } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://trycatch.tv")
@@ -52,10 +56,12 @@ import Navbar from "../components/global/Navbar.astro"
     </script>
   </head>
 
-  <body class="min-h-screen flex flex-col">
+  <body class="landing-theme min-h-screen flex flex-col">
     <Navbar />
     <main class="flex-1">
-      <slot />
+      <div class:list={{ "site-page": !landing }}>
+        <slot />
+      </div>
     </main>
     <Footer />
   </body>

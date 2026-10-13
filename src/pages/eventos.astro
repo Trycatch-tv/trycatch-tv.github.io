@@ -148,10 +148,10 @@ const info = {
 
 <BaseLayout title="Eventos | TryCatch.tv" description="Consulta el calendario de TryCatch.tv y explora charlas, entrevistas y encuentros con la comunidad tecnológica.">
   <div
-    class="max-w-screen-2xl mx-auto my-16 p-8 bg-tc-black border border-gray-700 rounded-lg shadow-xl mt-24"
+    class="site-container"
   >
     <h1
-      class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8 uppercase tracking-wide"
+      class="text-tc-yellow text-2xl lg:text-3xl font-bold text-center mb-8"
     >
       {info.title}
     </h1>
@@ -167,7 +167,7 @@ const info = {
     >
       {
         info.eventos.map((event) => (
-          <article class="bg-tc-black-l rounded-lg shadow-md hover:shadow-2xl transition-transform transform hover:scale-105 overflow-hidden">
+          <article class="landing-card site-media-card hover:shadow-2xl transition-transform transform overflow-hidden">
             <a
               href={event.url}
               target="_blank"

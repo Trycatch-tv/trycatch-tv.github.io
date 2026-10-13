@@ -1,6 +1,6 @@
 ---
 import profile from "../../../assets/img/profile.jpg"
-import Button from "../../global/ui/button.astro"
+import { Icon } from "astro-icon/components"
 import { Image } from "astro:assets"
 
 const info = {
@@ -23,10 +23,10 @@ const info = {
 }
 ---
 
-<section class="mt-24">
-  <div class="px-4 lg:mx-auto lg:max-w-screen-2xl">
+<section class="landing-section landing-intro">
+  <div class="landing-shell">
     <div
-      class="bg-tc-black border border-gray-700 rounded-lg p-6 lg:p-12 mb-8 shadow-lg text-center"
+      class="text-center"
     >
       <!-- Imagen de perfil -->
       <div class="flex justify-center">
@@ -37,20 +37,20 @@ const info = {
           height={240}
           loading="eager"
           fetchpriority="high"
-          class="w-28 h-28 lg:w-60 lg:h-60 object-cover rounded-full shadow-md transition-transform transform hover:scale-105"
+          class="landing-profile"
         />
       </div>
 
       <!-- Información del perfil -->
       <div class="mt-6 max-w-5xl mx-auto">
         <h1
-          class="text-tc-gray-l text-3xl lg:text-5xl font-extrabold leading-tight"
+          class="text-white"
         >
           {info.title}
         </h1>
         <p class="text-base lg:text-xl text-tc-gray mt-3">{info.subtitle}</p>
         <p
-          class="text-tc-gray-l pt-4 pb-2 text-base lg:text-xl leading-relaxed text-center mx-auto max-w-[60ch]"
+          class="landing-lead"
         >
           {info.description}
         </p>
@@ -58,10 +58,13 @@ const info = {
       </div>
 
       <!-- Botones de CTA -->
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
+      <div class="landing-actions mt-6">
         {
-          info.ctas.map((cta) => (
-            <Button buttonText={cta.text} buttonLink={cta.link} />
+          info.ctas.map((cta, index) => (
+            <a href={cta.link} class:list={["landing-button", index === 0 ? "landing-button-primary" : "landing-button-secondary"]}>
+              {cta.text}
+              <Icon name="mdi:arrow-right" class="w-4 h-4 shrink-0" />
+            </a>
           ))
         }
       </div>

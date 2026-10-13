@@ -14,26 +14,26 @@ const meta = {
   <meta slot="head" property="og:title" content={meta.title} />
   <meta slot="head" property="og:description" content={meta.description} />
 
-  <div class="min-h-screen bg-tc-black text-tc-gray-l">
+  <div class="site-book">
     <section
-      class="relative overflow-hidden bg-gradient-to-br from-tc-black via-tc-black-l to-tc-black pt-28 md:pt-32 pb-16"
+      class="landing-section"
     >
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="landing-shell">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
           <div class="text-center lg:text-left">
             <div
               class="flex flex-wrap gap-2 mb-5 justify-center lg:justify-start"
             >
               <span
-                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium"
                 >🔒 Pago 100% seguro</span
               >
               <span
-                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium"
                 >🎯 Lectores beta</span
               >
               <span
-                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium tracking-wide"
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-tc-gray-l text-[11px] font-medium"
                 >👉 EPUB + físico</span
               >
             </div>
@@ -57,7 +57,7 @@ const meta = {
                   href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/20 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                  class="landing-button landing-button-primary flex-col"
                 >
                   <span>Pasta Blanda</span>
                   <span class="text-sm font-normal">Edición física</span>
@@ -67,7 +67,7 @@ const meta = {
                   href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/20 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                  class="landing-button landing-button-primary flex-col"
                 >
                   <span>Pasta Dura</span>
                   <span class="text-sm font-normal">Edición premium</span>
@@ -82,7 +82,7 @@ const meta = {
                   class="flex items-center justify-center lg:justify-start gap-2 mb-4"
                 >
                   <span
-                    class="text-[10px] uppercase tracking-[0.28em] text-tc-gray-l/70"
+                    class="text-[10px] text-tc-gray-l/70"
                   >
                     Fuera de Colombia
                   </span>
@@ -94,7 +94,7 @@ const meta = {
                     href="https://amzn.to/3P2qseW"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                    class="landing-button landing-button-primary flex-col"
                   >
                     <span>Pasta blanda</span>
                     <span class="text-sm font-normal opacity-80">Amazon</span>
@@ -104,7 +104,7 @@ const meta = {
                     href="https://amzn.to/42xDwMt"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                    class="landing-button landing-button-primary flex-col"
                   >
                     <span>Pasta dura</span>
                     <span class="text-sm font-normal opacity-80">Amazon</span>
@@ -114,7 +114,7 @@ const meta = {
                     href="https://amzn.to/4e8ZZGP"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex flex-col items-center justify-center px-5 py-4 border border-white/15 bg-white/5 text-tc-yellow text-base font-semibold rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-all duration-200"
+                    class="landing-button landing-button-primary flex-col"
                   >
                     <span>Kindle</span>
                     <span class="text-sm font-normal opacity-80">Amazon</span>
@@ -126,7 +126,7 @@ const meta = {
 
           <div class="flex justify-center lg:justify-end">
             <div
-              class="relative transform hover:scale-105 transition-transform duration-300"
+              class="relative"
             >
               <Image
                 src={Portada}
@@ -135,7 +135,7 @@ const meta = {
                 loading="eager"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+                class="absolute inset-0 rounded-lg"
               >
               </div>
             </div>
@@ -144,8 +144,8 @@ const meta = {
       </div>
     </section>
 
-    <section class="py-12 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="grid lg:grid-cols-2 gap-12">
           <div>
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">
@@ -160,22 +160,22 @@ const meta = {
 
             <h3 class="text-2xl font-semibold mb-3">¿Qué aprenderás?</h3>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Optimizar CV y LinkedIn
               </li>
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Destacar frente a otros candidatos
               </li>
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Preparación para entrevistas técnicas
               </li>
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Usar IA para productividad
               </li>
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Construir experiencia sin empleo
               </li>
-              <li class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <li class="landing-card">
                 Ejecución y seguimiento
               </li>
             </ul>
@@ -188,23 +188,23 @@ const meta = {
               Visibilidad, Comunicación y Ejecución.
             </p>
 
-            <div class="grid grid-cols-2 gap-3">
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="landing-card">
                 Claridad
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <div class="landing-card">
                 Perfil
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <div class="landing-card">
                 Evidencia
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <div class="landing-card">
                 Visibilidad
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <div class="landing-card">
                 Comunicación
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-4">
+              <div class="landing-card">
                 Ejecución
               </div>
             </div>
@@ -213,8 +213,8 @@ const meta = {
       </div>
     </section>
 
-    <section class="py-12 bg-tc-black-l">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section class="landing-section">
+      <div class="landing-shell">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">Lo que recibes</h2>
         <p class="text-tc-gray mb-6">
           +150 páginas, EPUB + físico, tapa blanda y dura, y acceso digital
@@ -224,22 +224,22 @@ const meta = {
           href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center px-8 py-4 bg-tc-yellow text-tc-black font-bold rounded-lg shadow-lg hover:shadow-xl"
+          class="landing-button landing-button-primary"
           >Comprar ahora</a
         >
       </div>
     </section>
 
-    <section class="py-12 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="grid md:grid-cols-2 gap-8">
           <div>
             <h3 class="text-2xl font-bold mb-4">Testimonios</h3>
             <div class="space-y-4">
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <div class="landing-card">
                 "Me consiguió entrevistas reales en 2 semanas" — Lectores beta
               </div>
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <div class="landing-card">
                 "Contenido práctico y accionable" — Comunidad TryCatch.tv
               </div>
             </div>
@@ -270,8 +270,8 @@ const meta = {
       </div>
     </section>
 
-    <section class="py-16 bg-tc-black-l text-center">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section text-center">
+      <div class="landing-shell">
         <h2 class="text-3xl sm:text-4xl font-bold mb-6">
           ¿Listo para moverte estratégicamente?
         </h2>
@@ -279,7 +279,7 @@ const meta = {
           href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center px-10 py-4 bg-tc-yellow text-tc-black font-bold rounded-lg shadow-lg hover:shadow-xl"
+          class="landing-button landing-button-primary"
           >Comprar ahora</a
         >
       </div>
@@ -289,7 +289,7 @@ const meta = {
       href="https://store.trycatch.tv/producto/libro-guia-completa-como-conseguir-el-primer-trabajo-en-tecnologia/"
       target="_blank"
       rel="noreferrer"
-      class="fixed bottom-6 right-6 bg-tc-yellow text-tc-black font-semibold px-5 py-3 rounded-full shadow-lg"
+      class="landing-button landing-button-primary fixed"
       >Comprar libro</a
     >
   </div>

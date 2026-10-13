@@ -154,12 +154,12 @@ const bookData = {
     })}
   />
 
-  <div class="min-h-screen bg-tc-black text-tc-gray-l">
+  <div class="site-book">
     <!-- HERO SECTION -->
     <section
-      class="relative overflow-hidden bg-gradient-to-br from-tc-black via-tc-black-l to-tc-black pt-20 pb-16"
+      class="landing-section"
     >
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="landing-shell">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <!-- Contenido del Hero -->
           <div class="text-center lg:text-left">
@@ -206,7 +206,7 @@ const bookData = {
                   href="https://amzn.to/46xEtpJ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  class="landing-button landing-button-primary flex-col"
                 >
                   <span>Digital</span>
                   <span class="text-sm font-normal">$9.99 USD</span>
@@ -217,7 +217,7 @@ const bookData = {
                   href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  class="landing-button landing-button-primary flex-col"
                 >
                   <span>Pasta Blanda</span>
                   <span class="text-sm font-normal">$70.000 COP</span>
@@ -228,7 +228,7 @@ const bookData = {
                   href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  class="landing-button landing-button-primary flex-col"
                 >
                   <span>Pasta Dura</span>
                   <span class="text-sm font-normal">$110.000 COP</span>
@@ -245,7 +245,7 @@ const bookData = {
             <div class="relative">
               <!-- Portada del libro -->
               <div
-                class="relative transform hover:scale-105 transition-transform duration-300"
+                class="relative"
               >
                 <Image
                   src={PortadaLibro}
@@ -255,7 +255,7 @@ const bookData = {
                 />
                 <!-- Efecto de brillo -->
                 <div
-                  class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+                  class="absolute inset-0 rounded-lg"
                 >
                 </div>
               </div>
@@ -266,8 +266,8 @@ const bookData = {
     </section>
 
     <!-- CONTENIDO DEL LIBRO -->
-    <section class="py-16 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold mb-4">
             Contenido del libro ({bookData.pages} páginas)
@@ -276,46 +276,46 @@ const bookData = {
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
           <div class="space-y-4">
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 1.</h4>
               <p>Motivación inicial</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 2.</h4>
               <p>Selección del rol</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 3.</h4>
               <p>Aprender las bases</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 4.</h4>
               <p>Roadmaps específicos</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 5.</h4>
               <p>Crear proyectos</p>
             </div>
           </div>
 
           <div class="space-y-4">
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 6.</h4>
               <p>Preparación para entrevistas</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 7.</h4>
               <p>Recursos adicionales</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 8.</h4>
               <p>Certificaciones y validación</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 9.</h4>
               <p>Dónde postular</p>
             </div>
-            <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+            <div class="landing-card">
               <h4 class="font-semibold text-tc-yellow mb-2">Capítulo 10.</h4>
               <p>Conclusión y siguientes pasos</p>
             </div>
@@ -323,7 +323,7 @@ const bookData = {
         </div>
 
         <div
-          class="bg-tc-yellow/10 border border-tc-yellow/20 rounded-lg p-8 text-center"
+          class="site-group"
         >
           <h3 class="text-2xl font-bold mb-4">🎁 Bonus incluidos</h3>
           <div class="grid md:grid-cols-2 gap-8 text-center">
@@ -336,7 +336,7 @@ const bookData = {
                 href="https://bit.ly/librochecklist"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center justify-center px-6 py-3 bg-tc-yellow text-tc-black font-semibold rounded-lg hover:bg-tc-yellow/90 transition-colors shadow-md hover:shadow-lg"
+                class="landing-button landing-button-primary"
               >
                 📋 Acceder al Checklist
               </a>
@@ -383,7 +383,7 @@ const bookData = {
 
           <div class="flex justify-center">
             <div
-              class="relative transform hover:scale-105 transition-transform duration-300"
+              class="relative transform transition-transform duration-300"
             >
               <Image
                 src={ContraportadaLibro}
@@ -393,7 +393,7 @@ const bookData = {
               />
               <!-- Efecto de brillo -->
               <div
-                class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-lg"
+                class="absolute inset-0 rounded-lg"
               >
               </div>
             </div>
@@ -403,8 +403,8 @@ const bookData = {
     </section>
 
     <!-- ¿QUÉ ENCONTRARÁS EN ESTE LIBRO? -->
-    <section class="py-16 bg-tc-black-l">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold mb-4">
             ¿Qué encontrarás en este libro?
@@ -484,8 +484,8 @@ const bookData = {
     </section>
 
     <!-- TESTIMONIOS DESTACADOS -->
-    <section class="py-16 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold mb-4">
             Lo que dicen quienes ya lo tienen
@@ -495,7 +495,7 @@ const bookData = {
         <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
           {
             bookData.testimonials.map((testimonial, index) => (
-              <div class="bg-tc-black-l border border-gray-700 rounded-lg p-6">
+              <div class="landing-card">
                 <p class="text-tc-gray-l mb-4 italic">"{testimonial.text}"</p>
                 <div class="flex items-center">
                   <div>
@@ -511,8 +511,8 @@ const bookData = {
     </section>
 
     <!-- BONUS INCLUIDOS -->
-    <section class="py-16 bg-tc-black-l">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold mb-4">Bonus incluidos</h2>
           <p class="text-xl text-tc-gray">
@@ -521,7 +521,7 @@ const bookData = {
         </div>
 
         <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+          <div class="site-group">
             <div class="text-tc-yellow text-3xl mb-4">📋</div>
             <h3 class="text-2xl font-semibold mb-4">Checklists Descargables</h3>
             <p class="text-tc-gray">
@@ -530,7 +530,7 @@ const bookData = {
             </p>
           </div>
 
-          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+          <div class="site-group">
             <div class="text-tc-yellow text-3xl mb-4">🏗️</div>
             <h3 class="text-2xl font-semibold mb-4">Proyecto E-commerce</h3>
             <p class="text-tc-gray">
@@ -539,7 +539,7 @@ const bookData = {
             </p>
           </div>
 
-          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+          <div class="site-group">
             <div class="text-tc-yellow text-3xl mb-4">👥</div>
             <h3 class="text-2xl font-semibold mb-4">Acceso a la Comunidad</h3>
             <p class="text-tc-gray">
@@ -548,7 +548,7 @@ const bookData = {
             </p>
           </div>
 
-          <div class="bg-tc-black border-2 border-tc-yellow/30 rounded-lg p-8">
+          <div class="site-group">
             <div class="text-tc-yellow text-3xl mb-4">🎯</div>
             <h3 class="text-2xl font-semibold mb-4">Mini-retos Prácticos</h3>
             <p class="text-tc-gray">
@@ -561,11 +561,11 @@ const bookData = {
     </section>
 
     <!-- PARA QUIÉN ES / PARA QUIÉN NO -->
-    <section class="py-16 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section">
+      <div class="landing-shell">
         <div class="grid md:grid-cols-2 gap-12">
           <!-- SÍ es para ti -->
-          <div class="bg-green-500/5 border border-green-500/20 rounded-lg p-8">
+          <div class="site-group">
             <h3
               class="text-2xl font-bold text-green-400 mb-6 flex items-center"
             >
@@ -597,7 +597,7 @@ const bookData = {
           </div>
 
           <!-- NO es para ti -->
-          <div class="bg-red-500/5 border border-red-500/20 rounded-lg p-8">
+          <div class="site-group">
             <h3 class="text-2xl font-bold text-red-400 mb-6 flex items-center">
               ❌ NO es para ti si...
             </h3>
@@ -630,8 +630,8 @@ const bookData = {
     </section>
 
     <!-- ¿ESTÁS FUERA DE COLOMBIA? -->
-    <section class="py-16 bg-tc-black-l text-center">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section text-center">
+      <div class="landing-shell">
         <h2 class="text-3xl sm:text-4xl font-bold mb-6">
           ¿Estás fuera de Colombia?
         </h2>
@@ -649,7 +649,7 @@ const bookData = {
             href="https://amzn.to/46xEtpJ"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Digital en Amazon</span>
             <span class="text-sm font-normal">$9.99 USD</span>
@@ -660,7 +660,7 @@ const bookData = {
             href="https://amzn.to/4mtIUHY"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Pasta Blanda en Amazon</span>
             <span class="text-sm font-normal">$14.99 USD</span>
@@ -671,7 +671,7 @@ const bookData = {
             href="https://amzn.to/3W6pNc9"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Pasta Dura en Amazon</span>
             <span class="text-sm font-normal">$24.35 USD</span>
@@ -686,9 +686,9 @@ const bookData = {
     </section>
 
     <!-- SOBRE EL AUTOR -->
-    <section class="py-16 bg-tc-black">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-tc-black border border-gray-700 rounded-lg p-8 md:p-12">
+    <section class="landing-section">
+      <div class="landing-shell">
+        <div class="site-group">
           <div class="text-center">
             <h2 class="text-3xl font-bold mb-6">Sobre el Autor</h2>
 
@@ -715,7 +715,7 @@ const bookData = {
 
             <a
               href="/"
-              class="inline-flex items-center px-6 py-3 border border-tc-yellow text-tc-yellow rounded-lg hover:bg-tc-yellow hover:text-tc-black transition-colors"
+              class="landing-button landing-button-primary"
             >
               🎥 Ver más contenido en TryCatch.tv →
             </a>
@@ -725,8 +725,8 @@ const bookData = {
     </section>
 
     <!-- CIERRE FINAL -->
-    <section class="py-16 bg-tc-black-l text-center">
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="landing-section text-center">
+      <div class="landing-shell">
         <h2 class="text-3xl sm:text-4xl font-bold mb-6">
           ¿Listo para dar el primer paso?
         </h2>
@@ -738,7 +738,7 @@ const bookData = {
         </p>
 
         <div
-          class="bg-tc-black-l border-2 border-tc-yellow rounded-lg p-8 mb-8"
+          class="site-group"
         >
           <h3 class="text-2xl font-semibold mb-6">Con esta guía tendrás:</h3>
           <div class="grid md:grid-cols-3 gap-6">
@@ -765,7 +765,7 @@ const bookData = {
             href="https://amzn.to/46xEtpJ"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Digital</span>
             <span class="text-sm font-normal">$9.99 USD</span>
@@ -776,7 +776,7 @@ const bookData = {
             href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Pasta Blanda</span>
             <span class="text-sm font-normal">$70.000 COP</span>
@@ -787,7 +787,7 @@ const bookData = {
             href="https://store.trycatch.tv/index.php/product/libro-fisico-guia-completa-como-iniciar-en-el-desarrollo-de-software-preventa-en-colombia/"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex flex-col items-center justify-center px-6 py-4 border-2 border-tc-yellow text-tc-yellow text-lg font-bold rounded-lg hover:bg-tc-yellow hover:text-tc-black shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+            class="landing-button landing-button-primary flex-col"
           >
             <span>Pasta Dura</span>
             <span class="text-sm font-normal">$110.000 COP</span>
@@ -807,9 +807,9 @@ const bookData = {
   >
     <a
       href="#comprar"
-      class="block w-full bg-tc-yellow text-tc-black text-center font-bold py-3 rounded-lg"
+      class="landing-button landing-button-primary w-full"
     >
-      � Ver en Amazon
+      Ver en Amazon
     </a>
   </div>
 

@@ -19,12 +19,12 @@ const encuentros = [
 ---
 
 <BaseLayout title={`Comunidad Medellin | TryCatch.tv`}>
-  <main class="w-full max-w-screen-2xl mx-auto mt-24 mb-16 px-4 md:px-6">
-    <section class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-10 shadow-2xl lift-in">
+  <main class="site-container">
+    <section class="site-header">
       <div class="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 items-center">
         <div>
-          <span class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold tracking-wide">Activa</span>
-          <h1 class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow uppercase tracking-wide">Comunidad Medellin</h1>
+          <span class="inline-block text-xs px-3 py-1 rounded-full bg-emerald-600/90 text-white font-semibold">Activa</span>
+          <h1 class="mt-3 text-3xl md:text-4xl font-bold text-tc-yellow">Comunidad Medellin</h1>
           <p class="mt-4 text-slate-200 max-w-3xl leading-relaxed text-base md:text-lg">
             Este es el espacio de la comunidad tech de Medellin: encuentros para conversar sobre tecnologia, compartir aprendizajes y conectar con personas que quieren construir comunidad.
           </p>
@@ -36,8 +36,8 @@ const encuentros = [
     </section>
 
     <section class="mt-10">
-      <article class="rounded-2xl border border-slate-500 bg-[#141414] p-6 shadow-lg card-hover">
-        <h2 class="text-tc-yellow text-xl font-bold uppercase">Novedades</h2>
+      <article class="landing-card">
+        <h2 class="text-tc-yellow text-xl font-bold">Novedades</h2>
         <p class="text-sm text-slate-300 mt-2">Convocatorias, lanzamientos y noticias tech locales.</p>
         <div class="mt-4 rounded-xl border border-slate-600 p-4 bg-tc-black">
           <p class="text-slate-200 leading-relaxed">Aun no hay novedades publicadas para Medellin.</p>
@@ -50,7 +50,7 @@ const encuentros = [
     </section>
 
     <section class="mt-10">
-      <h2 class="text-tc-yellow text-2xl font-bold uppercase tracking-wide">Recorrido de la comunidad</h2>
+      <h2 class="text-tc-yellow text-2xl font-bold">Recorrido de la comunidad</h2>
       <p class="text-sm text-slate-300 mt-2">Encuentros, fotos y contexto de lo que vamos viviendo juntos en Medellin.</p>
 
       <div class="mt-6 rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover">
@@ -61,7 +61,7 @@ const encuentros = [
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {
             encuentros.map((encuentro) => (
-              <article class="overflow-hidden rounded-xl border border-slate-600 bg-tc-black">
+              <article class="landing-card site-media-card overflow-hidden">
                 <a href={encuentro.href} class="block h-52 overflow-hidden">
                   <Image src={encuentro.image} alt={encuentro.imageAlt} class="h-full w-full object-cover transition duration-200 hover:scale-105" />
                 </a>

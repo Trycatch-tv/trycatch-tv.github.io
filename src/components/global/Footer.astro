@@ -11,17 +11,17 @@ const info = {
 ---
 
 <!-- Footer completo con contenido -->
-<footer class="bg-tc-black border-t border-gray-700 pt-10 text-center px-4">
+<footer class="landing-footer bg-tc-black border-t border-gray-700 pt-10 text-center px-4">
   <div class="max-w-screen-xl mx-auto grid grid-cols-1 gap-10">
     <div
-      class="bg-tc-black-l border border-slate-600 rounded-xl p-6 md:p-10 hover:shadow-lg transition"
+      class="footer-panel bg-tc-black-l border border-slate-600 rounded-xl p-6 md:p-10 hover:shadow-lg transition"
     >
       <div
         class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-center text-left"
       >
         <div>
           <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-500 text-tc-yellow text-xs font-semibold tracking-wide mb-4"
+            class="footer-eyebrow inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-500 text-tc-yellow text-xs font-semibold tracking-wide mb-4"
           >
             <Icon class="w-4 h-4" name="mdi:message-draw" />
             PARTICIPA EN LA COMUNIDAD
@@ -39,7 +39,7 @@ const info = {
         >
           <a
             href={info.feedbackForm}
-            class="flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
+            class="landing-button landing-button-primary flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
           >
             Enviar feedback
             <svg
@@ -58,7 +58,7 @@ const info = {
 
           <a
             href={info.testimonialForm}
-            class="flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
+            class="landing-button landing-button-secondary flex items-center justify-center gap-2 py-3 px-5 text-base font-semibold rounded-lg text-tc-black bg-tc-gray-l hover:bg-tc-yellow transition-transform transform hover:scale-[1.02]"
           >
             Compartir testimonio
             <svg

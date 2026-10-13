@@ -47,11 +47,11 @@ const info = {
 }
 ---
 
-<BaseLayout title={`Tryckers`}>
+<BaseLayout title="TryCatch Factory | TryCatch.tv">
   <div
-    class="max-w-screen-2xl mx-auto my-20 p-8 bg-tc-black dark:bg-white rounded-md shadow-lg"
+    class="site-container"
   >
-    <span class="text-xl md:text-2xl">{info.title}</span>
+    <h1>{info.title}</h1>
     <hr />
     <div class="flex flex-wrap justify-between gap-4">
       <!-- Descripción -->
@@ -62,15 +62,15 @@ const info = {
         <div class="flex items-center justify-center">
           <a
             href="http://wa.me/+573164907627"
-            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+            class="landing-button landing-button-secondary mt-4"
             >{info.cta1}</a
           >
         </div>
       </div>
 
       <!-- Acerca de nosotros -->
-      <div class="w-full md:w-3/3 p-4 bg-white rounded-lg shadow">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+      <div class="site-group w-full md:w-3/3">
+        <h2>
           {info.aboutTitle}
         </h2>
         <hr />
@@ -78,7 +78,7 @@ const info = {
       </div>
 
       <!-- Servicios ofrecidos -->
-      <div class="w-full p-4 bg-white rounded-lg shadow">
+      <div class="site-group w-full">
         <h2 class="text-lg font-semibold text-gray-800 mb-4">
           {info.servicesTitle}
         </h2>
@@ -94,27 +94,27 @@ const info = {
         <div class="flex items-center justify-center">
           <a
             href="http://wa.me/+573164907627"
-            class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300"
+            class="landing-button landing-button-secondary mt-4"
             >{info.cta2}</a
           >
         </div>
       </div>
 
       <!-- Formulario de contacto -->
-      <div class="w-full p-4 bg-gray-100 rounded-lg shadow">
+      <div class="site-group w-full">
         <h2 class="text-lg font-semibold text-gray-800 mb-4">🤙🏻 Contacto</h2>
         <hr />
         <p class="text-gray-600 text-justify mt-4">{info.contactDescription}</p>
         <form class="mt-4 space-y-4">
-          <div class="flex items-center justify-around">
+          <div class="landing-actions">
             <a
               href="http://wa.me/+573164907627"
-              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              class="landing-button landing-button-secondary mt-4"
               >📲 WhatsApp</a
             >
             <a
               href="mailto:judlup@trycatch.tv"
-              class="mt-4 px-6 py-2 bg-tc-black-l text-white rounded hover:bg-tc-black transition duration-300 cursor-pointer"
+              class="landing-button landing-button-secondary mt-4"
               >✉️ Correo</a
             >
           </div>

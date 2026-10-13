@@ -31,7 +31,8 @@ export default function BlogSearch({ posts }) {
           value={query}
           onChange={handleQueryChange}
           placeholder="Buscar por título o autor..."
-          className="flex-1 rounded-l-md p-2 border border-tc-black-l focus:outline-none focus:ring-2 focus:ring-tc-yellow"
+          aria-label="Buscar por título o autor"
+          className="flex-1 w-full"
         />
       </div>
       <div className="space-y-6">
@@ -45,19 +46,26 @@ export default function BlogSearch({ posts }) {
               <a
                 key={post.url}
                 href={post.url}
-                className="block hover:bg-tc-black-l dark:hover:bg-tc-gray bg-tc-gray dark:bg-tc-black rounded-md p-4 transition"
+                className="landing-card block"
               >
-                <div className="flex items-center space-x-8 hover:text-white">
+                <div className="flex flex-col sm:flex-row items-start gap-5">
                   <img
-                    className="w-20 h-20 rounded-full object-cover"
+                    className="w-20 h-20 rounded object-cover shrink-0"
                     src={imageUrl}
                     alt={imageAlt}
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      if (!image.src.endsWith("/favicon.svg")) {
+                        image.src = "/favicon.svg";
+                        image.alt = "TryCatch.tv";
+                      }
+                    }}
                   />
-                  <div className="flex flex-col text-tc-black dark:text-white">
-                    <span className="text-xl font-medium">
+                  <div className="flex flex-col min-w-0 gap-2">
+                    <span className="landing-card-title">
                       {post.frontmatter.title}
                     </span>
-                    <span className="text-sm">
+                    <span className="site-meta">
                       {post.frontmatter.author} | {new Date(post.frontmatter.date).toLocaleDateString("es-CO", {
                         year: "numeric",
                         month: "long",
@@ -73,11 +81,11 @@ export default function BlogSearch({ posts }) {
       </div>
       {/* Controles de paginación */}
       {filteredPosts.length > postsPerPage && (
-        <div className="flex justify-center items-center mt-8 space-x-2">
+        <div className="site-pagination">
           <button
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             disabled={currentPage === 1}
-            className="px-3 py-1 rounded bg-tc-black text-white dark:bg-tc-gray dark:text-tc-black disabled:opacity-50"
+            className="landing-button landing-button-secondary disabled:opacity-50"
           >
             Anterior
           </button>
@@ -85,7 +93,8 @@ export default function BlogSearch({ posts }) {
             <button
               key={i + 1}
               onClick={() => setCurrentPage(i + 1)}
-              className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-tc-yellow text-tc-black' : 'bg-tc-black text-white dark:bg-tc-gray dark:text-tc-black'}`}
+              aria-current={currentPage === i + 1 ? "page" : undefined}
+              className={`landing-button landing-icon-button ${currentPage === i + 1 ? 'landing-button-primary' : 'landing-button-secondary'}`}
             >
               {i + 1}
             </button>
@@ -93,7 +102,7 @@ export default function BlogSearch({ posts }) {
           <button
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 rounded bg-tc-black text-white dark:bg-tc-gray dark:text-tc-black disabled:opacity-50"
+            className="landing-button landing-button-secondary disabled:opacity-50"
           >
             Siguiente
           </button>
@@ -101,4 +110,4 @@ export default function BlogSearch({ posts }) {
       )}
     </>
   );
-} 
+}

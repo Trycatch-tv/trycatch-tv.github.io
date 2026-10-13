@@ -37,13 +37,13 @@ const comunidades = [
 ---
 
 <BaseLayout title={`Comunidad Trycker`}>
-  <main class="max-w-screen-2xl mx-auto mt-24 px-4 md:px-6">
+  <main class="site-container">
     <section
-      class="rounded-2xl border border-slate-700 bg-tc-black p-8 md:p-12 shadow-2xl lift-in"
+      class="site-header"
     >
       <div>
         <h1
-          class="mt-4 text-3xl md:text-5xl font-bold text-tc-yellow uppercase tracking-wide leading-tight"
+          class="mt-4 text-3xl md:text-5xl font-bold text-tc-yellow leading-tight"
         >
           Comunidad Trycker
         </h1>
@@ -59,7 +59,7 @@ const comunidades = [
           href="https://chat.whatsapp.com/G2aXPLC8Kc382MRVdLsJyG?mode=gi_t"
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-6 inline-flex items-center gap-2 rounded-lg border border-emerald-400/70 bg-emerald-500 px-5 py-3 text-sm md:text-base font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+          class="landing-button landing-button-primary mt-6"
         >
           Unirme a la comunidad
           <svg
@@ -78,14 +78,14 @@ const comunidades = [
 
     <section class="mt-10 mb-16 md:mb-24">
       <h2
-        class="text-tc-yellow text-2xl font-bold mb-4 uppercase tracking-wide"
+        class="text-tc-yellow text-2xl font-bold mb-4"
       >
         Ciudades
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         {
           comunidades.map((comunidad) => (
-            <article class="rounded-2xl border border-slate-500 bg-[#141414] p-5 shadow-lg card-hover min-h-[390px] flex flex-col">
+            <article class="landing-card min-h-[390px] flex flex-col">
               {comunidad.cover && (
                 <div class="mb-4 overflow-hidden rounded-xl border border-slate-700">
                   <Image
